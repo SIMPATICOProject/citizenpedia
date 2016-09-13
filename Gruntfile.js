@@ -51,11 +51,11 @@ module.exports = function (grunt) {
         }
       }
     },
-    open: {
-      server: {
-        url: 'http://localhost:<%= express.options.port %>'
-      }
-    },
+    // open: {
+    //   server: {
+    //     url: 'http://localhost:<%= express.options.port %>'
+    //   }
+    // },
     watch: {
       babel: {
         files: ['<%= yeoman.client %>/{app,components}/**/!(*.spec|*.mock).js'],
@@ -695,7 +695,7 @@ module.exports = function (grunt) {
       'postcss',
       'express:dev',
       'wait',
-      'open',
+      // 'open',
       'watch'
     ]);
   });
