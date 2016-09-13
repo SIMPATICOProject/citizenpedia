@@ -1,0 +1,38 @@
+<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">paizaqa</a>
+    </div>
+    <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+        <li ng-repeat="item in nav.menu" ng-class="{active: isActive(item.link())}" ng-show="item.show()">
+            <a ng-href="{{item.link()}}">{{item.title}}</a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search" ng-submit="nav.search(keyword)">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="keyword">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search">
+              </span>
+            </button>
+          </span>
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
+        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
+        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
+        <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
