@@ -2,4 +2,4 @@
 
 npm install --no-bin-links
 gem install sass
-bower install --silent
+bower install
