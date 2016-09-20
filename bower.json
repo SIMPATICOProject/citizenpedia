@@ -36,5 +36,8 @@
         "wmd-buttons.png"
       ]
     }
+  },
+  "resolutions": {
+    "angular": "1.5.8"
   }
 }
