@@ -27,7 +27,7 @@ module.exports = function(config) {
       'client/bower_components/pagedown/Markdown.Extra.js',
       'client/bower_components/pagedown/Markdown.Editor.js',
       'client/bower_components/angular-pagedown/angular-pagedown.js',
-      'client/bower_components/ng-tags-input/ng-tags-input.min.js',
+      'client/bower_components/ng-tags-input/ng-tags-input.js',
       'client/bower_components/angular-messages/angular-messages.js',
       'client/bower_components/moment/moment.js',
       'client/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
