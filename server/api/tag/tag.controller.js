@@ -73,15 +73,7 @@ export function index(req, res) {
 
 // Gets a single Tag from the DB
 export function show(req, res) {
-  console.log("Hola caracola");
-  // return Tag.findById(req.params.id).exec()
-  //   .then(handleEntityNotFound(res))
-  //   .then(respondWithResult(res))
-  //   .catch(handleError(res));
-  // Tag.findByIdAsync(req.params.id)
-  //   .then(handleEntityNotFound(res))
-  //   .then(respondWithResult(res))
-  //   .catch(handleError(res));
+  console.log("Search by tag");
   var query = req.params.id;
   console.log(query);
   Question.find({"tags.text": query}).sort({createdAt: -1}).limit(20).execAsync()
