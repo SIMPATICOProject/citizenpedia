@@ -1,0 +1,369 @@
+[4mRunning "server" task[24m
+[31m>> [39mThe `server` task has been deprecated. Use `grunt serve` to start a server.
+
+[4mRunning "serve" task[24m
+
+[4mRunning "clean:server" (clean) task[24m
+[32m>> [39m1 path cleaned.
+
+[4mRunning "env:all" (env) task[24m
+
+[4mRunning "concurrent:pre" (concurrent) task[24m
+
+    [4mRunning "ngconstant:app" (ngconstant) task[24m
+    Creating module paizaqaApp.constants at client/app/app.constant.js...[32mOK[39m
+
+    [32mDone, without errors.[39m
+
+
+    [4mExecution Time[24m[90m (2016-12-23 08:38:51 UTC-0)[39m
+    loading tasks              [34m1.6s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 91%[39m
+    loading grunt-ng-constant  [34m93ms[39m  [34m▇▇ 5%[39m
+    ngconstant:app             [34m61ms[39m  [34m▇▇ 3%[39m
+    [35mTotal 1.8s[39m
+
+    [4mRunning "injector:sass" (injector) task[24m
+    [90mMissing option `template`, using `dest` as template instead[39m
+    Injecting [32mscss[39m files [90m(7 files)[39m
+
+    [32mDone, without errors.[39m
+
+
+    [4mExecution Time[24m[90m (2016-12-23 08:38:51 UTC-0)[39m
+    loading tasks            [34m1.5s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 87%[39m
+    loading grunt-injector   [34m95ms[39m  [34m▇▇▇ 6%[39m
+    injector:sass           [34m119ms[39m  [34m▇▇▇ 7%[39m
+    [35mTotal 1.7s[39m
+
+[4mRunning "concurrent:server" (concurrent) task[24m
+
+    [4mRunning "newer:babel:client" (newer) task[24m
+
+    [4mRunning "babel:client" (babel) task[24m
+
+    [4mRunning "newer-postrun:babel:client:1:/var/www/public/citizenpedia/node_modules/grunt-newer/.cache" (newer-postrun) task[24m
+
+    [32mDone, without errors.[39m
+
+
+    [4mExecution Time[24m[90m (2016-12-23 08:38:54 UTC-0)[39m
+    loading tasks         [34m1.8s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇ 27%[39m
+    loading grunt-newer  [34m130ms[39m  [34m▇ 2%[39m
+    newer:babel:client   [34m102ms[39m  [34m▇ 2%[39m
+    loading grunt-babel   [34m1.6s[39m  [34m▇▇▇▇▇▇▇▇▇▇ 24%[39m
+    babel:client            [34m3s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 45%[39m
+    [35mTotal 6.7s[39m
+
+    [4mRunning "sass:server" (sass) task[24m
+
+    [32mDone, without errors.[39m
+
+
+    [4mExecution Time[24m[90m (2016-12-23 08:38:54 UTC-0)[39m
+    loading tasks                [34m1.8s[39m  [34m▇▇▇▇▇▇ 15%[39m
+    loading grunt-contrib-sass  [34m130ms[39m  [34m▇ 1%[39m
+    sass:server                  [34m9.9s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 84%[39m
+    [35mTotal 11.8s[39mDEPRECATION WARNING:
+    Sass 3.5 will no longer support Ruby 1.9.3.
+    Please upgrade to Ruby 2.0.0 or greater as soon as possible.
+
+[4mRunning "injector:scripts" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mjs[39m files [90m(30 files)[39m
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(7 files)[39m
+
+[4mRunning "injector:css" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+[32m>> [39mNothing changed
+
+[4mRunning "wiredep:client" (wiredep) task[24m
+
+[4mRunning "postcss:dist" (postcss) task[24m
+[32m>> [39m1 processed stylesheet created.
+[32m>> [39m1 sourcemap created.
+
+[4mRunning "express:dev" (express) task[24m
+[36mStarting [39mbackground Express server
+Debugger listening on port 5858
+Express server listening on 8080, in development mode
+
+[4mRunning "wait" task[24m
+[32m>> [39mWaiting for server reload...
+finished populating users
+Done waiting!
+
+[4mRunning "watch" task[24m
+Waiting...
+[0mGET /api/questions?query=%7B%7D [36m304 [0m163.633 ms - -[0m
+[0mGET /auth/google [36m302 [0m4.571 ms - 0[0m
+[0mGET /auth/google/callback?code=4/Ex3tL-Mrts6oTdDuDQRuGf92kDoSx9-TSHrehhM1UlQ [36m302 [0m844.175 ms - 46[0m
+[0mGET /api/users/me [32m200 [0m19.463 ms - 655[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m54.953 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m36.463 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m12.735 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [36m304 [0m24.735 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m81.812 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [36m304 [0m24.187 ms - -[0m
+[0mGET /api/questions?query=%7B%22$text%22:%7B%22$search%22:%22desgravar%22%7D%7D [32m200 [0m65.368 ms - -[0m
+[0mGET /api/users/me [36m304 [0m11.417 ms - -[0m
+[0mGET /api/questions?query=%7B%22$text%22:%7B%22$search%22:%22desgravar%22%7D%7D [36m304 [0m20.321 ms - -[0m
+[0mGET /questions/show/583d8bd5ecd2ea20143a751e [32m200 [0m3.454 ms - -[0m
+[0mGET /api/users/me [36m304 [0m20.611 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [36m304 [0m15.377 ms - -[0m
+[0mGET /api/questions/ [32m200 [0m51.631 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [36m304 [0m25.370 ms - -[0m
+[0mGET /questions/show/583d8bd5ecd2ea20143a751e [36m304 [0m2.015 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [36m304 [0m22.427 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m52.117 ms - -[0m
+[0mGET /questions/show/5825dd6874b1ec17ecaf0a81 [32m200 [0m1.822 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m10.897 ms - -[0m
+[0mGET /api/questions/5825dd6874b1ec17ecaf0a81 [36m304 [0m24.500 ms - -[0m
+[0mPOST /auth/local [32m200 [0m50.605 ms - 204[0m
+[0mGET /api/users/me [32m200 [0m20.829 ms - 119[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m92.763 ms - -[0m
+[0mGET /questions/create [32m200 [0m6.065 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m3.930 ms - -[0m
+[0mGET /api/users/me [36m304 [0m13.972 ms - -[0m
+[0mPOST /auth/local [32m200 [0m48.357 ms - 204[0m
+[0mGET /api/users/me [36m304 [0m5.593 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m68.514 ms - -[0m
+[0mGET /questions/show/5825e07574b1ec17ecaf0a8e [32m200 [0m1.765 ms - -[0m
+[0mGET /questions/show/5825e07574b1ec17ecaf0a8e [32m200 [0m1.964 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m3.006 ms - -[0m
+[0mGET /api/users/me [36m304 [0m33.178 ms - -[0m
+[0mGET /api/questions/5825e07574b1ec17ecaf0a8e [36m304 [0m12.355 ms - -[0m
+[0mGET /questions/show/583d8bd5ecd2ea20143a751e [32m200 [0m4.979 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m3.324 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [32m200 [0m22.074 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m50.511 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [32m200 [0m17.767 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m59.576 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m54.188 ms - -[0m
+[0mGET /auth/google [36m302 [0m2.024 ms - 0[0m
+[0mGET /login [32m200 [0m2.101 ms - -[0m
+[0mGET /questions/show/5825dd6874b1ec17ecaf0a81 [32m200 [0m59.348 ms - -[0m
+[0mGET /api/questions/5825dd6874b1ec17ecaf0a81 [32m200 [0m81.275 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m126.855 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m50.979 ms - -[0m
+[0mGET /api/questions/57d7d409cf195e1bb50473ba [32m200 [0m9.984 ms - -[0m
+UnauthorizedError: No authorization token was found
+    at middleware (/var/www/public/citizenpedia/node_modules/express-jwt/lib/index.js:80:21)
+    at Middleware_Common_Object.<anonymous> (/var/www/public/citizenpedia/server/auth/auth.service.js:26:7)
+    at next (/var/www/public/citizenpedia/node_modules/composable-middleware/lib/composable-middleware.js:59:18)
+    at Middleware_Common_Object.middleware (/var/www/public/citizenpedia/node_modules/composable-middleware/lib/composable-middleware.js:76:7)
+    at middleware (/var/www/public/citizenpedia/node_modules/composable-middleware/lib/composable-middleware.js:31:25)
+    at Layer.handle [as handle_request] (/var/www/public/citizenpedia/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/public/citizenpedia/node_modules/express/lib/router/route.js:131:13)
+    at Route.dispatch (/var/www/public/citizenpedia/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/var/www/public/citizenpedia/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/public/citizenpedia/node_modules/express/lib/router/index.js:277:22
+    at param (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:349:14)
+    at param (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:410:3)
+    at next (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:271:10)
+    at Function.handle (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:176:3)
+    at router (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:46:12)
+    at Layer.handle [as handle_request] (/var/www/public/citizenpedia/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:312:13)
+    at /var/www/public/citizenpedia/node_modules/express/lib/router/index.js:280:7
+    at Function.process_params (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:330:12)
+    at next (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:271:10)
+    at Layer.handle [as handle_request] (/var/www/public/citizenpedia/node_modules/express/lib/router/layer.js:91:12)
+[0mPOST /api/questions/57d7d409cf195e1bb50473ba/answers [33m401 [0m26.923 ms - -[0m
+[0mGET /auth/google [36m302 [0m3.293 ms - 0[0m
+[0mGET /login [32m200 [0m2.214 ms - -[0m
+[0mGET /api/questions?query=%7B%22$text%22:%7B%22$search%22:%22desgravar%22%7D%7D [36m304 [0m108.485 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m52.010 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m42.304 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m50.378 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m35.133 ms - -[0m
+[0mGET /questions/show/5825e07574b1ec17ecaf0a8e [32m200 [0m1.865 ms - -[0m
+[0mGET /api/questions/5825e07574b1ec17ecaf0a8e [32m200 [0m13.626 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [36m304 [0m15.269 ms - -[0m
+[0mGET /auth/google [36m302 [0m3.952 ms - 0[0m
+[0mGET /auth/google/callback?code=4/OBviODDKz_pd38JN96Y6lKI-vgBONHh8Gz_sj3NC9ls [36m302 [0m542.471 ms - 46[0m
+[0mGET /api/users/me [36m304 [0m25.309 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m46.326 ms - -[0m
+[0mGET /questions/show/5825e07574b1ec17ecaf0a8e [32m200 [0m1.994 ms - -[0m
+[0mGET /api/users/me [33m401 [0m23.479 ms - 325[0m
+UnauthorizedError: jwt expired
+    at /var/www/public/citizenpedia/node_modules/express-jwt/lib/index.js:100:22
+    at /var/www/public/citizenpedia/node_modules/jsonwebtoken/index.js:155:18
+    at doNTCallback0 (node.js:428:9)
+    at process._tickCallback (node.js:357:13)
+[0mGET /api/questions?query=%7B%7D [32m200 [0m52.768 ms - -[0m
+[0mGET /login [32m200 [0m1.585 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m55.882 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m29.675 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m68.669 ms - -[0m
+[0mGET /questions/create [32m200 [0m4.651 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m55.195 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m55.044 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m37.951 ms - -[0m
+[0mGET /api/questions/5825e0e974b1ec17ecaf0a91 [32m200 [0m33.916 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m46.947 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m36.770 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [32m200 [0m9.247 ms - -[0m
+UnauthorizedError: No authorization token was found
+    at middleware (/var/www/public/citizenpedia/node_modules/express-jwt/lib/index.js:80:21)
+    at Middleware_Common_Object.<anonymous> (/var/www/public/citizenpedia/server/auth/auth.service.js:26:7)
+    at next (/var/www/public/citizenpedia/node_modules/composable-middleware/lib/composable-middleware.js:59:18)
+    at Middleware_Common_Object.middleware (/var/www/public/citizenpedia/node_modules/composable-middleware/lib/composable-middleware.js:76:7)
+    at middleware (/var/www/public/citizenpedia/node_modules/composable-middleware/lib/composable-middleware.js:31:25)
+    at Layer.handle [as handle_request] (/var/www/public/citizenpedia/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/public/citizenpedia/node_modules/express/lib/router/route.js:131:13)
+    at Route.dispatch (/var/www/public/citizenpedia/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/var/www/public/citizenpedia/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/public/citizenpedia/node_modules/express/lib/router/index.js:277:22
+    at param (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:349:14)
+    at param (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:365:14)
+    at param (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:365:14)
+    at param (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:410:3)
+    at next (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:271:10)
+    at Function.handle (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:176:3)
+    at router (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:46:12)
+    at Layer.handle [as handle_request] (/var/www/public/citizenpedia/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:312:13)
+    at /var/www/public/citizenpedia/node_modules/express/lib/router/index.js:280:7
+    at Function.process_params (/var/www/public/citizenpedia/node_modules/express/lib/router/index.js:330:12)
+[0mPUT /api/questions/583d8bd5ecd2ea20143a751e/answers/583d8be3ecd2ea20143a7523/comments/583d8d05ecd2ea20143a7524/star [33m401 [0m8.205 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [32m200 [0m26.828 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m54.858 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m73.192 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m62.024 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [32m200 [0m32.994 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m72.714 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [32m200 [0m23.229 ms - -[0m
+[0mGET /cpd [32m200 [0m2.268 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m42.287 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m40.324 ms - -[0m
+[0mGET /api/questions/5825e01b74b1ec17ecaf0a8a [32m200 [0m15.463 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m42.020 ms - -[0m
+[0mGET /api/questions/5825dded74b1ec17ecaf0a85 [32m200 [0m18.119 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m46.228 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [36m304 [0m12.534 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m51.831 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m48.500 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [36m304 [0m10.454 ms - -[0m
+[0mGET /api/users/me [33m401 [0m7.442 ms - 325[0m
+UnauthorizedError: jwt expired
+    at /var/www/public/citizenpedia/node_modules/express-jwt/lib/index.js:100:22
+    at /var/www/public/citizenpedia/node_modules/jsonwebtoken/index.js:155:18
+    at doNTCallback0 (node.js:428:9)
+    at process._tickCallback (node.js:357:13)
+[0mGET /api/questions?query=%7B%7D [36m304 [0m64.327 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m34.959 ms - -[0m
+[0mGET /auth/google [36m302 [0m2.787 ms - 0[0m
+[0mGET /login [32m200 [0m1.930 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m2.953 ms - -[0m
+[0mGET /login [32m200 [0m5.170 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m3.859 ms - -[0m
+[0mGET /login [32m200 [0m1.828 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m15.611 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m5.811 ms - -[0m
+[0mGET /auth/google [36m302 [0m1.304 ms - 0[0m
+[0mGET /auth/google/callback?code=4/JRPDqCdw8kPhsXuyGPY3jHr2U4AxFcLKpgyEPh-y3lg [36m302 [0m564.310 ms - 46[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m7.076 ms - -[0m
+[0mGET /api/users/me [32m200 [0m16.845 ms - 655[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m60.998 ms - -[0m
+[0mGET /questions/show/583d8bd5ecd2ea20143a751e [32m200 [0m4.177 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [36m304 [0m16.879 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m46.518 ms - -[0m
+[0mGET /auth/google [36m302 [0m1.784 ms - 0[0m
+[0mGET /auth/google/callback?code=4/CGJqrjtSItgpKzRX5fBIg8LOeN381Dv-LcFp0x9xzak [36m302 [0m792.082 ms - 46[0m
+[0mGET /api/users/me [32m200 [0m23.641 ms - 655[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m33.494 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m54.701 ms - -[0m
+searchText Test   question   for   BS 6 0 7 A   -  Paragraph   1 Lorem   ipsum   dolor   sit   amet ,   consectetur   adipiscing   elit .   Curabitur   pulvinar   diam   in   ligula   placerat   sagittis   nec   at   lorem .   Morbi   velit   arcu ,   scelerisque   pulvinar   leo   a ,   viverra   pulvinar   nisl .   Aliquam   arcu   massa ,   efficitur   vel   diam   placerat ,   sagittis   lobortis   lectus .   Vestibulum   non   nunc   lectus .   Fusce   tincidunt   odio   ut   dui   sagittis   varius .   Proin   maximus   gravida   mauris ,   vitae   euismod   lorem   dapibus   id .   Vivamus   et   odio   ac   neque   sodales   volutpat .   Proin   feugiat   est   est ,   in   fringilla   diam   dignissim   sed .   Sed   sit   amet   urna   non   enim   mollis   finibus   eu   quis   lacus .   Sed   sagittis   lorem   at   augue   blandit ,   ultricies   eleifend   ante   fringilla .   Etiam   dapibus ,   nibh   quis   convallis   dapibus ,   neque   eros   vehicula   justo ,   id   sagittis   sapien   libero   sit   amet   magna .   Morbi   sed   libero   eu   odio   feugiat   efficitur   vel   eu   felis . 
+
+ Phasellus   vulputate   porta   ex ,   et   lacinia   leo   pulvinar   quis .   Etiam   quis   congue   lorem .   Mauris   q 
+[0mPOST /api/questions [32m201 [0m151.338 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m44.698 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [32m200 [0m8.388 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m52.946 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m46.120 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [32m200 [0m11.888 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [36m304 [0m28.573 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m5.217 ms - -[0m
+[0mGET /questions/create [32m200 [0m2.452 ms - -[0m
+[0mGET /api/users/me [36m304 [0m11.324 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m71.305 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m60.705 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [36m304 [0m17.343 ms - -[0m
+[0mGET /questions/show/58760935b13cea160bc671ec [32m200 [0m2.970 ms - -[0m
+[0mGET /bower_components/ng-tags-input/ng-tags-input.css.map [33m404 [0m4.684 ms - -[0m
+[0mGET /api/users/me [36m304 [0m14.398 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [36m304 [0m10.568 ms - -[0m
+[0mGET /api/users/me [33m401 [0m6.197 ms - 325[0m
+UnauthorizedError: jwt expired
+    at /var/www/public/citizenpedia/node_modules/express-jwt/lib/index.js:100:22
+    at /var/www/public/citizenpedia/node_modules/jsonwebtoken/index.js:155:18
+    at doNTCallback0 (node.js:428:9)
+    at process._tickCallback (node.js:357:13)
+[0mGET /auth/google [36m302 [0m3.757 ms - 0[0m
+[0mGET /auth/google/callback?code=4/I89P7Sa9QfWmTx1sER3AbdxtzFf0cLJA4ikwyxbgJQw [36m302 [0m409.935 ms - 46[0m
+[0mGET /api/users/me [36m304 [0m20.672 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m81.437 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [32m200 [0m8.687 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m58.197 ms - -[0m
+[0mGET /api [32m200 [0m2.761 ms - -[0m
+[0mGET /api/users/me [36m304 [0m15.375 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m62.040 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m61.399 ms - -[0m
+[0mGET /api [36m304 [0m1.569 ms - -[0m
+[0mGET /api/users/me [36m304 [0m15.170 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m44.283 ms - -[0m
+[0mGET /api/questions [32m200 [0m56.630 ms - -[0m
+[0mGET /api/thing [33m404 [0m13.605 ms - -[0m
+[0mGET /api/users/me [36m304 [0m12.480 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m67.596 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m60.063 ms - -[0m
+[0mGET /api/users/me [33m401 [0m6.753 ms - 325[0m
+UnauthorizedError: jwt expired
+    at /var/www/public/citizenpedia/node_modules/express-jwt/lib/index.js:100:22
+    at /var/www/public/citizenpedia/node_modules/jsonwebtoken/index.js:155:18
+    at doNTCallback0 (node.js:428:9)
+    at process._tickCallback (node.js:357:13)
+[0mGET /api/questions?query=%7B%7D [36m304 [0m54.182 ms - -[0m
+[0mGET /questions/show/583d8bd5ecd2ea20143a751e [32m200 [0m5.004 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [32m200 [0m14.077 ms - -[0m
+[0mGET /questions/show/58760935b13cea160bc671ec [36m304 [0m1.554 ms - -[0m
+[0mGET /api/users/me [33m401 [0m14.678 ms - 325[0m
+UnauthorizedError: jwt expired
+    at /var/www/public/citizenpedia/node_modules/express-jwt/lib/index.js:100:22
+    at /var/www/public/citizenpedia/node_modules/jsonwebtoken/index.js:155:18
+    at doNTCallback0 (node.js:428:9)
+    at process._tickCallback (node.js:357:13)
+[0mGET /api/questions/58760935b13cea160bc671ec [36m304 [0m23.997 ms - -[0m
+[0mGET /questions/create [32m200 [0m2.000 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m81.172 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [32m200 [0m22.712 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m41.910 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [36m304 [0m8.947 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m59.734 ms - -[0m
+[0mGET /api/questions/5825e01b74b1ec17ecaf0a8a [32m200 [0m20.702 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m43.375 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [32m200 [0m10.092 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m55.065 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m54.773 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [32m200 [0m6.930 ms - -[0m
+[0mGET /api/questions/show/58760935b13cea160bc671ec [33m404 [0m21.377 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [36m304 [0m13.989 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [36m304 [0m9.340 ms - -[0m
+[0mGET /api/questions/58760935b13cea160bc671ec [36m304 [0m10.467 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [32m200 [0m48.478 ms - -[0m
+[0mGET /api/questions/583d8bd5ecd2ea20143a751e [32m200 [0m14.855 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m46.906 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m67.213 ms - -[0m
+events.js:141
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: write EPIPE
+    at Object.exports._errnoException (util.js:860:11)
+    at exports._exceptionWithHostPort (util.js:883:20)
+    at WriteWrap.afterWrite (net.js:763:14)
