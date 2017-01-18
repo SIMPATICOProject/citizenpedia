@@ -75,6 +75,7 @@
     "grunt-open": "~0.2.3",
     "grunt-postcss": "~0.7.1",
     "grunt-protractor-runner": "^2.0.0",
+    "grunt-swagger-docs": "0.0.4",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
     "istanbul": "~0.4.1",
