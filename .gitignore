@@ -10,3 +10,5 @@ npm-debug.log
 coverage
 .cache
 .config
+app.pid
+app.log
