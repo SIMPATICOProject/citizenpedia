@@ -137,7 +137,7 @@ UserSchema.methods = {
    * @param {String} password
    * @param {Function} callback
    * @return {Boolean}
-   * @api public
+   * @citizenpedia/api public
    */
   authenticate(password, callback) {
     if (!callback) {
@@ -163,7 +163,7 @@ UserSchema.methods = {
    * @param {Number} byteSize Optional salt byte size, default to 16
    * @param {Function} callback
    * @return {String}
-   * @api public
+   * @citizenpedia/api public
    */
   makeSalt(byteSize, callback) {
     var defaultByteSize = 16;
@@ -198,7 +198,7 @@ UserSchema.methods = {
    * @param {String} password
    * @param {Function} callback
    * @return {String}
-   * @api public
+   * @citizenpedia/api public
    */
   encryptPassword(password, callback) {
     if (!password || !this.salt) {

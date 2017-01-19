@@ -36,7 +36,7 @@ describe('Tag API Router:', function() {
     tagIndex.should.equal(routerStub);
   });
 
-  describe('GET /api/tags', function() {
+  describe('GET /citizenpedia/api/tags', function() {
     it('should route to tag.controller.index', function() {
       routerStub.get
         .withArgs('/', 'tagCtrl.index')
@@ -44,7 +44,7 @@ describe('Tag API Router:', function() {
     });
   });
 
-  describe('GET /api/tags/:id', function() {
+  describe('GET /citizenpedia/api/tags/:id', function() {
     it('should route to tag.controller.show', function() {
       routerStub.get
         .withArgs('/:id', 'tagCtrl.show')
@@ -52,7 +52,7 @@ describe('Tag API Router:', function() {
     });
   });
 
-  describe('POST /api/tags', function() {
+  describe('POST /citizenpedia/api/tags', function() {
     it('should route to tag.controller.create', function() {
       routerStub.post
         .withArgs('/', 'tagCtrl.create')
@@ -60,7 +60,7 @@ describe('Tag API Router:', function() {
     });
   });
 
-  describe('PUT /api/tags/:id', function() {
+  describe('PUT /citizenpedia/api/tags/:id', function() {
     it('should route to tag.controller.upsert', function() {
       routerStub.put
         .withArgs('/:id', 'tagCtrl.upsert')
@@ -68,7 +68,7 @@ describe('Tag API Router:', function() {
     });
   });
 
-  describe('PATCH /api/tags/:id', function() {
+  describe('PATCH /citizenpedia/api/tags/:id', function() {
     it('should route to tag.controller.patch', function() {
       routerStub.patch
         .withArgs('/:id', 'tagCtrl.patch')
@@ -76,7 +76,7 @@ describe('Tag API Router:', function() {
     });
   });
 
-  describe('DELETE /api/tags/:id', function() {
+  describe('DELETE /citizenpedia/api/tags/:id', function() {
     it('should route to tag.controller.destroy', function() {
       routerStub.delete
         .withArgs('/:id', 'tagCtrl.destroy')

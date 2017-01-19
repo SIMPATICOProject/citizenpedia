@@ -8,12 +8,12 @@ import request from 'supertest';
 var newTag;
 
 describe('Tag API:', function() {
-  describe('GET /api/tags', function() {
+  describe('GET /citizenpedia/api/tags', function() {
     var tags;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/tags')
+        .get('/citizenpedia/api/tags')
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -30,10 +30,10 @@ describe('Tag API:', function() {
     });
   });
 
-  describe('POST /api/tags', function() {
+  describe('POST /citizenpedia/api/tags', function() {
     beforeEach(function(done) {
       request(app)
-        .post('/api/tags')
+        .post('/citizenpedia/api/tags')
         .send({
           name: 'New Tag'
         })
@@ -53,12 +53,12 @@ describe('Tag API:', function() {
     });
   });
 
-  describe('GET /api/tags/:id', function() {
+  describe('GET /citizenpedia/api/tags/:id', function() {
     var tag;
 
     beforeEach(function(done) {
       request(app)
-        .get(`/api/tags/${newTag._id}`)
+        .get(`/citizenpedia/api/tags/${newTag._id}`)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -79,12 +79,12 @@ describe('Tag API:', function() {
     });
   });
 
-  describe('PUT /api/tags/:id', function() {
+  describe('PUT /citizenpedia/api/tags/:id', function() {
     var updatedTag;
 
     beforeEach(function(done) {
       request(app)
-        .put(`/api/tags/${newTag._id}`)
+        .put(`/citizenpedia/api/tags/${newTag._id}`)
         .send({
           name: 'Updated Tag',
         })
@@ -109,7 +109,7 @@ describe('Tag API:', function() {
 
     it('should respond with the updated tag on a subsequent GET', function(done) {
       request(app)
-        .get(`/api/tags/${newTag._id}`)
+        .get(`/citizenpedia/api/tags/${newTag._id}`)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -125,12 +125,12 @@ describe('Tag API:', function() {
     });
   });
 
-  describe('PATCH /api/tags/:id', function() {
+  describe('PATCH /citizenpedia/api/tags/:id', function() {
     var patchedTag;
 
     beforeEach(function(done) {
       request(app)
-        .patch(`/api/tags/${newTag._id}`)
+        .patch(`/citizenpedia/api/tags/${newTag._id}`)
         .send([
           { op: 'replace', path: '/name', value: 'Patched Tag' },
         ])
@@ -154,10 +154,10 @@ describe('Tag API:', function() {
     });
   });
 
-  describe('DELETE /api/tags/:id', function() {
+  describe('DELETE /citizenpedia/api/tags/:id', function() {
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete(`/api/tags/${newTag._id}`)
+        .delete(`/citizenpedia/api/tags/${newTag._id}`)
         .expect(204)
         .end(err => {
           if(err) {
@@ -169,7 +169,7 @@ describe('Tag API:', function() {
 
     it('should respond with 404 when tag does not exist', function(done) {
       request(app)
-        .delete(`/api/tags/${newTag._id}`)
+        .delete(`/citizenpedia/api/tags/${newTag._id}`)
         .expect(404)
         .end(err => {
           if(err) {

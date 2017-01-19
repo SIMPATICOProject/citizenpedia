@@ -1,10 +1,10 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/questions              ->  index
- * POST    /api/questions              ->  create
- * GET     /api/questions/:id          ->  show
- * PUT     /api/questions/:id          ->  update
- * DELETE  /api/questions/:id          ->  destroy
+ * GET     /citizenpedia/api/questions              ->  index
+ * POST    /citizenpedia/api/questions              ->  create
+ * GET     /citizenpedia/api/questions/:id          ->  show
+ * PUT     /citizenpedia/api/questions/:id          ->  update
+ * DELETE  /citizenpedia/api/questions/:id          ->  destroy
  */
 
 'use strict';

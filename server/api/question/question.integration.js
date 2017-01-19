@@ -36,12 +36,12 @@ describe('Question API:', function() {
       });
   });
   
-  describe('GET /api/questions', function() {
+  describe('GET /citizenpedia/api/questions', function() {
     var questions;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/questions')
+        .get('/citizenpedia/api/questions')
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -59,10 +59,10 @@ describe('Question API:', function() {
 
   });
 
-  describe('POST /api/questions', function() {
+  describe('POST /citizenpedia/api/questions', function() {
     beforeEach(function(done) {
       request(app)
-        .post('/api/questions')
+        .post('/citizenpedia/api/questions')
         .set('authorization', 'Bearer ' + token)
         .send({
           title: 'New Question',
@@ -88,12 +88,12 @@ describe('Question API:', function() {
 
   });
 
-  describe('GET /api/questions/:id', function() {
+  describe('GET /citizenpedia/api/questions/:id', function() {
     var question;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/questions/' + newQuestion._id)
+        .get('/citizenpedia/api/questions/' + newQuestion._id)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -117,12 +117,12 @@ describe('Question API:', function() {
   });
 
 /*
-  describe('PUT /api/questions/:id', function() {
+  describe('PUT /citizenpedia/api/questions/:id', function() {
     var updatedQuestion;
 
     beforeEach(function(done) {
       request(app)
-        .put('/api/questions/' + newQuestion._id)
+        .put('/citizenpedia/api/questions/' + newQuestion._id)
         .set('authorization', 'Bearer ' + token)
         .send({
           title: 'Updated Question',
@@ -150,11 +150,11 @@ describe('Question API:', function() {
   });
 */
 
-  describe('DELETE /api/questions/:id', function() {
+  describe('DELETE /citizenpedia/api/questions/:id', function() {
 
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete('/api/questions/' + newQuestion._id)
+        .delete('/citizenpedia/api/questions/' + newQuestion._id)
         .set('authorization', 'Bearer ' + token)
         .expect(204)
         .end((err, res) => {
@@ -167,7 +167,7 @@ describe('Question API:', function() {
 
     it('should respond with 404 when question does not exist', function(done) {
       request(app)
-        .delete('/api/questions/' + newQuestion._id)
+        .delete('/citizenpedia/api/questions/' + newQuestion._id)
         .set('authorization', 'Bearer ' + token)
         .expect(404)
         .end((err, res) => {
