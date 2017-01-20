@@ -91,6 +91,30 @@ export function show(req, res) {
 
 }
 
+// Swagger sucks. Have to make this function just to swagger to work
+export function countparagraph(req, res) {
+  console.log("Stats from eservide and paragraph");
+  var query1 = req.params.eservice;
+  var query2 = req.params.paragraph;
+
+    if (req.params.id == "questions") {
+      console.log("questions");
+      Question.find({$and: [{"tags.text": query1}, {"tags.text": query2} ]}).count().execAsync()
+        .then(respondWithResult(res))
+        .catch(handleError(res));
+    }
+
+    // Waiting for CPD methods
+    if (req.params.id != "questions") {
+      console.log("Error. Only questions for now, please");
+      // return Stat.findById(req.params.id).exec()
+      //   .then(handleEntityNotFound(res))
+      //   .then(respondWithResult(res))
+      //   .catch(handleError(res));
+    }
+
+}
+
 // Creates a new Stat in the DB
 export function create(req, res) {
   return Stat.create(req.body)
