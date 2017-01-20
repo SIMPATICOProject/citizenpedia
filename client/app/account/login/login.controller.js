@@ -1,5 +1,4 @@
 'use strict';
-
 class LoginController {
   constructor(Auth, $state) {
     this.user = {};

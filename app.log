@@ -1,0 +1,104 @@
+[4mRunning "server" task[24m
+[31m>> [39mThe `server` task has been deprecated. Use `grunt serve` to start a server.
+
+[4mRunning "serve" task[24m
+
+[4mRunning "clean:server" (clean) task[24m
+[32m>> [39m1 path cleaned.
+
+[4mRunning "env:all" (env) task[24m
+
+[4mRunning "concurrent:pre" (concurrent) task[24m
+
+    [4mRunning "ngconstant:app" (ngconstant) task[24m
+    Creating module paizaqaApp.constants at client/app/app.constant.js...[32mOK[39m
+
+    [32mDone, without errors.[39m
+
+
+    [4mExecution Time[24m[90m (2017-01-19 15:00:30 UTC-0)[39m
+    loading tasks              [34m1.2s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 89%[39m
+    loading grunt-ng-constant  [34m78ms[39m  [34m▇▇▇ 6%[39m
+    ngconstant:app             [34m64ms[39m  [34m▇▇ 5%[39m
+    [35mTotal 1.3s[39m
+
+    [4mRunning "injector:sass" (injector) task[24m
+    [90mMissing option `template`, using `dest` as template instead[39m
+    Injecting [32mscss[39m files [90m(7 files)[39m
+
+    [32mDone, without errors.[39m
+
+
+    [4mExecution Time[24m[90m (2017-01-19 15:00:30 UTC-0)[39m
+    loading tasks            [34m1.1s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 86%[39m
+    loading grunt-injector   [34m58ms[39m  [34m▇▇ 4%[39m
+    injector:sass           [34m129ms[39m  [34m▇▇▇▇ 10%[39m
+    [35mTotal 1.3s[39m
+
+[4mRunning "concurrent:server" (concurrent) task[24m
+
+    [4mRunning "newer:babel:client" (newer) task[24m
+
+    [4mRunning "babel:client" (babel) task[24m
+
+    [4mRunning "newer-postrun:babel:client:1:/var/www/public/citizenpedia/node_modules/grunt-newer/.cache" (newer-postrun) task[24m
+
+    [32mDone, without errors.[39m
+
+
+    [4mExecution Time[24m[90m (2017-01-19 15:00:33 UTC-0)[39m
+    loading tasks         [34m1.2s[39m  [34m▇▇▇▇▇▇▇▇▇ 21%[39m
+    loading grunt-newer  [34m100ms[39m  [34m▇ 2%[39m
+    newer:babel:client    [34m75ms[39m  [34m▇ 1%[39m
+    loading grunt-babel   [34m1.5s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇ 27%[39m
+    babel:client          [34m2.7s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 48%[39m
+    [35mTotal 5.6s[39m
+
+    [4mRunning "sass:server" (sass) task[24m
+
+    [32mDone, without errors.[39m
+
+
+    [4mExecution Time[24m[90m (2017-01-19 15:00:33 UTC-0)[39m
+    loading tasks  [34m1.1s[39m  [34m▇▇▇▇▇▇ 11%[39m
+    sass:server    [34m8.5s[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 88%[39m
+    [35mTotal 9.6s[39mDEPRECATION WARNING:
+    Sass 3.5 will no longer support Ruby 1.9.3.
+    Please upgrade to Ruby 2.0.0 or greater as soon as possible.
+
+[4mRunning "injector:scripts" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mjs[39m files [90m(30 files)[39m
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(7 files)[39m
+
+[4mRunning "injector:css" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+[32m>> [39mNothing changed
+
+[4mRunning "wiredep:client" (wiredep) task[24m
+
+[4mRunning "postcss:dist" (postcss) task[24m
+[32m>> [39m1 processed stylesheet created.
+[32m>> [39m1 sourcemap created.
+
+[4mRunning "express:dev" (express) task[24m
+[36mStarting [39mbackground Express server
+Debugger listening on port 5858
+Express server listening on 8080, in development mode
+
+[4mRunning "wait" task[24m
+[32m>> [39mWaiting for server reload...
+finished populating users
+Done waiting!
+
+[4mRunning "watch" task[24m
+Waiting...
+[0mGET /api/users/me [33m401 [0m23.953 ms - -[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m145.832 ms - -[0m
+[0mGET /auth/google [36m302 [0m5.552 ms - 0[0m
+[0mGET /auth/google/callback?code=4/3Ky76HQw1Q8u5UX0DS9tpcxme7ztmetGx5DnmdDjC8c [36m302 [0m489.693 ms - 72[0m
+[0mGET /api/users/me [32m200 [0m26.433 ms - 655[0m
+[0mGET /api/questions?query=%7B%7D [36m304 [0m45.470 ms - -[0m
