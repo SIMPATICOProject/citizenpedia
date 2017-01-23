@@ -37,6 +37,23 @@ angular.module('paizaqaApp')
             return {user: $stateParams.userId};
           }
         },
+      })
+      // TERMS
+      .state('termsCreate', {
+        url: '/terms/create',
+        templateUrl: 'app/termsCreate/termsCreate.html',
+        controller: 'TermsCreateComponent',
+        resolve: {
+          query: function($stateParams){return {user: $stateParams.userId};}
+        },
+      })
+      .state('termsIndex', {
+        url: '/terms',
+        templateUrl: 'app/termsIndex/termsIndex.html',
+        controller: 'TermsIndexComponent',
+        resolve: {
+          query: function(){return {};}
+        },
       });
 
   });

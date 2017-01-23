@@ -1,0 +1,86 @@
+'use strict';
+
+/* globals sinon, describe, expect, it */
+
+var proxyquire = require('proxyquire').noPreserveCache();
+
+var termCtrlStub = {
+  index: 'termCtrl.index',
+  show: 'termCtrl.show',
+  create: 'termCtrl.create',
+  upsert: 'termCtrl.upsert',
+  patch: 'termCtrl.patch',
+  destroy: 'termCtrl.destroy'
+};
+
+var routerStub = {
+  get: sinon.spy(),
+  put: sinon.spy(),
+  patch: sinon.spy(),
+  post: sinon.spy(),
+  delete: sinon.spy()
+};
+
+// require the index with our stubbed out modules
+var termIndex = proxyquire('./index.js', {
+  express: {
+    Router() {
+      return routerStub;
+    }
+  },
+  './term.controller': termCtrlStub
+});
+
+describe('Term API Router:', function() {
+  it('should return an express router instance', function() {
+    termIndex.should.equal(routerStub);
+  });
+
+  describe('GET /api/terms', function() {
+    it('should route to term.controller.index', function() {
+      routerStub.get
+        .withArgs('/', 'termCtrl.index')
+        .should.have.been.calledOnce;
+    });
+  });
+
+  describe('GET /api/terms/:id', function() {
+    it('should route to term.controller.show', function() {
+      routerStub.get
+        .withArgs('/:id', 'termCtrl.show')
+        .should.have.been.calledOnce;
+    });
+  });
+
+  describe('POST /api/terms', function() {
+    it('should route to term.controller.create', function() {
+      routerStub.post
+        .withArgs('/', 'termCtrl.create')
+        .should.have.been.calledOnce;
+    });
+  });
+
+  describe('PUT /api/terms/:id', function() {
+    it('should route to term.controller.upsert', function() {
+      routerStub.put
+        .withArgs('/:id', 'termCtrl.upsert')
+        .should.have.been.calledOnce;
+    });
+  });
+
+  describe('PATCH /api/terms/:id', function() {
+    it('should route to term.controller.patch', function() {
+      routerStub.patch
+        .withArgs('/:id', 'termCtrl.patch')
+        .should.have.been.calledOnce;
+    });
+  });
+
+  describe('DELETE /api/terms/:id', function() {
+    it('should route to term.controller.destroy', function() {
+      routerStub.delete
+        .withArgs('/:id', 'termCtrl.destroy')
+        .should.have.been.calledOnce;
+    });
+  });
+});

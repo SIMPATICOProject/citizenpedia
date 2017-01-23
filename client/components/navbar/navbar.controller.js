@@ -15,6 +15,11 @@ class NavbarController {
         'show': function(){return true;},
       },
       {
+        'title': 'Terms',
+        'link': function(){return '/terms';},
+        'show': function(){return true;},
+      },
+      {
         'title': 'Mine',
         'link': function(){return '/users/' + Auth.getCurrentUser()._id;},
         'show': Auth.isLoggedIn,
