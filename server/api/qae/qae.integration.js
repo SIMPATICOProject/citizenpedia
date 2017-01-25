@@ -5,37 +5,38 @@
 var app = require('../..');
 import request from 'supertest';
 
-var newTag;
+var newQae;
 
-describe('Tag API:', function() {
-  describe('GET /citizenpedia/api/tags', function() {
-    var tags;
+describe('Qae API:', function() {
+  describe('GET /api/qae', function() {
+    var qaes;
 
     beforeEach(function(done) {
       request(app)
-        .get('/citizenpedia/api/tags')
+        .get('/api/qae')
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if(err) {
             return done(err);
           }
-          tags = res.body;
+          qaes = res.body;
           done();
         });
     });
 
     it('should respond with JSON array', function() {
-      tags.should.be.instanceOf(Array);
+      qaes.should.be.instanceOf(Array);
     });
   });
 
-  describe('POST /citizenpedia/api/tags', function() {
+  describe('POST /api/qae', function() {
     beforeEach(function(done) {
       request(app)
-        .post('/citizenpedia/api/tags')
+        .post('/api/qae')
         .send({
-          name: 'New Tag'
+          name: 'New Qae',
+          info: 'This is the brand new qae!!!'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -43,50 +44,53 @@ describe('Tag API:', function() {
           if(err) {
             return done(err);
           }
-          newTag = res.body;
+          newQae = res.body;
           done();
         });
     });
 
-    it('should respond with the newly created tag', function() {
-      newTag.name.should.equal('New Tag');
+    it('should respond with the newly created qae', function() {
+      newQae.name.should.equal('New Qae');
+      newQae.info.should.equal('This is the brand new qae!!!');
     });
   });
 
-  describe('GET /citizenpedia/api/tags/:id', function() {
-    var tag;
+  describe('GET /api/qae/:id', function() {
+    var qae;
 
     beforeEach(function(done) {
       request(app)
-        .get(`/citizenpedia/api/tags/${newTag._id}`)
+        .get(`/api/qae/${newQae._id}`)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if(err) {
             return done(err);
           }
-          tag = res.body;
+          qae = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      tag = {};
+      qae = {};
     });
 
-    it('should respond with the requested tag', function() {
-      tag.name.should.equal('New Tag');
+    it('should respond with the requested qae', function() {
+      qae.name.should.equal('New Qae');
+      qae.info.should.equal('This is the brand new qae!!!');
     });
   });
 
-  describe('PUT /citizenpedia/api/tags/:id', function() {
-    var updatedTag;
+  describe('PUT /api/qae/:id', function() {
+    var updatedQae;
 
     beforeEach(function(done) {
       request(app)
-        .put(`/citizenpedia/api/tags/${newTag._id}`)
+        .put(`/api/qae/${newQae._id}`)
         .send({
-          name: 'Updated Tag',
+          name: 'Updated Qae',
+          info: 'This is the updated qae!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -94,45 +98,48 @@ describe('Tag API:', function() {
           if(err) {
             return done(err);
           }
-          updatedTag = res.body;
+          updatedQae = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      updatedTag = {};
+      updatedQae = {};
     });
 
-    it('should respond with the updated tag', function() {
-      updatedTag.name.should.equal('Updated Tag');
+    it('should respond with the updated qae', function() {
+      updatedQae.name.should.equal('Updated Qae');
+      updatedQae.info.should.equal('This is the updated qae!!!');
     });
 
-    it('should respond with the updated tag on a subsequent GET', function(done) {
+    it('should respond with the updated qae on a subsequent GET', function(done) {
       request(app)
-        .get(`/citizenpedia/api/tags/${newTag._id}`)
+        .get(`/api/qae/${newQae._id}`)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if(err) {
             return done(err);
           }
-          let tag = res.body;
+          let qae = res.body;
 
-          tag.name.should.equal('Updated Tag');
+          qae.name.should.equal('Updated Qae');
+          qae.info.should.equal('This is the updated qae!!!');
 
           done();
         });
     });
   });
 
-  describe('PATCH /citizenpedia/api/tags/:id', function() {
-    var patchedTag;
+  describe('PATCH /api/qae/:id', function() {
+    var patchedQae;
 
     beforeEach(function(done) {
       request(app)
-        .patch(`/citizenpedia/api/tags/${newTag._id}`)
+        .patch(`/api/qae/${newQae._id}`)
         .send([
-          { op: 'replace', path: '/name', value: 'Patched Tag' },
+          { op: 'replace', path: '/name', value: 'Patched Qae' },
+          { op: 'replace', path: '/info', value: 'This is the patched qae!!!' }
         ])
         .expect(200)
         .expect('Content-Type', /json/)
@@ -140,24 +147,25 @@ describe('Tag API:', function() {
           if(err) {
             return done(err);
           }
-          patchedTag = res.body;
+          patchedQae = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      patchedTag = {};
+      patchedQae = {};
     });
 
-    it('should respond with the patched tag', function() {
-      patchedTag.name.should.equal('Patched Tag');
+    it('should respond with the patched qae', function() {
+      patchedQae.name.should.equal('Patched Qae');
+      patchedQae.info.should.equal('This is the patched qae!!!');
     });
   });
 
-  describe('DELETE /citizenpedia/api/tags/:id', function() {
+  describe('DELETE /api/qae/:id', function() {
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete(`/citizenpedia/api/tags/${newTag._id}`)
+        .delete(`/api/qae/${newQae._id}`)
         .expect(204)
         .end(err => {
           if(err) {
@@ -167,9 +175,9 @@ describe('Tag API:', function() {
         });
     });
 
-    it('should respond with 404 when tag does not exist', function(done) {
+    it('should respond with 404 when qae does not exist', function(done) {
       request(app)
-        .delete(`/citizenpedia/api/tags/${newTag._id}`)
+        .delete(`/api/qae/${newQae._id}`)
         .expect(404)
         .end(err => {
           if(err) {

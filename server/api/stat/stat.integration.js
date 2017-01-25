@@ -5,37 +5,38 @@
 var app = require('../..');
 import request from 'supertest';
 
-var newTag;
+var newStat;
 
-describe('Tag API:', function() {
-  describe('GET /citizenpedia/api/tags', function() {
-    var tags;
+describe('Stat API:', function() {
+  describe('GET /api/stats', function() {
+    var stats;
 
     beforeEach(function(done) {
       request(app)
-        .get('/citizenpedia/api/tags')
+        .get('/api/stats')
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if(err) {
             return done(err);
           }
-          tags = res.body;
+          stats = res.body;
           done();
         });
     });
 
     it('should respond with JSON array', function() {
-      tags.should.be.instanceOf(Array);
+      stats.should.be.instanceOf(Array);
     });
   });
 
-  describe('POST /citizenpedia/api/tags', function() {
+  describe('POST /api/stats', function() {
     beforeEach(function(done) {
       request(app)
-        .post('/citizenpedia/api/tags')
+        .post('/api/stats')
         .send({
-          name: 'New Tag'
+          name: 'New Stat',
+          info: 'This is the brand new stat!!!'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -43,50 +44,53 @@ describe('Tag API:', function() {
           if(err) {
             return done(err);
           }
-          newTag = res.body;
+          newStat = res.body;
           done();
         });
     });
 
-    it('should respond with the newly created tag', function() {
-      newTag.name.should.equal('New Tag');
+    it('should respond with the newly created stat', function() {
+      newStat.name.should.equal('New Stat');
+      newStat.info.should.equal('This is the brand new stat!!!');
     });
   });
 
-  describe('GET /citizenpedia/api/tags/:id', function() {
-    var tag;
+  describe('GET /api/stats/:id', function() {
+    var stat;
 
     beforeEach(function(done) {
       request(app)
-        .get(`/citizenpedia/api/tags/${newTag._id}`)
+        .get(`/api/stats/${newStat._id}`)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if(err) {
             return done(err);
           }
-          tag = res.body;
+          stat = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      tag = {};
+      stat = {};
     });
 
-    it('should respond with the requested tag', function() {
-      tag.name.should.equal('New Tag');
+    it('should respond with the requested stat', function() {
+      stat.name.should.equal('New Stat');
+      stat.info.should.equal('This is the brand new stat!!!');
     });
   });
 
-  describe('PUT /citizenpedia/api/tags/:id', function() {
-    var updatedTag;
+  describe('PUT /api/stats/:id', function() {
+    var updatedStat;
 
     beforeEach(function(done) {
       request(app)
-        .put(`/citizenpedia/api/tags/${newTag._id}`)
+        .put(`/api/stats/${newStat._id}`)
         .send({
-          name: 'Updated Tag',
+          name: 'Updated Stat',
+          info: 'This is the updated stat!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -94,45 +98,48 @@ describe('Tag API:', function() {
           if(err) {
             return done(err);
           }
-          updatedTag = res.body;
+          updatedStat = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      updatedTag = {};
+      updatedStat = {};
     });
 
-    it('should respond with the updated tag', function() {
-      updatedTag.name.should.equal('Updated Tag');
+    it('should respond with the updated stat', function() {
+      updatedStat.name.should.equal('Updated Stat');
+      updatedStat.info.should.equal('This is the updated stat!!!');
     });
 
-    it('should respond with the updated tag on a subsequent GET', function(done) {
+    it('should respond with the updated stat on a subsequent GET', function(done) {
       request(app)
-        .get(`/citizenpedia/api/tags/${newTag._id}`)
+        .get(`/api/stats/${newStat._id}`)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if(err) {
             return done(err);
           }
-          let tag = res.body;
+          let stat = res.body;
 
-          tag.name.should.equal('Updated Tag');
+          stat.name.should.equal('Updated Stat');
+          stat.info.should.equal('This is the updated stat!!!');
 
           done();
         });
     });
   });
 
-  describe('PATCH /citizenpedia/api/tags/:id', function() {
-    var patchedTag;
+  describe('PATCH /api/stats/:id', function() {
+    var patchedStat;
 
     beforeEach(function(done) {
       request(app)
-        .patch(`/citizenpedia/api/tags/${newTag._id}`)
+        .patch(`/api/stats/${newStat._id}`)
         .send([
-          { op: 'replace', path: '/name', value: 'Patched Tag' },
+          { op: 'replace', path: '/name', value: 'Patched Stat' },
+          { op: 'replace', path: '/info', value: 'This is the patched stat!!!' }
         ])
         .expect(200)
         .expect('Content-Type', /json/)
@@ -140,24 +147,25 @@ describe('Tag API:', function() {
           if(err) {
             return done(err);
           }
-          patchedTag = res.body;
+          patchedStat = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      patchedTag = {};
+      patchedStat = {};
     });
 
-    it('should respond with the patched tag', function() {
-      patchedTag.name.should.equal('Patched Tag');
+    it('should respond with the patched stat', function() {
+      patchedStat.name.should.equal('Patched Stat');
+      patchedStat.info.should.equal('This is the patched stat!!!');
     });
   });
 
-  describe('DELETE /citizenpedia/api/tags/:id', function() {
+  describe('DELETE /api/stats/:id', function() {
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete(`/citizenpedia/api/tags/${newTag._id}`)
+        .delete(`/api/stats/${newStat._id}`)
         .expect(204)
         .end(err => {
           if(err) {
@@ -167,9 +175,9 @@ describe('Tag API:', function() {
         });
     });
 
-    it('should respond with 404 when tag does not exist', function(done) {
+    it('should respond with 404 when stat does not exist', function(done) {
       request(app)
-        .delete(`/citizenpedia/api/tags/${newTag._id}`)
+        .delete(`/api/stats/${newStat._id}`)
         .expect(404)
         .end(err => {
           if(err) {

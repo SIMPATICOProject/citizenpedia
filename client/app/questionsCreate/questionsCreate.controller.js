@@ -8,7 +8,7 @@ angular.module('paizaqaApp')
       return;
     }
     $scope.submit = function() {
-      $http.post('/api/questions', $scope.question).success(function(){
+      $http.post('/citizenpedia/api/questions', $scope.question).success(function(){
         $location.path('/');
       });
     };

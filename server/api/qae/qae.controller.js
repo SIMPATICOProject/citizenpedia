@@ -1,17 +1,16 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /citizenpedia/api/tags              ->  index
- * POST    /citizenpedia/api/tags              ->  create
- * GET     /citizenpedia/api/tags/:id          ->  show
- * PUT     /citizenpedia/api/tags/:id          ->  upsert
- * PATCH   /citizenpedia/api/tags/:id          ->  patch
- * DELETE  /citizenpedia/api/tags/:id          ->  destroy
+ * GET     /api/qae              ->  index
+ * POST    /api/qae              ->  create
+ * GET     /api/qae/:id          ->  show
+ * PUT     /api/qae/:id          ->  upsert
+ * PATCH   /api/qae/:id          ->  patch
+ * DELETE  /api/qae/:id          ->  destroy
  */
 
 'use strict';
 
-//import jsonpatch from 'fast-json-patch';
-import Tag from './tag.model';
+import Qae from './qae.model';
 import Question from '../question/question.model';
 
 function respondWithResult(res, statusCode) {
@@ -64,56 +63,66 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Tags
+// Gets a list of Qaes
 export function index(req, res) {
-  return Tag.find().exec()
+  return Qae.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
-  }
+}
 
-// Gets a single Tag from the DB
+// Gets a single Qae from the DB
 export function show(req, res) {
-  console.log("Search by tag");
-  var query = req.params.id;
+  console.log("Search by eservice");
+  var query = req.params.tag;
   console.log(query);
   Question.find({"tags.text": query}).sort({createdAt: -1}).limit(20).execAsync()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Creates a new Tag in the DB
+// Gets a single Qae from the DB
+export function showparagraph(req, res) {
+  console.log("Search by eservice"+req.params.eservice+" "+req.params.paragraph);
+  var query1 = req.params.eservice;
+  var query2 = req.params.paragraph;
+  Question.find({$and: [{"tags.text": query1}, {"tags.text": query2} ]}).sort({createdAt: -1}).limit(20).execAsync()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+// Creates a new Qae in the DB
 export function create(req, res) {
-  return Tag.create(req.body)
+  return Qae.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Upserts the given Tag in the DB at the specified ID
+// Upserts the given Qae in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return Tag.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+  return Qae.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
 
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Updates an existing Tag in the DB
+// Updates an existing Qae in the DB
 export function patch(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return Tag.findById(req.params.id).exec()
+  return Qae.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a Tag from the DB
+// Deletes a Qae from the DB
 export function destroy(req, res) {
-  return Tag.findById(req.params.id).exec()
+  return Qae.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

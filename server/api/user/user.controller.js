@@ -119,5 +119,5 @@ export function me(req, res, next) {
  * Authentication callback
  */
 export function authCallback(req, res, next) {
-  res.redirect('/');
+  res.redirect('/citizenpedia/');
 }
