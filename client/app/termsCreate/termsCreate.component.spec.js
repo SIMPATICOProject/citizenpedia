@@ -8,7 +8,7 @@ describe('Controller: TermsCreateComponent', function() {
   var TermsCreateComponent, scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function($componentController, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
     TermsCreateComponent = $componentController('TermsCreateComponent', {
       $scope: scope

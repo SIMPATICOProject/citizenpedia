@@ -8,7 +8,7 @@ angular.module('paizaqaApp')
       return;
     }
     $scope.submit = function() {
-      $http.post('/api/terms', $scope.question).success(function(){
+      $http.post('/api/terms', $scope.term).success(function(){
         $location.path('/terms');
       });
     };

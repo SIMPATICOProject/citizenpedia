@@ -1,14 +1,18 @@
 'use strict';
 
-describe('Component: TermsShowComponent', function() {
-  // load the controller's module
-  beforeEach(module('citizenpediaApp'));
+describe('Controller: TermsShowComponent', function() {
 
-  var TermsShowComponent;
+  // load the controller's module
+  beforeEach(module('paizaqaApp'));
+
+  var TermsShowComponent, scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function($componentController) {
-    TermsShowComponent = $componentController('termsShow', {});
+  beforeEach(inject(function ($controller, $rootScope) {
+    scope = $rootScope.$new();
+    TermsShowComponent = $controller('TermsShowComponent', {
+      $scope: scope
+    });
   }));
 
   it('should ...', function() {

@@ -1,22 +1,57 @@
 'use strict';
-const angular = require('angular');
 
-const uiRouter = require('angular-ui-router');
+angular.module('paizaqaApp')
+  .controller('TermsIndexComponent', function ($scope, $http, $location, Auth, query) {
+    var keyword = $location.search().keyword;
+    if(keyword){
+      query = _.merge(query, {$text: {$search: keyword}});
+    }
+    $scope.busy = true;
+    $scope.noMoreData = true;
 
-import routes from './termsIndex.routes';
+    $http.get('/api/terms', {params: {query: query}}).success(function(terms) {
+      $scope.terms = terms;
+      if($scope.terms.length < 20){
+        $scope.noMoreData = true;
+      }
+      $scope.busy = false;
+    });
+    $scope.nextPage = function(){
+      if($scope.busy){ return; }
+      $scope.busy = true;
+      var lastId = $scope.terms[$scope.terms.length-1]._id;
+      var pageQuery = _.merge(query, {_id: {$lt: lastId}});
+      $http.get('/api/terms', {params: {query: pageQuery}}).success(function(terms){
+        $scope.terms = $scope.terms.concat(terms);
+        $scope.busy = false;
+        if(terms.length === 0){
+          $scope.noMoreData = true;
+        }
+      });
+    };
+  });
 
-export class TermsIndexComponent {
-  /*@ngInject*/
-  constructor() {
-    this.message = 'Hello';
-  }
-}
 
-export default angular.module('citizenpediaApp', [uiRouter])
-  .config(routes)
-  .component('termsIndex', {
-    templateUrl: 'app/termsIndex/termsIndex.html',
-    controller: TermsIndexComponent,
-    controllerAs: 'termsIndexCtrl'
-  })
-  .name;
+
+// 'use strict';
+// const angular = require('angular');
+//
+// const uiRouter = require('angular-ui-router');
+//
+// import routes from './termsIndex.routes';
+//
+// export class TermsIndexComponent {
+//   /*@ngInject*/
+//   constructor() {
+//     this.message = 'Hello';
+//   }
+// }
+//
+// export default angular.module('citizenpediaApp', [uiRouter])
+//   .config(routes)
+//   .component('termsIndex', {
+//     templateUrl: 'app/termsIndex/termsIndex.html',
+//     controller: TermsIndexComponent,
+//     controllerAs: 'termsIndexCtrl'
+//   })
+//   .name;

@@ -1,14 +1,18 @@
 'use strict';
 
-describe('Component: TermsIndexComponent', function() {
+describe('Controller: TermsIndexComponent', function() {
   // load the controller's module
-  beforeEach(module('citizenpediaApp'));
+  beforeEach(module('paizaqaApp'));
 
-  var TermsIndexComponent;
+  var TermsIndexComponent, scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function($componentController) {
-    TermsIndexComponent = $componentController('termsIndex', {});
+  beforeEach(inject(function($componentController, $rootScope) {
+    scope = $rootScope.$new();
+    TermsIndexComponent = $componentController('TermsIndexComponent', {
+      $scope: scope,
+      query: {},
+    });
   }));
 
   it('should ...', function() {
