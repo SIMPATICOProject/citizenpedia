@@ -3,20 +3,20 @@
 angular.module('paizaqaApp')
   .controller('TermsShowComponent', function ($scope, $http, $stateParams, Auth, $location) {
     var loadTerms = function(){
-      $http.get('/api/terms/' + $stateParams.id).success(function(term) {
+      $http.get('/citizenpedia/api/terms/' + $stateParams.id).success(function(term) {
         $scope.term = term;
       });
     };
     loadTerms();
 
     // $scope.deleteTerm = function() {
-    //   $http.delete('/api/terms/' + $stateParams.id).success(function(){
+    //   $http.delete('/citizenpedia/api/terms/' + $stateParams.id).success(function(){
     //     $location.path('/');
     //   });
     // };
     //
     // $scope.updateTerm = function() {
-    //   $http.put('/api/terms/' + $stateParams.id, $scope.term).success(function(){
+    //   $http.put('/citizenpedia/api/terms/' + $stateParams.id, $scope.term).success(function(){
     //     loadTerms();
     //   });
     // };

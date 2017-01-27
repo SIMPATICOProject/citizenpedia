@@ -1,10 +1,10 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/terms              ->  index
- * POST    /api/terms              ->  create
- * GET     /api/terms/:id          ->  show
- * PUT     /api/terms/:id          ->  update
- * DELETE  /api/terms/:id          ->  destroy
+ * GET     /citizenpedia/api/terms              ->  index
+ * POST    /citizenpedia/api/terms              ->  create
+ * GET     /citizenpedia/api/terms/:id          ->  show
+ * PUT     /citizenpedia/api/terms/:id          ->  update
+ * DELETE  /citizenpedia/api/terms/:id          ->  destroy
  */
 
 'use strict';
@@ -78,7 +78,9 @@ export function index(req, res) {
 
 // Gets a single Term from the DB
 export function show(req, res) {
-  Term.findByIdAsync(req.params.id)
+  // Term.findByIdAsync(req.params.id)
+  var query = req.params.id;
+  Term.find({"title": query}).execAsync()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

@@ -16,7 +16,7 @@ class NavbarController {
       },
       {
         'title': 'Terms',
-        'link': function(){return '/terms';},
+        'link': function(){return '/citizenpedia/terms';},
         'show': function(){return true;},
       },
       {
