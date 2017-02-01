@@ -3,10 +3,10 @@
 angular.module('paizaqaApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('termsIndex', {
-        url: '/terms',
-        templateUrl: 'app/termsIndex/termsIndex.html',
-        controller: 'TermsIndexComponent',
+      .state('categoriesIndex', {
+        url: '/categories',
+        templateUrl: 'app/categoriesIndex/categoriesIndex.html',
+        controller: 'CategoriesIndexComponent',
         resolve: {
           query: function(){return {};}
         },

@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('paizaqaApp')
-  .controller('TermsShowComponent', function ($scope, $http, $stateParams, Auth, $location) {
+  .controller('CategoriesShowComponent', function ($scope, $http, $stateParams, Auth, $location) {
     var loadTerms = function(){
-      $http.get('/citizenpedia/api/terms/' + $stateParams.id).success(function(term) {
-        $scope.term = term;
+      $http.get('/citizenpedia/api/categories/' + $stateParams.id).success(function(category) {
+        $scope.category = category;
       });
     };
-    loadTerms();
+    loadCategories();
 
     // $scope.deleteTerm = function() {
     //   $http.delete('/citizenpedia/api/terms/' + $stateParams.id).success(function(){
