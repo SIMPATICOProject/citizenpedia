@@ -2,7 +2,7 @@
 
 angular.module('paizaqaApp')
   .controller('CategoriesShowComponent', function ($scope, $http, $stateParams, Auth, $location) {
-    var loadTerms = function(){
+    var loadCategories = function(){
       $http.get('/citizenpedia/api/categories/' + $stateParams.id).success(function(category) {
         $scope.category = category;
       });

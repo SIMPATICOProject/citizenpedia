@@ -11,6 +11,7 @@
 'use strict';
 
 import Category from './category.model';
+import Question from '../question/question.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -76,6 +77,16 @@ export function show(req, res) {
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+
+// Gets questions from a category
+export function getQuestions(req, res) {
+  console.log("Search by category");
+  var query = req.params.id;
+  Question.find({"category": query}).sort({createdAt: -1}).limit(20).execAsync()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 
 // Creates a new Category in the DB
 export function create(req, res) {
