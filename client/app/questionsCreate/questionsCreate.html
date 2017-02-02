@@ -17,6 +17,11 @@
     <tags-input ng-model="question.tags">
       <!-- <auto-complete source="loadTags($query)"></auto-complete> -->
     </tags-input>
+
+    <select>
+      <option ng-model="question.category" ng-repeat="option in options" value="{{option.value}}">{{option.name}}</option>
+    </select>
+
     <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="Post question">
   </form>
 </div>

@@ -11,6 +11,10 @@ var QuestionSchema = new mongoose.Schema({
       type: mongoose.Schema.ObjectId,
       ref: 'User'
     },
+    category: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Category'
+    },
     createdAt: {
       type: Date,
       default: Date.now,
@@ -72,6 +76,7 @@ QuestionSchema.pre('find', function(next){
   this.populate('comments.user', 'name');
   this.populate('answers.user', 'name');
   this.populate('answers.comments.user', 'name');
+  this.populate('category', 'name');
   next();
 });
 QuestionSchema.pre('findOne', function(next){
@@ -79,6 +84,7 @@ QuestionSchema.pre('findOne', function(next){
   this.populate('comments.user', 'name');
   this.populate('answers.user', 'name');
   this.populate('answers.comments.user', 'name');
+  this.populate('category', 'name');
   next();
 });
 
