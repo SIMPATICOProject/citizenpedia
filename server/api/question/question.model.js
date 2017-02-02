@@ -5,15 +5,15 @@ var mongoose = require('bluebird').promisifyAll(require('mongoose'));
 var QuestionSchema = new mongoose.Schema({
   title: String,
   content: String,
+  category: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Category'
+  },
   answers: [{
     content: String,
     user: {
       type: mongoose.Schema.ObjectId,
       ref: 'User'
-    },
-    category: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'Category'
     },
     createdAt: {
       type: Date,

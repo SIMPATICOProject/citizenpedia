@@ -18,7 +18,7 @@ angular.module('paizaqaApp')
 
     $http.get('/citizenpedia/api/categories', {}).success(function(categories) {
       for (var c = 0; c < categories.length; c++) {
-        newOptions.push({"name" :categories[c].name, "value": categories[c]._id});
+        newOptions.push({"name" :categories[c].name, "value": categories[c]});
       }
 
       if(categories.length < 20){
