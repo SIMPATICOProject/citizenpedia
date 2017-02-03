@@ -22,6 +22,8 @@ function respondWithResult(res, statusCode) {
 }
 
 function saveUpdates(updates) {
+  console.log("Saving");
+  console.log(updates);
   return function(entity) {
     var updated = _.merge(entity, updates);
     return updated.saveAsync()
@@ -87,7 +89,7 @@ export function show(req, res) {
 // Creates a new Question in the DB
 export function create(req, res) {
   req.body.user = req.user;
-  console.log(require('util').inspect(req.body))
+
   Question.createAsync(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
@@ -98,6 +100,7 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
+  //console.log(require('util').inspect(req.body));
   Question.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(handleUnauthorized(req, res))

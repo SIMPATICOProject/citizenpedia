@@ -31,6 +31,13 @@
 
   <pagedown-viewer content="question.content" ng-if="!editting"></pagedown-viewer>
   <pagedown-editor ng-model="question.content" ng-if=" editting"></pagedown-editor>
+
+  <span class="label label-success" value="{{question.category._id}}">{{question.category.name}}</span>
+
+  <select ng-if=" editting" ng-model="question.category">
+    <option ng-repeat="option in options" value="{{option.value}}">{{option.name}}</option>
+  </select>
+
   <button type="submit" class="btn btn-primary" ng-click="editting=false;updateQuestion()" ng-show=" editting">Save</button>
   <a ng-click="editting=!editting;" ng-show="isOwner(question) && !editting">Edit</a>
 
@@ -147,5 +154,3 @@
     <input type="submit" class="btn btn-primary" ng-disabled="answerForm.$invalid" value="Submit your answer">
   </form>
 </div>
-
-
