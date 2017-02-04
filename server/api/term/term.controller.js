@@ -86,6 +86,14 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a single Term from the DB
+export function edit(req, res) {
+    Term.findByIdAsync(req.params.id)
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Creates a new Term in the DB
 export function create(req, res) {
   req.body.user = req.user;

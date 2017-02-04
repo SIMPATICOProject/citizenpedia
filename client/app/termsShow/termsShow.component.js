@@ -3,7 +3,8 @@
 angular.module('paizaqaApp')
   .controller('TermsShowComponent', function ($scope, $http, $stateParams, Auth, $location) {
     var loadTerms = function(){
-      $http.get('/citizenpedia/api/terms/' + $stateParams.id).success(function(term) {
+      $http.get('/citizenpedia/api/terms/edit/' + $stateParams.id).success(function(term) {
+        console.log(term);
         $scope.term = term;
       });
     };

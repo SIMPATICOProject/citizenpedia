@@ -7,6 +7,7 @@
         <div ng-if="! editting">{{term.title}}</div>
         <input type=text ng-model="term.title" ng-if=" editting">
       </h1>
+      {{term.content}}
       <span ng-repeat="tag in term.tags">
         <span class="label label-info">
           {{tag.text}}
@@ -21,7 +22,5 @@
   <button type="submit" class="btn btn-primary" ng-click="editting=false;updateTerm()" ng-show=" editting">Save</button>
   <a ng-click="editting=!editting;" ng-show="isOwner(term) && !editting">Edit</a>
 
-  <div class="text-right">by <a ng-href="/users/{{term.user._id}}">{{term.user.name}}</a> - {{term.createdAt|fromNow}}</div>
-  &nbsp;
 
 </div>

@@ -11,7 +11,7 @@ class NavbarController {
     this.menu = [
       {
         'title': 'All',
-        'link': function(){return '/';},
+        'link': function(){return '/citizenpedia';},
         'show': function(){return true;},
       },
       {
@@ -20,13 +20,18 @@ class NavbarController {
         'show': function(){return true;},
       },
       {
-        'title': 'Mine',
-        'link': function(){return '/users/' + Auth.getCurrentUser()._id;},
-        'show': Auth.isLoggedIn,
+        'title': 'Categories',
+        'link': function(){return '/citizenpedia/categories';},
+        'show': function(){return true;},
       },
+      // {
+      //   'title': 'Mine',
+      //   'link': function(){return '/users/' + Auth.getCurrentUser()._id;},
+      //   'show': Auth.isLoggedIn,
+      // },
       {
         'title': 'Starred',
-        'link': function(){return '/users/' + Auth.getCurrentUser()._id + '/starred';},
+        'link': function(){return '/citizenpedia/users/' + Auth.getCurrentUser()._id + '/starred';},
         'show': Auth.isLoggedIn,
       },
     ];
