@@ -15,6 +15,7 @@ angular.module('paizaqaApp')
       });
     };
 
+    // Categories
     $scope.options = [];
     var newOptions = [];
 
@@ -29,5 +30,18 @@ angular.module('paizaqaApp')
       $scope.busy = false;
     });
     $scope.options = newOptions;
+
+
+    // Received tags
+    var tags = $location.$$search.tags;
+    var arrayTags = tags.split(',');
+
+
+    if (arrayTags) {
+      $scope['question'] = {tags : arrayTags};
+      console.log(arrayTags);
+    }else{
+      console.log('No tags');
+    }
 
   });
