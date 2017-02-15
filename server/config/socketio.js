@@ -17,6 +17,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/cpd/cpd.socket').register(socket);
   require('../api/category/category.socket').register(socket);
   require('../api/term/term.socket').register(socket);
   require('../api/qae/qae.socket').register(socket);

@@ -31,17 +31,16 @@ angular.module('paizaqaApp')
     });
     $scope.options = newOptions;
 
+    if ($location.$$search.tags) {
+      // Received tags
+      var tags = $location.$$search.tags;
+      var arrayTags = tags.split(',');
 
-    // Received tags
-    var tags = $location.$$search.tags;
-    var arrayTags = tags.split(',');
 
-
-    if (arrayTags) {
-      $scope['question'] = {tags : arrayTags};
-      console.log(arrayTags);
-    }else{
-      console.log('No tags');
+      if (arrayTags) {
+        $scope['question'] = {tags : arrayTags};
+        console.log(arrayTags);
+      }
     }
 
   });

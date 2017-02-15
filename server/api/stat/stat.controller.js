@@ -81,13 +81,21 @@ export function show(req, res) {
         .catch(handleError(res));
     }
 
-    if (req.params.id != "questions") {
-      console.log("another");
-      return Stat.findById(req.params.id).exec()
-        .then(handleEntityNotFound(res))
+    if (req.params.id == "diagrams") {
+      console.log("diagrams");
+      Question.find({$and: [{"tags.text": "Diagram"}, {"tags.text": query} ]}).count().execAsync()
         .then(respondWithResult(res))
         .catch(handleError(res));
     }
+
+    // if (req.params.id != "questions") {
+    //   console.log("another");
+    //   Question.find({$and: [{"tags.text": "Diagram"}, {"tags.text": req.params.id} ]}).count().execAsync()
+    //   // return Stat.findById(req.params.id).exec()
+    //     .then(handleEntityNotFound(res))
+    //     .then(respondWithResult(res))
+    //     .catch(handleError(res));
+    // }
 
 }
 
@@ -104,14 +112,21 @@ export function countparagraph(req, res) {
         .catch(handleError(res));
     }
 
-    // Waiting for CPD methods
-    if (req.params.id != "questions") {
-      console.log("Error. Only questions for now, please");
-      // return Stat.findById(req.params.id).exec()
-      //   .then(handleEntityNotFound(res))
-      //   .then(respondWithResult(res))
-      //   .catch(handleError(res));
+    if (req.params.id == "diagrams") {
+      console.log("diagrams");
+      Question.find({$and: [{"tags.text": "Diagram"}, {"tags.text": query1}, {"tags.text": query2} ]}).count().execAsync()
+        .then(respondWithResult(res))
+        .catch(handleError(res));
     }
+
+    // Waiting for CPD methods
+    // if (req.params.id != "questions") {
+    //   console.log("Error. Only questions for now, please");
+    //   // return Stat.findById(req.params.id).exec()
+    //   //   .then(handleEntityNotFound(res))
+    //   //   .then(respondWithResult(res))
+    //   //   .catch(handleError(res));
+    // }
 
 }
 
