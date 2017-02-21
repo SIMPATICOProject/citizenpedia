@@ -43,4 +43,8 @@ angular.module('paizaqaApp')
       }
     }
 
+    if ($location.$$search.text) {
+      var originalText = $location.$$search.text;
+      $scope['originalText'] = originalText;
+    }
   });
