@@ -1,0 +1,20 @@
+<div class="container" id="term-show-container">
+  <div>
+    <button ng-if="isOwner(term)" type="button" class="close" ng-click="deleteCategory()">&times;</button>
+
+    <div>
+      <h1>
+        <div ng-if="! editting">{{category.name}}</div>
+        <input type=text ng-model="category.name" ng-if=" editting">
+      </h1>
+    </div>
+  </div>
+  <hr/>
+
+  <button type="submit" class="btn btn-primary" ng-click="editting=false;updateCategory()" ng-show=" editting">Save</button>
+  <a ng-click="editting=!editting;" ng-show="isOwner(category) && !editting">Edit</a>
+
+  <div class="text-right">by <a ng-href="/users/{{category.user._id}}">{{category.user.name}}</a> - {{category.createdAt|fromNow}}</div>
+  &nbsp;
+
+</div>

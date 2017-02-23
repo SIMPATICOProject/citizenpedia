@@ -1,0 +1,44 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Citizenpedia</h1>
+    <p class="lead">Part of the Simpatico project</a></p>
+    <img src="assets/images/logo_simpatico.png" alt="Simpatico">
+  </div>
+</header>
+
+<div class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData'>
+  <br/>
+  <div style="text-align: center">
+    <a type="button" class="btn btn-primary" href="/citizenpedia/terms/create">New Term</a>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Term</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="term in terms">
+        <td>
+          <a ng-href="/citizenpedia/terms/show/{{term._id}}" style="font-size: large">{{term.title}}</a>
+          <div class="clearfix"></div>
+          <div style="float: right;">
+            by <a ng-href="/users/{{term.user._id}}">{{term.user.name}}</a>
+             - {{term.createdAt|fromNow}}
+          </div>
+          <div>
+            <span ng-repeat="tag in term.tags">
+              <span class="label label-info">
+                {{tag.text}}
+              </span>
+              &nbsp;
+            </span>
+          </div>
+          <div class="clearfix"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div ng-show='busy'>Loading data...</div>
+</div>
