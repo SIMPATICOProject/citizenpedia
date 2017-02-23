@@ -1,0 +1,61 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Citizenpedia</h1>
+    <p class="lead">Part of the Simpatico project</a></p>
+    <img src="assets/images/logo_simpatico.png" alt="Simpatico">
+  </div>
+</header>
+
+<div class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData'>
+  <br/>
+  <div style="text-align: center">
+    <a type="button" class="btn btn-primary" href="/citizenpedia/questions/create">Ask Question</a>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="20">Stars</th>
+        <th width="20">Answers</th>
+        <th>Question</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="question in questions">
+        <td style="text-align: center; vertical-align:middle">
+          <div style="font-size: xx-large;">{{question.stars.length}}</div>
+        </td>
+        <td style="text-align: center; vertical-align:middle">
+          <div style="font-size: xx-large;">{{question.answers.length}}</div>
+        </td>
+        <td>
+          <div style="float: right;">
+            <span ng-if=" isStar(question)" class="glyphicon glyphicon-star" style="color: #CF7C00;" ></span>
+            <span ng-if="!isStar(question)" class="glyphicon glyphicon-star-empty"></span>
+          </div>
+          <a ng-href="/citizenpedia/questions/show/{{question._id}}" style="font-size: large">{{question.title}}</a>
+          <div class="clearfix"></div>
+          <a href="/citizenpedia/categories/list/{{question.category._id}}">
+            <div class="label label-success float: right;" value="{{question.category._id}}">
+              {{question.category.name}}
+            </div>
+          </a>
+          <div style="float: right;">
+            by <a ng-href="/citizenpedia/users/{{question.user._id}}">{{question.user.name}}</a>
+             - {{question.createdAt|fromNow}}
+          </div>
+          <div>
+            <span ng-repeat="tag in question.tags">
+              <span class="label label-info">
+                {{tag.text}}
+              </span>
+              &nbsp;
+            </span>
+          </div>
+          <div class="clearfix"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div ng-show='busy'>Loading data...</div>
+</div>
