@@ -15,12 +15,18 @@ import Question from '../question/question.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
+  return function(entity) { 
+      return res.status(statusCode).json(entity); 
+  };
+
+/*
   return function(entity) {
     if(entity) {
       return res.status(statusCode).json(entity);
     }
     return null;
   };
+*/
 }
 
 function patchUpdates(patches) {
@@ -82,7 +88,7 @@ export function show(req, res) {
     }
 
     if (req.params.id == "diagrams") {
-      console.log("diagrams");
+      console.log("diagrams->"+query);
       Question.find({$and: [{"tags.text": "Diagram"}, {"tags.text": query} ]}).count().execAsync()
         .then(respondWithResult(res))
         .catch(handleError(res));
