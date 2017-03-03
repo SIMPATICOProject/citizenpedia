@@ -20,10 +20,26 @@
         <div ng-if="! editting">{{question.title}}</div>
         <input type=text ng-model="question.title" ng-if=" editting">
       </h1>
-      <span ng-repeat="tag in question.tags">
+      <!-- <span ng-repeat="tag in question.tags">
         <span class="label label-info">
           {{tag.text}}
         </span>
+      </span> -->
+      <span ng-repeat="tag in question.tags">
+
+            <a ng-if="tag.text.indexOf('Paragraph') != 0 && tag.text.indexOf('Diagram')" href="/citizenpedia/questions/list/{{tag.text}}">
+              <span ng-if="tag.text.indexOf('Paragraph') != 0 && tag.text.indexOf('Diagram')" class="label label-info">
+                {{tag.text}}
+              </span>
+            </a>
+
+            <a ng-if="tag.text.indexOf('Paragraph') == 0" href="/citizenpedia/questions/list/{{ question.tags[$index-1].text }}/{{tag.text}}">
+              <span ng-if="tag.text.indexOf('Paragraph') == 0" class="label label-info">
+                {{tag.text}}
+              </span>
+            </a>
+
+        &nbsp;
       </span>
     </div>
   </div>
