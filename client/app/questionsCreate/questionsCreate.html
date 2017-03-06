@@ -1,7 +1,7 @@
 <div class="container">
   <form name="form" ng-submit="submit()">
 
-    <div class="alert alert-info">
+    <div ng-if="originalText" class="alert alert-info">
         <h2>Post question about:</h2>
         <p>{{ originalText }}</p>
     </div>
@@ -24,9 +24,23 @@
       <!-- <auto-complete source="loadTags($query)"></auto-complete> -->
     </tags-input>
 
-    <select ng-model="question.category">
+    <!-- <select name="question_category" ng-model="question.category">
+      <option ng-show="false" value="">Select Category</option>
       <option ng-repeat="option in options" value="{{option.value}}">{{option.name}}</option>
     </select>
+    <span class="text-danger" ng-messages="form.question_category.$error">
+      <span ng-message="required">Required</span>
+    </span> -->
+
+    <select name="question_category"
+      ng-model="question.category"
+      ng-options="option.value as option.name for option in options"
+      required>
+      <option value="">Select category</option>
+    </select>
+    <span class="text-danger" ng-messages="form.question_category.$error">
+      <span ng-message="required">Required</span>
+    </span>
 
     <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="Post question">
   </form>
