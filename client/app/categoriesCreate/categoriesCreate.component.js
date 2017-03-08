@@ -8,7 +8,7 @@ angular.module('paizaqaApp')
       return;
     }
     $scope.submit = function() {
-      $http.post('/citizenpedia/api/categories', $scope.category).success(function(){
+      $http.post('/api/categories', $scope.category).success(function(){
         $location.path('/categories');
       });
     };

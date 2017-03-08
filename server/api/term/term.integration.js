@@ -8,12 +8,12 @@ import request from 'supertest';
 var newTerm;
 
 describe('Term API:', function() {
-  describe('GET /citizenpedia/api/terms', function() {
+  describe('GET /api/terms', function() {
     var terms;
 
     beforeEach(function(done) {
       request(app)
-        .get('/citizenpedia/api/terms')
+        .get('/api/terms')
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -30,10 +30,10 @@ describe('Term API:', function() {
     });
   });
 
-  describe('POST /citizenpedia/api/terms', function() {
+  describe('POST /api/terms', function() {
     beforeEach(function(done) {
       request(app)
-        .post('/citizenpedia/api/terms')
+        .post('/api/terms')
         .send({
           name: 'New Term',
           info: 'This is the brand new term!!!'
@@ -55,12 +55,12 @@ describe('Term API:', function() {
     });
   });
 
-  describe('GET /citizenpedia/api/terms/:id', function() {
+  describe('GET /api/terms/:id', function() {
     var term;
 
     beforeEach(function(done) {
       request(app)
-        .get(`/citizenpedia/api/terms/${newTerm._id}`)
+        .get(`/api/terms/${newTerm._id}`)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -82,12 +82,12 @@ describe('Term API:', function() {
     });
   });
 
-  describe('PUT /citizenpedia/api/terms/:id', function() {
+  describe('PUT /api/terms/:id', function() {
     var updatedTerm;
 
     beforeEach(function(done) {
       request(app)
-        .put(`/citizenpedia/api/terms/${newTerm._id}`)
+        .put(`/api/terms/${newTerm._id}`)
         .send({
           name: 'Updated Term',
           info: 'This is the updated term!!!'
@@ -114,7 +114,7 @@ describe('Term API:', function() {
 
     it('should respond with the updated term on a subsequent GET', function(done) {
       request(app)
-        .get(`/citizenpedia/api/terms/${newTerm._id}`)
+        .get(`/api/terms/${newTerm._id}`)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -131,12 +131,12 @@ describe('Term API:', function() {
     });
   });
 
-  describe('PATCH /citizenpedia/api/terms/:id', function() {
+  describe('PATCH /api/terms/:id', function() {
     var patchedTerm;
 
     beforeEach(function(done) {
       request(app)
-        .patch(`/citizenpedia/api/terms/${newTerm._id}`)
+        .patch(`/api/terms/${newTerm._id}`)
         .send([
           { op: 'replace', path: '/name', value: 'Patched Term' },
           { op: 'replace', path: '/info', value: 'This is the patched term!!!' }
@@ -162,10 +162,10 @@ describe('Term API:', function() {
     });
   });
 
-  describe('DELETE /citizenpedia/api/terms/:id', function() {
+  describe('DELETE /api/terms/:id', function() {
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete(`/citizenpedia/api/terms/${newTerm._id}`)
+        .delete(`/api/terms/${newTerm._id}`)
         .expect(204)
         .end(err => {
           if(err) {
@@ -177,7 +177,7 @@ describe('Term API:', function() {
 
     it('should respond with 404 when term does not exist', function(done) {
       request(app)
-        .delete(`/citizenpedia/api/terms/${newTerm._id}`)
+        .delete(`/api/terms/${newTerm._id}`)
         .expect(404)
         .end(err => {
           if(err) {

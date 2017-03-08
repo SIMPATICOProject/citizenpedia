@@ -16,12 +16,12 @@ class NavbarController {
       },
       {
         'title': 'Terms',
-        'link': function(){return '/citizenpedia/terms';},
+        'link': function(){return '/terms';},
         'show': function(){return true;},
       },
       {
         'title': 'Categories',
-        'link': function(){return '/citizenpedia/categories';},
+        'link': function(){return '/categories';},
         'show': function(){return true;},
       },
       // {
@@ -31,7 +31,7 @@ class NavbarController {
       // },
       {
         'title': 'Starred',
-        'link': function(){return '/citizenpedia/users/' + Auth.getCurrentUser()._id + '/starred';},
+        'link': function(){return '/users/' + Auth.getCurrentUser()._id + '/starred';},
         'show': Auth.isLoggedIn,
       },
     ];

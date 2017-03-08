@@ -21,7 +21,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
      * @return {Promise}
      */
     login({email, password}, callback) {
-      return $http.post('/citizenpedia/auth/local', {
+      return $http.post('/auth/local', {
         email: email,
         password: password
       })

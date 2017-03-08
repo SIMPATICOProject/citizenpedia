@@ -2,7 +2,7 @@ To run Q&A Engine:
 
 1.- Go to the public directory
 
-  cd /var/www/public/citizenpedia/
+  cd /var/www/public/
 
 2.- Run the first time script. It will last some minutes:
 

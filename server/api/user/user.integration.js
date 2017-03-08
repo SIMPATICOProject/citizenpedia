@@ -25,7 +25,7 @@ describe('User API:', function() {
     return User.removeAsync();
   });
 
-  describe('GET /citizenpedia/api/users/me', function() {
+  describe('GET /api/users/me', function() {
     var token;
 
     before(function(done) {
@@ -45,7 +45,7 @@ describe('User API:', function() {
 
     it('should respond with a user profile when authenticated', function(done) {
       request(app)
-        .get('/citizenpedia/api/users/me')
+        .get('/api/users/me')
         .set('authorization', 'Bearer ' + token)
         .expect(200)
         .expect('Content-Type', /json/)
@@ -57,7 +57,7 @@ describe('User API:', function() {
 
     it('should respond with a 401 when not authenticated', function(done) {
       request(app)
-        .get('/citizenpedia/api/users/me')
+        .get('/api/users/me')
         .expect(401)
         .end(done);
     });
