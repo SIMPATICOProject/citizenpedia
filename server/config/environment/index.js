@@ -21,6 +21,9 @@ var all = {
   // Server port
   port: process.env.PORT || 9000,
 
+  //Server basepath
+  path: process.env.PATH || '/qae/',
+
   // Server IP
   ip: process.env.IP || '0.0.0.0',
 

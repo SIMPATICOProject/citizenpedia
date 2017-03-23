@@ -11,17 +11,17 @@ class NavbarController {
     this.menu = [
       {
         'title': 'All',
-        'link': function(){return '/citizenpedia';},
+        'link': function(){return 'citizenpedia';},
         'show': function(){return true;},
       },
       {
         'title': 'Terms',
-        'link': function(){return '/terms';},
+        'link': function(){return 'terms';},
         'show': function(){return true;},
       },
       {
         'title': 'Categories',
-        'link': function(){return '/categories';},
+        'link': function(){return 'categories';},
         'show': function(){return true;},
       },
       // {
@@ -31,7 +31,7 @@ class NavbarController {
       // },
       {
         'title': 'Starred',
-        'link': function(){return '/users/' + Auth.getCurrentUser()._id + '/starred';},
+        'link': function(){return 'users/' + Auth.getCurrentUser()._id + '/starred';},
         'show': Auth.isLoggedIn,
       },
     ];

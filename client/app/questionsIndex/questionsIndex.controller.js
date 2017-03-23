@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('paizaqaApp')
-  .controller('QuestionsIndexCtrl', function ($scope, $http, $location, Auth, query) {
+  .controller('QuestionsIndexCtrl', function ($scope, $http, $location, Auth, query,appConfig) {
     var keyword = $location.search().keyword;
     if(keyword){
       query = _.merge(query, {$text: {$search: keyword}});
@@ -9,8 +9,11 @@ angular.module('paizaqaApp')
     $scope.busy = true;
     $scope.noMoreData = false;
 
-    $http.get('/api/questions', {params: {query: query}}).success(function(questions) {
+    var apiURL = appConfig.path+'/api/questions';
+
+    $http.get(apiURL, {params: {query: query}}).success(function(questions) {
       $scope.questions = questions;
+      $scope.basePath = appConfig.path;
       if($scope.questions.length < 20){
         $scope.noMoreData = true;
       }
@@ -21,7 +24,7 @@ angular.module('paizaqaApp')
       $scope.busy = true;
       var lastId = $scope.questions[$scope.questions.length-1]._id;
       var pageQuery = _.merge(query, {_id: {$lt: lastId}});
-      $http.get('/api/questions', {params: {query: pageQuery}}).success(function(questions){
+      $http.get(apiURL, {params: {query: pageQuery}}).success(function(questions){
         $scope.questions = $scope.questions.concat(questions);
         $scope.busy = false;
         if(questions.length === 0){

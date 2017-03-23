@@ -10,6 +10,7 @@ module.exports = {
   },
 
   // Seed database on startup
-  seedDB: false
+  seedDB: false,
+  port: 9000
 
 };

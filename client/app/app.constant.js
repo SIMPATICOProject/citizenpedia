@@ -3,7 +3,7 @@
 
 angular.module('paizaqaApp.constants', [])
 
-.constant('appConfig', {userRoles:['guest','user','admin']})
+.constant('appConfig', {userRoles:['guest','user','admin'],path:'/qae'})
 
 ;
 })(angular);
