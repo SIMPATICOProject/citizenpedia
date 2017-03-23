@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('paizaqaApp')
-  .controller('CategoriesIndexComponent', function ($scope, $http, $location, Auth, query) {
+  .controller('CategoriesIndexComponent', function ($scope, $http, $location, Auth, query, appConfig) {
     var keyword = $location.search().keyword;
     if(keyword){
       query = _.merge(query, {$text: {$search: keyword}});
@@ -9,7 +9,7 @@ angular.module('paizaqaApp')
     $scope.busy = true;
     $scope.noMoreData = true;
 
-    $http.get('/api/categories', {params: {query: query}}).success(function(categories) {
+    $http.get(appConfig.path + '/api/categories', {params: {query: query}}).success(function(categories) {
       $scope.categories = categories;
       if($scope.categories.length < 20){
         $scope.noMoreData = true;
@@ -21,7 +21,7 @@ angular.module('paizaqaApp')
       $scope.busy = true;
       var lastId = $scope.categories[$scope.categories.length-1]._id;
       var pageQuery = _.merge(query, {_id: {$lt: lastId}});
-      $http.get('/api/categories', {params: {query: pageQuery}}).success(function(categories){
+      $http.get(appConfig.path + '/api/categories', {params: {query: pageQuery}}).success(function(categories){
         $scope.categories = $scope.categories.concat(categories);
         $scope.busy = false;
         if(categories.length === 0){
