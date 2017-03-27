@@ -1,31 +1,51 @@
-# Questions & Answers Engine
+# Citizenpedia
 
-This is the code for the QAE of the Simpatico Project.
+The Citizenpedia is human computation framework that complements the simplification features of the H2020 Simpatico Project.
+The framework is composed of two tools, the Question & Answers Engine (QAE) and the Collaborative Procedure Designer (CPD).
 
-## Requirements
+## Questions & Answers Engine
+This section describes the installation process for the QAE. The guide assumes that a Linux/Unix system is being used. The process has been tested in a Ubuntu Server platform.
+
+### Requirements
 
 - Apache2, or any web server able to redirect traffic.
 - [Git](https://git-scm.com/)
 - [Node.js and npm](nodejs.org) Node ^4.2.3, npm ^2.14.7
 - [Ruby](https://www.ruby-lang.org) and then `gem install sass`
 - [MongoDB](https://www.mongodb.org/) - ^3.4
+
 - [Bower](bower.io) (`npm install --global bower`)
 - [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)
 
+NOTE: You shouldn't install manually sass gem, Bower and Grunt. They will be automatically installed with a provided script.
 
-(The sass gem, Bower and Grunt will be automatically installed)
+### Installation and running instructions
 
-## Pre-installing configuration
+1.- First, clone the repository in the desired location:
 
-Some files can be edited in order to properly configure the app. They can be found in the directory
+  git clone https://github.com/SIMPATICOProject/citizenpedia.git citizenpedia
+
+2.- In the target directory, run the first_run.sh script. It will install all the required dependencies needed (It can take several minutes to complete).
+
+  bash first_run.sh
+
+3.- In the same directory, run the following command to run Citizenpedia:
+
+  grunt serve
+
+  The home screen of Citizenpedia should be accessible in https://localhost:9000/qae
+
+### Configuration
+
+Previous instructions should deploy the Citizenpedia with the defaul configuration. However, some files can be edited in order to configure the app. Under directory:
 
   /server/config/environment
 
-There are four files. Two for each environment (development.js and production.js), one for shared config (shared.js) and one index.js with some standard config.
+the following files can be found: two for development/production environment (development.js and production.js), one for shared config (shared.js) and one index.js with some standard config.
 
 In the development.js file, we find some important constants:
 
-  - port: 9000 - This is the port where the app will be served.
+  - port: 9000 - port where the app will be served.
   - seedDB: false - This option, if set to true, will initialize the database with test data.
 
 In the shared.js, we find another important config:
@@ -45,7 +65,7 @@ Also, for changing the serving path, Apache2 has to be configured with a Vortual
           ProxyPass http://localhost:9000
   </Location>
 
-### Optional
+#### Optional
 
 The file
 
@@ -53,20 +73,4 @@ The file
 
 Can be renamed to local.env.js in order to have some extra config constants that will be used in the app.
 
-## Installing instructions
-
-1.- First, clone the repository in the location where you want to have it installed.
-
-  git clone https://github.com/SIMPATICOProject/citizenpedia.git citizenpedia
-
-2.- In the location where it is cloned, run the first_run.sh script. It will install all the dependencies needed.
-
-  bash first_run.sh
-
-  (It can take several minutes to complete)
-
-3.- In our directory, run the command:
-
-  grunt serve
-
-  It will be accesible via web broser
+For automation purposes, the file node-app_example can be used to configure the app as a Linux service, e.g. use "service qae start" to start the Citizenpedia.
