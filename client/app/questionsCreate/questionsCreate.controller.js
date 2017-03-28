@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('paizaqaApp')
-  .controller('QuestionsCreateCtrl', function ($scope, $http, $location, Auth) {
+  .controller('QuestionsCreateCtrl', function ($scope, $http, $location, Auth, appConfig) {
     /*
     if(! Auth.isLoggedIn()){
       $location.path('/login');
@@ -10,7 +10,7 @@ angular.module('paizaqaApp')
     }
     */
     $scope.submit = function() {
-      $http.post('/api/questions', $scope.question).success(function(){
+      $http.post(appConfig.path + '/api/questions', $scope.question).success(function(){
         $location.path('/');
       });
     };
@@ -19,7 +19,7 @@ angular.module('paizaqaApp')
     $scope.options = [];
     var newOptions = [];
 
-    $http.get('/api/categories', {}).success(function(categories) {
+    $http.get(appConfig.path + '/api/categories', {}).success(function(categories) {
       for (var c = 0; c < categories.length; c++) {
         newOptions.push({"name" : categories[c].name, "value" :categories[c]._id});
       }
@@ -30,6 +30,8 @@ angular.module('paizaqaApp')
       $scope.busy = false;
     });
 
+    console.log(newOptions);
+    
     $scope.options = newOptions;
 
     if ($location.$$search.tags) {
