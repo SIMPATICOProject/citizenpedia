@@ -1,17 +1,15 @@
 import passport from 'passport';
-import {OAuth2Strategy as AacStrategy} from 'passport-oauth2';
+import {OAuth2Strategy as GoogleStrategy} from 'passport-google-oauth';
 
 export function setup(User, config) {
-  passport.use(new AacStrategy({
-      authorizationURL: 'https://www.example.com/oauth2/authorize',
-      tokenURL: 'https://www.example.com/oauth2/token',
-      clientID: EXAMPLE_CLIENT_ID,
-      clientSecret: EXAMPLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/example/callback"
-    },
+  passport.use(new GoogleStrategy({
+    clientID: config.google.clientID,
+    clientSecret: config.google.clientSecret,
+    callbackURL: config.google.callbackURL
+  },
   function(accessToken, refreshToken, profile, done) {
     User.findOneAsync({
-      'aac.id': aac.id
+      'google.id': profile.id
     })
       .then(user => {
         if (user) {
@@ -23,7 +21,8 @@ export function setup(User, config) {
           email: profile.emails[0].value,
           role: 'user',
           username: profile.emails[0].value.split('@')[0],
-          provider: 'aac',
+          provider: 'google',
+          google: profile._json
         });
         user.save()
           .then(user => done(null, user))
