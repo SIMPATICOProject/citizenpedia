@@ -41,5 +41,4 @@ export function setup(User, config) {
   }
 
 ));
-
 }
