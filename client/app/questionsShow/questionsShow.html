@@ -20,11 +20,12 @@
         <div ng-if="! editting">{{question.title}}</div>
         <input type=text ng-model="question.title" ng-if=" editting">
       </h1>
-      <!-- <span ng-repeat="tag in question.tags">
-        <span class="label label-info">
-          {{tag.text}}
+      <span ng-repeat="tag in question.tags">
+        <span ng-if="tag.text.indexOf('Diagram') == 0">
+          Volver al CPD <br />
         </span>
-      </span> -->
+      </span>
+
       <span ng-repeat="tag in question.tags">
 
             <a ng-if="tag.text.indexOf('Paragraph') != 0 && tag.text.indexOf('Diagram')" href="/questions/list/{{tag.text}}">
