@@ -21,7 +21,7 @@
         <input type=text ng-model="question.title" ng-if=" editting">
       </h1>
       <span ng-repeat="tag in question.tags">
-        <span ng-if="tag.text.indexOf('Diagram') == 0">
+        <span class="btn btn-default" ng-if="tag.text.indexOf('Diagram') == 0"><i class="fa fa-arrow-left"></i>
           <a href="{{ cpd_path }}/{{ question.tags[$index-1].text }}/{{ question.tags[$index-2].text }}">Back to CPD</a>
           <br />
         </span>
