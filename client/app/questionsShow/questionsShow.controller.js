@@ -24,6 +24,8 @@ angular.module('paizaqaApp')
       });
       $scope.options = newOptions;
 
+      $scope.cpd_path = appConfig.cpd_path;
+
     };
     loadQuestions();
 

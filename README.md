@@ -51,6 +51,7 @@ In the development.js file, we find some important constants:
 In the shared.js, we find another important config:
 
   - path: '/qae' - This is the path where the app will be served (like http://localhost:9000/qae)
+  - cpd_path: '/cpd' - This is the path where the questions relating a CPD diagram will return
 
 In order to change this path, just edit this file and also /client/index.html to change this line:
 
@@ -64,6 +65,8 @@ Also, for changing the serving path, Apache2 has to be configured with a Vortual
   <Location /qae>
           ProxyPass http://localhost:9000
   </Location>
+
+Note: Be careful not to add an ending '/' to the ProxyPass path.
 
 #### Optional
 

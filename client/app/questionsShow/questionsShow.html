@@ -22,7 +22,8 @@
       </h1>
       <span ng-repeat="tag in question.tags">
         <span ng-if="tag.text.indexOf('Diagram') == 0">
-          Volver al CPD <br />
+          <a href="{{ cpd_path }}/{{ question.tags[$index-1].text }}/{{ question.tags[$index-2].text }}">Back to CPD</a>
+          <br />
         </span>
       </span>
 
