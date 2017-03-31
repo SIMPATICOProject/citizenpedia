@@ -20,6 +20,8 @@ router
   // }), setTokenCookie);
   .get('/callback', function(){
     console.log("Aquí vamos a pillar el token");
+     // should call /aac/basicprofile/me providing two headers: Authorization ‘Bearer obtained-access-token’ and Accept ‘application/json’
+     
   }
   , setTokenCookie);
 
