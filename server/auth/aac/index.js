@@ -14,9 +14,13 @@ router
     ],
     session: false
   }))
-  .get('/callback', passport.authenticate('aac', {
-    failureRedirect: '/signup',
-    session: false
-  }), setTokenCookie);
+  // .get('/callback', passport.authenticate('aac', {
+  //   failureRedirect: '/signup',
+  //   session: false
+  // }), setTokenCookie);
+  .get('/callback', function(){
+    console.log("Aquí vamos a pillar el token");
+  }
+  , setTokenCookie);
 
 export default router;
