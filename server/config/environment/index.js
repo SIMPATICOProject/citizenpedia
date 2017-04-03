@@ -62,11 +62,13 @@ var all = {
     callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
   },
   aac: {
+    aacRootURL:     process.env.AAC_ROOT_URL || 'aac_root_url',
     clientID:       process.env.AAC_ID || 'id',
     clientSecret:   process.env.AAC_SECRET || 'secret',
     tokenURL:       process.env.AAC_TOKEN_URL || 'token_url',
     aacURL:         process.env.AAC_URL || 'aac_url',
-    aacCallbackURL: process.env.AAC_CALLBACK_URL || 'aac_callback_url'
+    aacCallbackURL: process.env.AAC_CALLBACK_URL || 'aac_callback_url',
+    aacProxy:       process.env.AAC_PROXY || ''
   }
 };
 

@@ -46,8 +46,8 @@ export function setup(User, config) {
 AACStrategy.userProfile = function(accessToken, done){
   var options = {
           method: 'GET',
-          proxy: 'http://proxy-s-priv.deusto.es:3128/',
-          url: 'https://simpatico.morelab.deusto.es/aac/basicprofile/me',
+          proxy: config.aac.aacProxy,
+          url: config.aac.aacRootURL + '/basicprofile/me',
           headers: {
             'Authorization': 'Bearer ' + accessToken,
             'Accept' : 'application/json'

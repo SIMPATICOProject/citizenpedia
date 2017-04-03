@@ -20,9 +20,11 @@ module.exports = {
 
   AAC_ID:           'aac_id',
   AAC_SECRET:       'secret',
-  AAC_TOKEN_URL:    'https://example.com/aac/oauth/token',
-  AAC_URL:          'https://example.com/aac/eauth/authorize',
-  AAC_CALLBACK_URL: 'https://example.com/qae/auth/aac/callback/',
+  AAC_ROOT_URL:     'https://example.com/aac',
+  AAC_TOKEN_URL:    AAC_ROOT_URL + '/oauth/token',
+  AAC_URL:          AAC_ROOT_URL + '/eauth/authorize',
+  AAC_CALLBACK_URL: DOMAIN + '/auth/aac/callback/',
+  AAC_PROXY:        '',
 
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''
