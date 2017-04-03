@@ -76,12 +76,13 @@ The file
 
 Has to be renamed to local.env.js in order to have some extra config constants that will be used in the app. There, the following constants must be declared for the integration with AAC:
 
-AAC_ID         
+AAC_ID
 AAC_SECRET
+AAC_ROOT_URL
 AAC_TOKEN_URL
-AAC_URL    
+AAC_URL
 AAC_CALLBACK_URL
-
+AAC_PROXY (Just in case you need a proxy)
 
 #### Optional
 
