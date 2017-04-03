@@ -14,7 +14,6 @@ export function setup(User, config) {
         callbackURL: config.aac.aacCallbackURL
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log("Login AAC");
     var profileParsed = JSON.parse(profile);
 
     User.findOneAsync({
