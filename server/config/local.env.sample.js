@@ -12,11 +12,17 @@ module.exports = {
   FACEBOOK_ID:      'app-id',
   FACEBOOK_SECRET:  'secret',
 
-  TWITTER_ID:       '3294651',
-  TWITTER_SECRET:   'FTOYpBIIYq85cim7vtgB7RIIWp5zacYfqeOFGFT4qEDhHBeKRD',
+  TWITTER_ID:       'twitter_id',
+  TWITTER_SECRET:   'twitter_secret',
 
   GOOGLE_ID:        'app-id',
   GOOGLE_SECRET:    'secret',
+
+  AAC_ID:           'aac_id',
+  AAC_SECRET:       'secret',
+  AAC_TOKEN_URL:    'https://example.com/aac/oauth/token',
+  AAC_URL:          'https://example.com/aac/eauth/authorize',
+  AAC_CALLBACK_URL: 'https://example.com/qae/auth/aac/callback/',
 
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''

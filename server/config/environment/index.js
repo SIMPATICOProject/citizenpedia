@@ -60,6 +60,13 @@ var all = {
     clientID:     process.env.GOOGLE_ID || 'id',
     clientSecret: process.env.GOOGLE_SECRET || 'secret',
     callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
+  },
+  aac: {
+    clientID:       process.env.AAC_ID || 'id',
+    clientSecret:   process.env.AAC_SECRET || 'secret',
+    tokenURL:       process.env.AAC_TOKEN_URL || 'token_url',
+    aacURL:         process.env.AAC_URL || 'aac_url',
+    aacCallbackURL: process.env.AAC_CALLBACK_URL || 'aac_callback_url'
   }
 };
 

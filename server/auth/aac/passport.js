@@ -1,24 +1,24 @@
 import passport from 'passport';
 import OAuthStrategy from 'passport-oauth2';
 
+// AAC needed
+var request = require('request');
+
 export function setup(User, config) {
-  passport.use('aac', new OAuthStrategy({
-        authorizationURL: 'https://simpatico.morelab.deusto.es/aac/eauth/authorize',
-        tokenURL: 'https://simpatico.morelab.deusto.es/aac/oauth/token',
-        clientID: '8e7f4a58-0514-464f-8a09-183d2a51b3b9',
-        clientSecret: 'b7c19b9e-f2ba-4b59-83fc-746516c84701',
-        callbackURL: 'https://simpatico.morelab.deusto.es/qae/auth/aac/callback/'
+  //passport.use('aac', new OAuthStrategy({
+  var AACStrategy = new OAuthStrategy({
+        authorizationURL: config.aac.aacURL,
+        tokenURL: config.aac.tokenURL,
+        clientID: config.aac.clientID,
+        clientSecret: config.aac.clientSecret,
+        callbackURL: config.aac.aacCallbackURL
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log("AAC");
-    console.log(profile);
-    console.log(profile.id);
-    console.log(accessToken);
-    console.log(refreshToken);
-    console.log(done);
+    console.log("Login AAC");
+    var profileParsed = JSON.parse(profile);
 
     User.findOneAsync({
-      'aac.id': profile.id
+      'aac.id': profileParsed.userId
     })
       .then(user => {
         if (user) {
@@ -26,10 +26,10 @@ export function setup(User, config) {
         }
 
         user = new User({
-          name: profile.displayName,
-          email: profile.emails[0].value,
+          name: profileParsed.name + profileParsed.surname,
+          //email: profile.emails[0].value,
           role: 'user',
-          username: profile.emails[0].value.split('@')[0],
+          //username: profile.emails[0].value.split('@')[0],
           provider: 'aac',
           aac: profile._json
         });
@@ -40,5 +40,31 @@ export function setup(User, config) {
       .catch(err => done(err));
   }
 
-));
-}
+);
+
+// Overriding passport UserProfile to get data from AAC
+AACStrategy.userProfile = function(accessToken, done){
+  var options = {
+          method: 'GET',
+          proxy: 'http://proxy-s-priv.deusto.es:3128/',
+          url: 'https://simpatico.morelab.deusto.es/aac/basicprofile/me',
+          headers: {
+            'Authorization': 'Bearer ' + accessToken,
+            'Accept' : 'application/json'
+          }
+        };//options
+
+  function callback(error, response, body) {
+    return done(null, body);
+  }
+
+  request(options, callback);
+
+
+    
+
+}//UserProfile
+
+passport.use('aac',AACStrategy);
+
+}//setup

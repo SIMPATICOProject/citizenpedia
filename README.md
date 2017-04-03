@@ -68,12 +68,21 @@ Also, for changing the serving path, Apache2 has to be configured with a Vortual
 
 Note: Be careful not to add an ending '/' to the ProxyPass path.
 
-#### Optional
+### AAC Integration
 
 The file
 
 /config/local.env.sample.js
 
-Can be renamed to local.env.js in order to have some extra config constants that will be used in the app.
+Has to be renamed to local.env.js in order to have some extra config constants that will be used in the app. There, the following constants must be declared for the integration with AAC:
+
+AAC_ID         
+AAC_SECRET
+AAC_TOKEN_URL
+AAC_URL    
+AAC_CALLBACK_URL
+
+
+#### Optional
 
 For automation purposes, the file node-app_example can be used to configure the app as a Linux service, e.g. use "service qae start" to start the Citizenpedia.
