@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('paizaqaApp')
-  .controller('DiagramsListComponent', function ($scope, $http, $stateParams, Auth, $location) {
+  .controller('DiagramsListComponent', function ($scope, $http, $stateParams, Auth, $location, appConfig) {
     var listDiagrams = function(){
-      $http.get('/api/cpd/diagrams/' + $stateParams.id ).success(function(questions) {
+      $http.get(appConfig.path + '/api/cpd/diagrams/' + $stateParams.id ).success(function(questions) {
         $scope.questions = questions;
       });
     };

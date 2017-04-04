@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('paizaqaApp')
-  .controller('CategoriesShowComponent', function ($scope, $http, $stateParams, Auth, $location) {
+  .controller('CategoriesShowComponent', function ($scope, $http, $stateParams, Auth, $location, appConfig) {
     var loadCategories = function(){
-      $http.get('/api/categories/' + $stateParams.id).success(function(category) {
+      $http.get(appConfig.path +'/api/categories/' + $stateParams.id).success(function(category) {
         $scope.category = category;
       });
     };
