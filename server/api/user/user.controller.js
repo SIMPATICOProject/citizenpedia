@@ -12,6 +12,16 @@ function validationError(res, statusCode) {
   }
 }
 
+function respondWithResult(res, statusCode) {
+  statusCode = statusCode || 200;
+  return function(entity) {
+    if(entity) {
+      res.redirect(config.path +'/usersadmin');
+    }
+    return null;
+  };
+}
+
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
@@ -120,4 +130,20 @@ export function me(req, res, next) {
  */
 export function authCallback(req, res, next) {
   res.redirect('/');
+}
+
+/**
+ * Modify role
+ */
+export function updateRole(req, res, next) {
+  // db.users.update({"_id" : ObjectId("58e4b8c142984807893801a3")},{$set:{"role":"admin"}})
+  console.log("Update role");
+  console.log(req.params.id);
+  console.log(req.params.newrole);
+  console.log(config.path);
+
+  User.update({"_id": req.params.id},{$set:{"role":req.params.newrole}})
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+  //res.redirect(config.path +'/usersadmin');
 }

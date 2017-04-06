@@ -34,6 +34,11 @@ class NavbarController {
         'link': function(){return 'users/' + Auth.getCurrentUser()._id + '/starred';},
         'show': Auth.isLoggedIn,
       },
+      {
+        'title': 'Users Admin',
+        'link': function(){return 'usersadmin';},
+        'show': Auth.isAdmin,
+      },
     ];
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
