@@ -17,7 +17,7 @@ export function setup(User, config) {
     var profileParsed = JSON.parse(profile);
 
     User.findOneAsync({
-      'aac.id': profileParsed.userId
+      'aac.userId': profileParsed.userId
     })
       .then(user => {
         if (user) {
@@ -30,7 +30,7 @@ export function setup(User, config) {
           role: 'user',
           //username: profile.emails[0].value.split('@')[0],
           provider: 'aac',
-          aac: profile._json
+          aac: profileParsed
         });
         user.save()
           .then(user => done(null, user))
