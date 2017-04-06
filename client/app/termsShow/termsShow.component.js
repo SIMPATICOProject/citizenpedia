@@ -10,18 +10,6 @@ angular.module('paizaqaApp')
     };
     loadTerms();
 
-    // $scope.deleteTerm = function() {
-    //   $http.delete(appConfig.path + '/api/terms/' + $stateParams.id).success(function(){
-    //     $location.path('/');
-    //   });
-    // };
-    //
-    // $scope.updateTerm = function() {
-    //   $http.put(appConfig.path + '/api/terms/' + $stateParams.id, $scope.term).success(function(){
-    //     loadTerms();
-    //   });
-    // };
-
     $scope.isOwner = function(obj){
       return Auth.isLoggedIn() && obj && obj.user && obj.user._id === Auth.getCurrentUser()._id;
     };

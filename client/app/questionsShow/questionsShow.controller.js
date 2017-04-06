@@ -3,8 +3,6 @@
 angular.module('paizaqaApp')
   .controller('QuestionsShowCtrl', function ($scope,appConfig, $http, $stateParams, Auth, $location) {
     var loadQuestions = function(){
-      
-
       $http.get(appConfig.path+'/api/questions/' + $stateParams.id).success(function(question) {
         $scope.question = question;
       });

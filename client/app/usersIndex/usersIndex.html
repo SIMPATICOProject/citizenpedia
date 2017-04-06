@@ -1,0 +1,42 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Citizenpedia</h1>
+    <p class="lead">Part of the Simpatico project</a></p>
+    <img src="assets/images/logo_simpatico.png" alt="Simpatico">
+  </div>
+</header>
+
+<div ng-if="isAdmin" class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData'>
+  <br/>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Users</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users">
+        <td>
+          <a ng-href="users/updaterole/{{user._id}}" style="font-size: large">{{user.name}}</a>
+          <div class="clearfix"></div>
+          <div style="float: right;">
+            <!--<a type="button updaterole" ng-click="updaterole(user)" class="btn btn-primary" href="users/updaterole/{{user._id}}">Change Role</a>-->
+            <select ng-model="user.role">
+                <option ng-repeat="role in roles" value="{{role}}">{{role}}</option>
+            </select>
+            <button type="button"  ng-click="updaterole(user.role, user._id)">Change Role</button>
+          </div>
+          <div>
+          </div>
+          <div class="clearfix"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div ng-show='busy'>Loading data...</div>
+</div>
+
+<div ng-if="!isAdmin" class="container alert alert-danger">
+    {{ noAdminMessage }}
+</div>
