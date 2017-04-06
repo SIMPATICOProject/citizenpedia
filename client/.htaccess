@@ -16,9 +16,9 @@
 # http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
 # http://enable-cors.org/
 
-# <IfModule mod_headers.c>
-#    Header set Access-Control-Allow-Origin "*"
-# </IfModule>
+ <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+ </IfModule>
 
 # ------------------------------------------------------------------------------
 # | CORS-enabled images                                                        |
@@ -541,3 +541,7 @@ FileETag None
 # <IfModule mod_headers.c>
 #    Header set Connection Keep-Alive
 # </IfModule>
+
+<IfModule mod_headers.c>
+	Header set Access-Control-Allow-Origin “*”
+</IfModule>
