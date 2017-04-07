@@ -26,9 +26,7 @@ export function setup(User, config) {
 
         user = new User({
           name: profileParsed.name + ' ' +profileParsed.surname,
-          //email: profile.emails[0].value,
           role: 'user',
-          //username: profile.emails[0].value.split('@')[0],
           provider: 'aac',
           aac: profileParsed
         });
