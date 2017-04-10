@@ -1,6 +1,7 @@
 <div class="container" id="question-show-container">
   <div>
-    <button ng-if="isOwner(question)" type="button" class="close" ng-click="deleteQuestion()">&times;</button>
+    <!--<button ng-if="isOwner(question)" type="button" class="close" ng-click="deleteQuestion()">&times;</button>-->
+    <button ng-if="isAdmin() || isOwner(question)" type="button" class="close" ng-click="deleteQuestion()">&times;</button>
 
     <div style="float: left;font-size: x-large; padding: 0; width: 2em; text-align: center;">
       <button ng-if=" isStar(question)" type="button" style="background: transparent; border: 0;" ng-click="unstar('')">

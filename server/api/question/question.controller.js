@@ -34,6 +34,7 @@ function saveUpdates(updates) {
 }
 
 function removeEntity(res) {
+
   return function(entity) {
     if (entity) {
       return entity.removeAsync()
@@ -61,8 +62,14 @@ function handleError(res, statusCode) {
   };
 }
 function handleUnauthorized(req, res) {
+  console.log("handleUnauthorized");
   return function(entity) {
     if (!entity) {return null;}
+    
+    if(req.user.role === 'admin'){
+      return entity;
+    }
+
     if(entity.user._id.toString() !== req.user._id.toString()){
       res.send(403).end();
       return null;

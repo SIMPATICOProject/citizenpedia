@@ -58,6 +58,9 @@ angular.module('paizaqaApp')
       return Auth.isLoggedIn() && obj && obj.user && obj.user._id === Auth.getCurrentUser()._id;
     };
 
+    $scope.isAdmin = function(obj){
+      return Auth.isAdmin();
+    }
 
     $scope.newComment = {};
     $scope.submitComment = function() {
