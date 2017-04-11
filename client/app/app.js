@@ -15,10 +15,19 @@ angular.module('paizaqaApp', [
   'ngTagsInput',
   'ngMessages',
   'infinite-scroll',
+  'pascalprecht.translate'
 ])
-  .config(function($urlRouterProvider, $locationProvider) {
+  .config(function($urlRouterProvider, $locationProvider, $translateProvider) {
     $urlRouterProvider
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
+
+     $translateProvider.useStaticFilesLoader({
+        prefix: 'languages/',
+        suffix: '.json'
+      });
+
+     $translateProvider.preferredLanguage('en');
+
   });

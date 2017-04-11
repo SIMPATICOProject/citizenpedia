@@ -1,18 +1,18 @@
 <div class="container">
   <form name="form" ng-submit="submit()">
-    <h2>Title:</h2>
+    <h2>{{ 'TITLE' | translate }}:</h2>
     <input type="text" class="form-control" ng-model="term.title" name="term_title" required>
     <span class="text-danger" ng-messages="form.term_title.$error">
-      <span ng-message="required">Required</span>
+      <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
-    <span class="text-success" ng-show="form.term_title.$valid">OK</span>
+    <span class="text-success" ng-show="form.term_title.$valid">{{ 'OK' | translate }}</span>
     <br>
-    <h2>Term:</h2>
+    <h2>{{ 'TERM' | translate }}:</h2>
     <pagedown-editor ng-model="term.content" name="term_content" required></pagedown-editor>
     <span class="text-danger" ng-messages="form.term_content.$error">
-      <span ng-message="required">Required</span>
+      <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
-    <span class="text-success" ng-show="form.term_content.$valid">OK</span>
+    <span class="text-success" ng-show="form.term_content.$valid">{{ 'OK' | translate }}</span>
     <h2>Tags:</h2>
     <tags-input ng-model="term.tags">
       <!-- <auto-complete source="loadTags($query)"></auto-complete> -->

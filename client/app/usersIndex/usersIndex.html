@@ -1,7 +1,7 @@
 <header class="hero-unit" id="banner">
   <div class="container">
-    <h1>Citizenpedia</h1>
-    <p class="lead">Part of the Simpatico project</a></p>
+    <h1>{{ 'TOP_NAME' | translate }}</h1>
+    <p class="lead">{{ 'HEADLINE' | translate }}</a></p>
     <img src="assets/images/logo_simpatico.png" alt="Simpatico">
   </div>
 </header>
@@ -12,7 +12,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Users</th>
+        <th>{{ 'USERS' | translate }}</th>
       </tr>
     </thead>
     <tbody>
@@ -34,7 +34,7 @@
       </tr>
     </tbody>
   </table>
-  <div ng-show='busy'>Loading data...</div>
+  <div ng-show='busy'>{{ 'LOADING' | translate }}</div>
 </div>
 
 <div ng-if="!isAdmin" class="container alert alert-danger">

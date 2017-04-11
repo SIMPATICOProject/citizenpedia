@@ -11,10 +11,10 @@
   </div>
   <hr/>
 
-  <button type="submit" class="btn btn-primary" ng-click="editting=false;updateCategory()" ng-show=" editting">Save</button>
-  <a ng-click="editting=!editting;" ng-show="isOwner(category) && !editting">Edit</a>
+  <button type="submit" class="btn btn-primary" ng-click="editting=false;updateCategory()" ng-show=" editting">{{ 'SAVE' | translate }}</button>
+  <a ng-click="editting=!editting;" ng-show="isOwner(category) && !editting">{{ 'EDIT' | translate }}</a>
 
-  <div class="text-right">by <a ng-href="/users/{{category.user._id}}">{{category.user.name}}</a> - {{category.createdAt|fromNow}}</div>
+  <div class="text-right">{{ 'BY' | translate }} <a ng-href="users/{{category.user._id}}">{{category.user.name}}</a> - {{category.createdAt|fromNow}}</div>
   &nbsp;
 
 </div>

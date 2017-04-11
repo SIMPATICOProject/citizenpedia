@@ -2,23 +2,23 @@
   <form name="form" ng-submit="submit()">
 
     <div ng-if="originalText" class="alert alert-info">
-        <h2>Post question about:</h2>
+        <h2>{{ 'POST_ABOUT' | translate }}</h2>
         <p>{{ originalText }}</p>
     </div>
 
-    <h2>Title:</h2>
+    <h2>{{ 'TITLE' | translate }}:</h2>
     <input type="text" class="form-control" ng-model="question.title" name="question_title" required>
     <span class="text-danger" ng-messages="form.question_title.$error">
-      <span ng-message="required">Required</span>
+      <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
     <span class="text-success" ng-show="form.question_title.$valid">OK</span>
     <br>
-    <h2>Question:</h2>
+    <h2>{{ 'QUESTION' | translate }}:</h2>
     <pagedown-editor ng-model="question.content" name="question_content" required></pagedown-editor>
     <span class="text-danger" ng-messages="form.question_content.$error">
-      <span ng-message="required">Required</span>
+      <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
-    <span class="text-success" ng-show="form.question_content.$valid">OK</span>
+    <span class="text-success" ng-show="form.question_content.$valid">{{ 'OK' | translate }}</span>
     <h2>Tags:</h2>
     <tags-input ng-model="question.tags">
       <!-- <auto-complete source="loadTags($query)"></auto-complete> -->
@@ -36,10 +36,10 @@
       ng-model="question.category"
       ng-options="option.value as option.name for option in options"
       required>
-      <option value="">Select category</option>
+      <option value="">{{ 'SELECT_CATEGORY' | translate }}</option>
     </select>
     <span class="text-danger" ng-messages="form.question_category.$error">
-      <span ng-message="required">Required</span>
+      <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
 
     <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="Post question">
