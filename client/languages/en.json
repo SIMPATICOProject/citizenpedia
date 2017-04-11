@@ -20,11 +20,13 @@
     "ADD_COMMENT": "Add a comment",
     "YOUR_ANSWER": "Your answer",
     "TERM": "Term",
+    "TERMS": "Terms",
     "NEW_TERM": "New Term",
     "USERS": "Users",
-    "CHANGE_ROLE": "Change role"
-
-
+    "CHANGE_ROLE": "Change role",
+    "TOGGLE_NAVIGATION": "Toggle navigation",
+    "SIGN_UP": "Sign up",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "ALL": "Alle"
 }
-
-{{ 'ASK_QUESTION' | translate }}
