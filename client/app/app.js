@@ -17,7 +17,7 @@ angular.module('paizaqaApp', [
   'infinite-scroll',
   'pascalprecht.translate'
 ])
-  .config(function($urlRouterProvider, $locationProvider, $translateProvider) {
+  .config(function($urlRouterProvider, $locationProvider, $translateProvider, appConfig) {
     $urlRouterProvider
       .otherwise('/');
 
@@ -28,6 +28,6 @@ angular.module('paizaqaApp', [
         suffix: '.json'
       });
 
-     $translateProvider.preferredLanguage('en');
+     $translateProvider.preferredLanguage(appConfig.language);
 
   });
