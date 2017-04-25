@@ -28,5 +28,6 @@
     "SIGN_UP": "Sign up",
     "LOGIN": "Login",
     "LOGOUT": "Logout",
-    "ALL": "Alle"
+    "ALL": "Alle",
+    "SEARCH": "Search"
 }

@@ -1,13 +1,14 @@
 'use strict';
 
+//var translation = require('../../languages/'+appConfig.language+'.json');
 class NavbarController {
   //start-non-standard
-
 
   isCollapsed = true;
   //end-non-standard
 
-  constructor(Auth, $state) {
+  constructor(Auth, $state, appConfig) {
+    
     this.menu = [
       {
         'title': 'All',

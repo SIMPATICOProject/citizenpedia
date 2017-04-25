@@ -42,7 +42,7 @@
           </div>
           </a>
           <div style="float: right;">
-            by <a ng-href="users/{{question.user._id}}">{{question.user.name}}</a>
+            {{ 'BY' | translate }} <a ng-href="users/{{question.user._id}}">{{question.user.name}}</a>
              - {{question.createdAt|fromNow}}
           </div>
           <div>

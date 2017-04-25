@@ -1,5 +1,6 @@
 'use strict';
 
+
 angular.module('paizaqaApp', [
   'paizaqaApp.auth',
   'paizaqaApp.admin',
@@ -15,7 +16,8 @@ angular.module('paizaqaApp', [
   'ngTagsInput',
   'ngMessages',
   'infinite-scroll',
-  'pascalprecht.translate'
+  'pascalprecht.translate',
+  
 ])
   .config(function($urlRouterProvider, $locationProvider, $translateProvider, appConfig) {
     $urlRouterProvider
@@ -23,11 +25,11 @@ angular.module('paizaqaApp', [
 
     $locationProvider.html5Mode(true);
 
-     $translateProvider.useStaticFilesLoader({
-        prefix: 'languages/',
-        suffix: '.json'
-      });
+    $translateProvider.useStaticFilesLoader({
+      prefix: 'languages/',
+      suffix: '.json' 
+    });
 
-     $translateProvider.preferredLanguage(appConfig.language);
+    $translateProvider.preferredLanguage(appConfig.language);
 
   });
