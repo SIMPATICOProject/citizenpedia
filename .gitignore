@@ -12,3 +12,4 @@ coverage
 .config
 app.pid
 app.log
+*/._expandrive
