@@ -14,6 +14,7 @@
     "EDIT": "Edit",
     "BY": "by",
     "POST_ABOUT": "Post question about:",
+    "POST_QUESTION": "Post question",
     "TITLE": "Title",
     "SELECT_CATEGORY": "Select category",
     "BACK_TO_CPD": "Back to CPD",
@@ -34,5 +35,6 @@
     "HELLO" : "Hello",
     "PART_OF" : "Part of",
     "SUBMIT_ANSWER" : "Submit your answer",
-    "LOGIN_IN" : "Loggin in..."
+    "LOGIN_IN" : "Loggin in...",
+    "ADD_A_TAG" : "Add a tag"
 }

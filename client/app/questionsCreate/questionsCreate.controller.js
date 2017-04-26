@@ -3,11 +3,11 @@
 angular.module('paizaqaApp')
   .controller('QuestionsCreateCtrl', function ($scope, $http, $location, Auth, appConfig) {
     
-    if(! Auth.isLoggedIn()){
-      $location.path('/login');
-      $location.replace();
-      return;
-    }
+    // if(! Auth.isLoggedIn()){
+    //   $location.path('/login');
+    //   $location.replace();
+    //   return;
+    // }
     
     $scope.submit = function() {
       $http.post(appConfig.path + '/api/questions', $scope.question).success(function(){
