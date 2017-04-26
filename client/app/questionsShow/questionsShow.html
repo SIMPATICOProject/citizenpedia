@@ -169,6 +169,6 @@
   <h3>{{ 'YOUR_ANSWER' | translate }}</h3>
   <form name="answerForm" ng-submit="submitAnswer()">
     <pagedown-editor ng-model="newAnswer.content" name="answerEditor" required></pagedown-editor>
-    <input type="submit" class="btn btn-primary" ng-disabled="answerForm.$invalid" value="Submit your answer">
+    <input type="submit" class="btn btn-primary" ng-disabled="answerForm.$invalid" value="{{ 'SUBMIT_ANSWER' | translate }}">
   </form>
 </div>

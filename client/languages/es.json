@@ -30,5 +30,8 @@
     "LOGOUT": "Salir",
     "ALL": "Todos",
     "SEARCH": "Buscar",
-    "CATEGORIES": "Categorias"
+    "CATEGORIES": "Categorias",
+    "HELLO" : "Hola",
+    "PART_OF" : "Parte de",
+    "SUBMIT_ANSWER" : "Envía tu respuesta"
 }

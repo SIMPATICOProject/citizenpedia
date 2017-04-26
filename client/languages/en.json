@@ -29,5 +29,9 @@
     "LOGIN": "Login",
     "LOGOUT": "Logout",
     "ALL": "Alle",
-    "SEARCH": "Search"
+    "SEARCH": "Search",
+    "CATEGORIES": "Categories",
+    "HELLO" : "Hello",
+    "PART_OF" : "Part of",
+    "SUBMIT_ANSWER" : "Submit your answer"
 }

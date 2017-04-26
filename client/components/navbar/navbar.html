@@ -11,9 +11,6 @@
     </div>
     <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <!--<li ng-repeat="item in nav.menu" ng-class="{active: isActive(item.link())}" ng-show="item.show()">
-            <a ng-href="{{item.link()}}">{{item.title}}</a>
-        </li>-->
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="/">{{ 'ALL' | translate }}</a></li>
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="terms">{{ 'TERMS' | translate }}</a></li>
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="categories">{{ 'CATEGORIES' | translate }}</a></li>
@@ -33,7 +30,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">{{ 'SIGN_UP' | translate }}</a></li>
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">{{ 'LOGIN' | translate }}</a></li>
-        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
+        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">{{ 'HELLO' | translate }} {{ nav.getCurrentUser().name }}</p> </li>
         <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
         <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">{{ 'LOGOUT' | translate }}</a></li>
       </ul>
