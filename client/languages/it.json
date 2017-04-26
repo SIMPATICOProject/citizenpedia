@@ -29,5 +29,7 @@
     "LOGIN": "Login",
     "LOGOUT": "Logout",
     "ALL": "Tutti",
-    "SEARCH": "Ricerca"
+    "SEARCH": "Ricerca",
+    "CATEGORIES": "Categorie"
+
 }
