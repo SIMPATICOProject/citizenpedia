@@ -1,4 +1,7 @@
 'use strict';
+
+// I leave this code here just in case
+// ===================================
 // class LoginController {
 //   constructor(Auth, $state) {
 //     this.user = {};

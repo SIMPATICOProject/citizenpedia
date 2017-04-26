@@ -33,5 +33,6 @@
     "CATEGORIES": "Categorias",
     "HELLO" : "Hola",
     "PART_OF" : "Parte de",
-    "SUBMIT_ANSWER" : "Envía tu respuesta"
+    "SUBMIT_ANSWER" : "Envía tu respuesta",
+    "LOGIN_IN" : "Entrando..."
 }
