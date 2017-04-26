@@ -37,12 +37,16 @@ NOTE: You shouldn't install manually sass gem, Bower and Grunt. They will be aut
 
 ### Configuration
 
-Previous instructions should deploy the Citizenpedia with the defaul configuration. However, some files can be edited in order to configure the app. Under directory:
+The instructions of the previous section guide to deploy the Citizenpedia with the defaul configuration. However, some files can be edited in order to configure the app. Under directory:
 
   /server/config/environment
 
-the following files can be found: two for development/production environment (development.js and production.js), one for shared config (shared.js) and one index.js with some standard config.
+the following files can be found: 
 
+  - development.js and production.js, in order to configure the development and production environment respectively
+  - shared.js, to configure the variables that affect both development and production environments
+  - index.js, that contains the variables for the default configuration of Citizenpedia 
+  
 In the development.js file, we find some important constants:
 
   - port: 9000 - port where the app will be served.
@@ -67,6 +71,15 @@ Also, for changing the serving path, Apache2 has to be configured with a Vortual
   </Location>
 
 Note: Be careful not to add an ending '/' to the ProxyPass path.
+
+### i18n
+
+The Citizenpedia is i18n-enabled, i.e., none of the displayed labes are hardcoded and the language of the deployment can be easily changed. To that end, two steps must be followed:
+
+  - Add in the client/languages folder a json file that contains the translation to the desired language. File "en.json" (for English) can be used as an example.
+  - Adding the "language: 'XX'" variable to any of the configuration files described above (e.g. shared.js in order to configure both development and production environments) 
+
+Make sure that the name of the json file within client/languages folder and the name of the variable match for the new language to work, e.g., in order to add Spanish language, create "es.json" under client/languages and add "language: 'es'" in the configuration file. 
 
 ### AAC Integration
 
