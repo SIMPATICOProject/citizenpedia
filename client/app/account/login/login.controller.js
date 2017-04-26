@@ -1,32 +1,41 @@
 'use strict';
-class LoginController {
-  constructor(Auth, $state) {
-    this.user = {};
-    this.errors = {};
-    this.submitted = false;
 
-    this.Auth = Auth;
-    this.$state = $state;
-  }
+// I leave this code here just in case
+// ===================================
+// class LoginController {
+//   constructor(Auth, $state) {
+//     this.user = {};
+//     this.errors = {};
+//     this.submitted = false;
 
-  login(form) {
-    this.submitted = true;
+//     this.Auth = Auth;
+//     this.$state = $state;
+//   }
 
-    if (form.$valid) {
-      this.Auth.login({
-        email: this.user.email,
-        password: this.user.password
-      })
-      .then(() => {
-        // Logged in, redirect to home
-        this.$state.go('main');
-      })
-      .catch(err => {
-        this.errors.other = err.message;
-      });
-    }
-  }
-}
+//   login(form) {
+//     this.submitted = true;
+
+//     if (form.$valid) {
+//       this.Auth.login({
+//         email: this.user.email,
+//         password: this.user.password
+//       })
+//       .then(() => {
+//         // Logged in, redirect to home
+//         this.$state.go('main');
+//       })
+//       .catch(err => {
+//         this.errors.other = err.message;
+//       });
+//     }
+//   }
+// }
+
 
 angular.module('paizaqaApp')
-  .controller('LoginController', LoginController);
+  .controller('LoginController', function($window) {
+      $window.location.href = 'auth/aac';
+  });
+
+// angular.module('paizaqaApp')
+//   .controller('LoginController', LoginController);

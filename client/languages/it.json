@@ -30,6 +30,7 @@
     "LOGOUT": "Logout",
     "ALL": "Tutti",
     "SEARCH": "Ricerca",
-    "CATEGORIES": "Categorie"
+    "CATEGORIES": "Categorie",
+    "LOGIN_IN" : "Loggin in..."
 
 }
