@@ -27,12 +27,14 @@
     "CHANGE_ROLE": "Cambia ruolo",
     "TOGGLE_NAVIGATION": "Attiva/Disattiva navigazione",
     "SIGN_UP": "Registrati",
-    "LOGIN": "Login",
-    "LOGOUT": "Logout",
+    "LOGIN": "Entra",
+    "LOGOUT": "Esci",
     "ALL": "Tutti",
     "SEARCH": "Ricerca",
     "CATEGORIES": "Categorie",
-    "LOGIN_IN" : "Loggin in...",
+    "HELLO" : "Ciao",
+    "PART_OF" : "Parte del",
+    "SUBMIT_ANSWER" : "Invia la risposta",
+    "LOGIN_IN" : "Sta entrando...",
     "ADD_A_TAG" : "Add a tag"
-
 }
