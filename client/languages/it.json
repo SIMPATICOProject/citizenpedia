@@ -34,6 +34,7 @@
     "HELLO" : "Ciao",
     "PART_OF" : "Parte del",
     "SUBMIT_ANSWER" : "Invia la risposta",
-    "LOGIN_IN" : "Sta entrando..."
+    "LOGIN_IN" : "Sta entrando...",
+    "POST_QUESTION" : "Inserisci domanda"
 
 }
