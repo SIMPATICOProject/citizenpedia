@@ -14,6 +14,7 @@
     "EDIT": "Modifica",
     "BY": "di",
     "POST_ABOUT": "Inserisci una domanda:",
+    "POST_QUESTION": "Inserisci domanda",
     "TITLE": "Titolo",
     "SELECT_CATEGORY": "Scegli categoria",
     "BACK_TO_CPD": "Torna al CPD",
@@ -35,6 +36,6 @@
     "PART_OF" : "Parte del",
     "SUBMIT_ANSWER" : "Invia la risposta",
     "LOGIN_IN" : "Sta entrando...",
-    "POST_QUESTION" : "Inserisci domanda"
-
+    "POST_QUESTION" : "Inserisci domanda",
+    "ADD_A_TAG" : "Aggiungi i tag"
 }

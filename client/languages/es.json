@@ -14,6 +14,7 @@
     "EDIT": "Editar",
     "BY": "por",
     "POST_ABOUT": "Hacer pregunta sobre:",
+    "POST_QUESTION": "Hacer pregunta",
     "TITLE": "Título",
     "SELECT_CATEGORY": "Selecciona categoría",
     "BACK_TO_CPD": "Volver al diagrama",
@@ -35,5 +36,6 @@
     "PART_OF" : "Parte de",
     "SUBMIT_ANSWER" : "Envía tu respuesta",
     "LOGIN_IN" : "Entrando...",
-    "POST_QUESTION" : "Enviar pregunta"
+    "POST_QUESTION" : "Enviar pregunta",
+    "ADD_A_TAG" : "Añadir tag"
 }
