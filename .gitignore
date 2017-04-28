@@ -13,3 +13,4 @@ coverage
 app.pid
 app.log
 */._expandrive
+.vscode
