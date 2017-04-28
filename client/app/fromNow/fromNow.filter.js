@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('paizaqaApp')
-  .filter('fromNow', function () {
+  .filter('fromNow', function (appConfig) {
     return function (input) {
-      return moment(input).locale(window.navigator.language).fromNow();
+      return moment(input).locale(appConfig.language).fromNow();
     };
   });
