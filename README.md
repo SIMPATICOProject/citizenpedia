@@ -6,7 +6,7 @@ The framework is composed of two tools, the Question & Answers Engine (QAE) and 
 ## Questions & Answers Engine
 This section describes the installation process for the QAE. The guide assumes that a Linux/Unix system is being used. The process has been tested in a Ubuntu Server platform.
 
-The Citizenpedia Q&A engine is based on [paizaQA] (https://github.com/gi-no/paizaqa).
+The Citizenpedia Q&A engine is based on [paizaQA](https://github.com/gi-no/paizaqa).
 
 ### Requirements
 
