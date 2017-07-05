@@ -1,7 +1,9 @@
 <!--<div ng-include src="'components/header/header.html'"></div>-->
 
 <header class="jumbotron vertical-center" style="text-align: center" id="banner">
-  <img src="assets/images/svg/{{categoryID}}.png" alt="{{ categoryName }}"><h1>{{ categoryName }}</h1>
+  <div class="header">
+    <h1> <img src="assets/images/svg/{{categoryID}}.png" alt="{{ categoryName }}" style="vertical-align: sub;">{{ categoryName }}</h1>    
+  </div>
 </header>
 
 <div class="container">
