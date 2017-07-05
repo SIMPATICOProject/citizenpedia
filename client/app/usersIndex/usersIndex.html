@@ -37,6 +37,6 @@
   <div ng-show='busy'>{{ 'LOADING' | translate }}</div>
 </div>
 
-<div ng-if="!isAdmin" class="container alert alert-danger">
+<div ng-show="!isAdmin" class="container alert alert-danger">
     {{ noAdminMessage }}
 </div>

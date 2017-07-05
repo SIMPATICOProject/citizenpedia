@@ -5,7 +5,7 @@ angular.module('paizaqaApp')
     $stateProvider
       .state('categoriesList', {
         url: '/categories/list/:id',
-        templateUrl: 'app/questionsIndex/questionsIndex.html',
+        templateUrl: 'app/categoriesList/categoriesList.html',
         controller: 'CategoriesListComponent'
       });
   });

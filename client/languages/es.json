@@ -1,7 +1,9 @@
 {
     "TOP_NAME": "Citizenpedia",
-    "HEADLINE": "Parte del Proyecto SIMPATICO",
-    "ASK_QUESTION": "Hacer pregunta",
+    "HEADLINE": "El lugar donde hacer preguntas y contestar a los que las tengan.",
+    "HEADLINE_1" : "O buscar entre las existentes",
+    "HEADLINE_2" : "O explorar las consultas hechas por los demás",
+    "ASK_QUESTION": "Preguntar algo",
     "STARS" : "Estrellas",
     "ANSWERS": "Respuestas",
     "QUESTION": "Pregunta",
@@ -37,5 +39,10 @@
     "SUBMIT_ANSWER" : "Envía tu respuesta",
     "LOGIN_IN" : "Entrando...",
     "POST_QUESTION" : "Enviar pregunta",
-    "ADD_A_TAG" : "Añadir tag"
+    "ADD_A_TAG" : "Añadir tag",
+    "USERS_ADMIN" : "Administración de usuarios",
+    "TAGS" : "Tags",
+    "TAGS_ADMIN" : "Administración de tags",
+    "NEW_TAG" : "Nuevo tag",
+    "IE_WARNING" : "Desafortunadamente, Citizenpedia no es compatible con esta versión de Internet Explorer. Haga click aquí para descargar un navegador moderno."
 }

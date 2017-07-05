@@ -27,6 +27,15 @@
         </span>
       </span>
 
+      <!--REMOVE AFTER REVIEW-->
+      <span ng-repeat="tag in question.tags">
+        <span class="btn btn-default" ng-if="tag.text.indexOf('BS607A') == 0">
+          <a href="https://simpatico.morelab.deusto.es/replica_servicio_benestar/BS607A_index.html?goto={{ question.tags[1].text }},{{ question.tags[2].text }}#tabs-2">Go to related e-Service</a>
+          <br />
+        </span>
+      </span>
+      <!--REMOVE AFTER REVIEW-->
+
       <span ng-repeat="tag in question.tags">
 
             <a ng-if="tag.text.indexOf('Paragraph') != 0 && tag.text.indexOf('Diagram')" href="questions/list/{{tag.text}}">

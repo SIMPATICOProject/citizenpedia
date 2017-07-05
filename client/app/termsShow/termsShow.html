@@ -6,5 +6,6 @@
   </div>
   <hr/>
   <pagedown-viewer content="term.content" ng-if="!editting"></pagedown-viewer>
-  <pagedown-editor ng-model="term.content" ng-if=" editting"></pagedown-editor> <button type="submit" class="btn btn-primary" ng-click="editting=false;updateTerm()" ng-show=" editting">{{ 'SAVE' | translate }}</button> <a ng-click="editting=!editting;" ng-show="isOwner(term) && !editting">{{ 'EDIT' | translate }}</a>
+  <pagedown-editor ng-model="term.content" ng-if=" editting"></pagedown-editor> <button type="submit" class="btn btn-primary" ng-click="editting=false;updateTerm()" ng-show=" editting">{{ 'SAVE' | translate }}</button> 
+  <a ng-click="editting=!editting;" ng-show="isAdmin() || isOwner(term) && !editting">{{ 'EDIT' | translate }}</a>
   <div class="text-right">{{ 'BY' | translate }} <a ng-href="/users/{{term.user._id}}">{{term.user.name}}</a> - {{term.createdAt|fromNow}}</div> &nbsp; </div>

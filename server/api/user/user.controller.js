@@ -137,10 +137,6 @@ export function authCallback(req, res, next) {
  */
 export function updateRole(req, res, next) {
   // db.users.update({"_id" : ObjectId("58e4b8c142984807893801a3")},{$set:{"role":"admin"}})
-  console.log("Update role");
-  console.log(req.params.id);
-  console.log(req.params.newrole);
-  console.log(config.path);
 
   User.update({"_id": req.params.id},{$set:{"role":req.params.newrole}})
     .then(respondWithResult(res))

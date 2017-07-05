@@ -37,5 +37,10 @@
     "SUBMIT_ANSWER" : "Invia la risposta",
     "LOGIN_IN" : "Sta entrando...",
     "POST_QUESTION" : "Inserisci domanda",
-    "ADD_A_TAG" : "Aggiungi i tag"
+    "ADD_A_TAG" : "Aggiungi i tag",
+    "USERS_ADMIN" : "Users admin",
+    "TAGS" : "Tags",
+    "TAGS_ADMIN" : "Tags admin",
+    "NEW_TAG" : "Nuovo tag",
+    "IE_WARNING" : "Unfortunately, Citizenpedia is not fully compatible with the version of Internet Explorer that you are using. Click here to download a modern browser"
 }

@@ -17,7 +17,7 @@
     "POST_QUESTION": "Post question",
     "TITLE": "Title",
     "SELECT_CATEGORY": "Select category",
-    "BACK_TO_CPD": "Back to CPD",
+    "BACK_TO_CPD": "Go to CPD",
     "ADD_COMMENT": "Add a comment",
     "YOUR_ANSWER": "Your answer",
     "TERM": "Term",
@@ -29,7 +29,7 @@
     "SIGN_UP": "Sign up",
     "LOGIN": "Login",
     "LOGOUT": "Logout",
-    "ALL": "Alle",
+    "ALL": "All",
     "SEARCH": "Search",
     "CATEGORIES": "Categories",
     "HELLO" : "Hello",
@@ -37,5 +37,10 @@
     "SUBMIT_ANSWER" : "Submit your answer",
     "LOGIN_IN" : "Loggin in...",
     "POST_QUESTION" : "Post question",
-    "ADD_A_TAG" : "Add a tag"
+    "ADD_A_TAG" : "Add a tag",
+    "USERS_ADMIN" : "Users admin",
+    "TAGS" : "Tags",
+    "TAGS_ADMIN" : "Tag Admin",
+    "NEW_TAG" : "New tag",
+    "IE_WARNING" : "Unfortunately, Citizenpedia is not fully compatible with the version of Internet Explorer that you are using. Click here to download a modern browser."
 }

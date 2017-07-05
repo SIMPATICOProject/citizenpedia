@@ -24,8 +24,9 @@
           <a ng-href="terms/show/{{term._id}}" style="font-size: large">{{term.title}}</a>
           <div class="clearfix"></div>
           <div style="float: right;">
-            {{ 'BY' | translate }} <a ng-href="/users/{{term.user._id}}">{{term.user.name}}</a>
-             - {{term.createdAt|fromNow}}
+            <!--{{ 'BY' | translate }} <a ng-href="/users/{{term.user._id}}">{{term.user.name}}</a>
+             - {{term.createdAt|fromNow}}-->
+            {{term.content | split:'.':0}}.
           </div>
           <div>
             <span ng-repeat="tag in term.tags">

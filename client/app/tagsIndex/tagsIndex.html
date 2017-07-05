@@ -1,0 +1,46 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>{{ 'TOP_NAME' | translate }}</h1>
+    <p class="lead">{{ 'HEADLINE' | translate }}</a></p>
+    <img src="assets/images/logo_simpatico.png" alt="Simpatico">
+  </div>
+</header>
+
+<div ng-show="isAdmin" class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData'>
+  <br/>
+  <div style="text-align: center">
+    <a type="button" class="btn btn-primary" href="tags/create">{{ 'NEW_TAG' | translate }}</a>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>{{ 'TAGS' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="tag in tags">
+        <td>
+          <a ng-if="! editting" ng-href="tags/updatetag/{{tag._id}}" style="font-size: large">{{tag.name}}</a>
+          <i class="fa fa-check" aria-hidden="true" ng-if=" editting" ng-click="editting=false;updateTag(tag._id, tag.name)"></i>
+          <input type=text ng-model="tag.name" ng-if=" editting">
+
+        
+
+          <div class="clearfix"></div>
+          <div style="float: right;">
+            <i ng-click="editting=!editting;" class="fa fa-pencil" aria-hidden="true"></i> <i class="fa fa-trash-o" aria-hidden="true"></i>
+
+          </div>
+          <div>
+          </div>
+          <div class="clearfix"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div ng-show='busy'>{{ 'LOADING' | translate }}</div>
+</div>
+
+<div ng-show="!isAdmin" class="container alert alert-danger">
+    {{ noAdminMessage }}
+</div>

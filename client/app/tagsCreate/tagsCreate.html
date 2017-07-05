@@ -1,0 +1,12 @@
+<div class="container">
+  <form name="form" ng-submit="submit()">
+    <h2>{{ 'TAGS' | translate }}:</h2>
+    <input type="text" class="form-control" ng-model="tag.name" name="tag_name" required>
+    <span class="text-danger" ng-messages="form.term_title.$error">
+      <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
+    </span>
+    <span class="text-success" ng-show="form.term_title.$valid">{{ 'OK' | translate }}</span>
+    <br>
+    <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="Post term">
+  </form>
+</div>

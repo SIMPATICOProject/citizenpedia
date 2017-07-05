@@ -1,13 +1,19 @@
-<!--<div ng-include src="'components/header/header.html'"></div>-->
-
-<header class="jumbotron vertical-center" style="text-align: center" id="banner">
-  <img src="assets/images/svg/{{categoryID}}.png" alt="{{ categoryName }}"><h1>{{ categoryName }}</h1>
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>{{ 'TOP_NAME' | translate }}</h1>
+    <p class="lead">{{ 'HEADLINE' | translate }}</a></p>
+    <img src="assets/images/logo_simpatico.png" alt="Simpatico">
+  </div>
 </header>
 
-<div class="container">
-  <br/>
 
-  <table class="table">
+<div class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData'>
+  <br/>
+  <div style="text-align: center">
+    <a type="button" class="btn btn-primary" href="questions/create">{{ 'ASK_QUESTION' | translate }}</a>
+  </div>
+
+  <table class="table table-striped">
     <thead>
       <tr>
         <th width="20">{{ 'STARS' | translate }}</th>
@@ -31,9 +37,9 @@
           <a ng-href="questions/show/{{question._id}}" style="font-size: large">{{question.title}}</a>
           <div class="clearfix"></div>
           <a href="categories/list/{{question.category._id}}">
-            <div class="label label-success float: right;" value="{{question.category._id}}">
-              {{question.category.name}}
-            </div>
+          <div class="label label-success float: right;" value="{{question.category._id}}">
+            {{question.category.name}}
+          </div>
           </a>
           <div style="float: right;">
             {{ 'BY' | translate }} <a ng-href="users/{{question.user._id}}">{{question.user.name}}</a>
@@ -44,14 +50,13 @@
 
                   <a ng-if="tag.text.indexOf('Paragraph') != 0 && tag.text.indexOf('Diagram')" href="questions/list/{{tag.text}}">
                     <span ng-if="tag.text.indexOf('Paragraph') != 0 && tag.text.indexOf('Diagram')" class="label label-info">
-                      <!--{{tag.text}}-->
-                      {{ tag.text | limitTo: 20 }}{{tag.text.length > 20 ? '...' : ''}}
+                      {{tag.text}}
                     </span>
                   </a>
 
                   <a ng-if="tag.text.indexOf('Paragraph') == 0" href="questions/list/{{ question.tags[$index-1].text }}/{{tag.text}}">
                     <span ng-if="tag.text.indexOf('Paragraph') == 0" class="label label-info">
-                      {{ tag.text | limitTo: 10 }}{{tag.text.length > 10 ? '...' : ''}}
+                      {{tag.text}}
                     </span>
                   </a>
 
@@ -64,4 +69,4 @@
     </tbody>
   </table>
   <div ng-show='busy'>{{ 'LOADING' | translate }}</div>
-</div><!-- container-->
+</div>
