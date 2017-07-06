@@ -35,4 +35,12 @@ angular.module('paizaqaApp')
     $scope.isStar = function(obj){
       return Auth.isLoggedIn() && obj && obj.stars && obj.stars.indexOf(Auth.getCurrentUser()._id)!==-1;
     };
+
+    // Get search placeholder
+    $http.get('languages/es.json').success(function(data) {
+      $scope.searchPlaceholder = data.SEARCH;
+    });
+
+
+    
   });

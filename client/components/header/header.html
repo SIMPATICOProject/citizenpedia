@@ -14,7 +14,7 @@
     <div class="col-lg-4 col-sm-4 col-sm-offset-4 col-lg-offset-4 text-center input-group">
       <form class="navbar-form" role="search" ng-submit="nav.search(keyword)">
           <span class="input-group-btn">
-          <input type="text" class="form-control input-lg" placeholder="buscar" ng-model="keyword">
+          <input type="text" class="form-control input-lg" placeholder="{{ searchPlaceholder }}" ng-model="keyword">
             <button type="submit" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span></button>
           </span>
       </form>
