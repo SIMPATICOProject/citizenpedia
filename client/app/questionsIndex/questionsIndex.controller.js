@@ -37,7 +37,7 @@ angular.module('paizaqaApp')
     };
 
     // Get search placeholder
-    $http.get('languages/es.json').success(function(data) {
+    $http.get('languages/'+appConfig.language+'.json').success(function(data) {
       $scope.searchPlaceholder = data.SEARCH;
     });
 

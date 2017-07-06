@@ -1,0 +1,69 @@
+  <div ng-show="!questions.length">
+      {{"NO_QUESTIONS" | translate}}
+
+    <form class="navbar-form" role="search" ng-submit="nav.search(keyword)">
+          <span class="input-group-btn">
+          <input type="text" class="form-control input-lg" placeholder="{{ searchPlaceholder }}" ng-model="keyword">
+            <button type="submit" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span></button>
+          </span>
+    </form>
+
+  </div>
+  
+  <table ng-show="questions.length" class="table">
+    <thead>
+      <tr>
+        <th width="20">{{ 'STARS' | translate }}</th>
+        <th width="20">{{ 'ANSWERS' | translate }}</th>
+        <th>{{ 'QUESTION' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="question in questions">
+        <td style="text-align: center; vertical-align:middle">
+          <div style="font-size: medium;">{{question.stars.length}}</div>
+        </td>
+        <td style="text-align: center; vertical-align:middle">
+          <div style="font-size: medium;">{{question.answers.length}}</div>
+        </td>
+        <td>
+          <div style="float: right;">
+            <span ng-if=" isStar(question)" class="glyphicon glyphicon-star" style="color: #CF7C00;" ></span>
+            <span ng-if="!isStar(question)" class="glyphicon glyphicon-star-empty"></span>
+          </div>
+          <a ng-href="questions/show/{{question._id}}" style="font-size: xx-large">{{question.title}}</a>
+          <div class="clearfix"></div>
+          <a href="categories/list/{{question.category._id}}">
+            <div class="label label-success float: right;" style="font-size: medium" value="{{question.category._id}}">
+              {{question.category.name}}
+            </div>
+            <br /> 
+          </a>
+          <div style="float: right;">
+            {{ 'BY' | translate }} <a ng-href="users/{{question.user._id}}">{{question.user.name}}</a>
+             - {{question.createdAt|fromNow}}
+          </div>
+          <div style="margin-top: 4px;">
+            <span ng-repeat="tag in question.tags">
+
+                  <a ng-if="tag.text.indexOf('Paragraph') != 0 && tag.text.indexOf('Diagram')" href="questions/list/{{tag.text}}">
+                    <span ng-if="tag.text.indexOf('Paragraph') != 0 && tag.text.indexOf('Diagram')" class="label label-info">
+                      <!--{{tag.text}}-->
+                      {{ tag.text | limitTo: 20 }}{{tag.text.length > 20 ? '...' : ''}}
+                    </span>
+                  </a>
+
+                  <a ng-if="tag.text.indexOf('Paragraph') == 0" href="questions/list/{{ question.tags[$index-1].text }}/{{tag.text}}">
+                    <span ng-if="tag.text.indexOf('Paragraph') == 0" class="label label-info">
+                      {{ tag.text | limitTo: 10 }}{{tag.text.length > 10 ? '...' : ''}}
+                    </span>
+                  </a>
+
+              &nbsp;
+            </span>
+          </div>
+          <div class="clearfix"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
