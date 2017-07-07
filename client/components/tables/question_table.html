@@ -1,5 +1,5 @@
-  <div ng-show="!questions.length">
-      {{"NO_QUESTIONS" | translate}}
+  <div ng-show="categoryName=='NONE'" class="container" style="text-align: center" ng-show="!questions.length">
+      <h1>{{"NO_QUESTIONS" | translate}}</h1>
 
     <form class="navbar-form" role="search" ng-submit="nav.search(keyword)">
           <span class="input-group-btn">
@@ -7,6 +7,8 @@
             <button type="submit" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span></button>
           </span>
     </form>
+
+    <h2>{{"NO_QUESTIONS_2" | translate}}</h2>
 
   </div>
   

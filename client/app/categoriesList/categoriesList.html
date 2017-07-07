@@ -2,7 +2,8 @@
 
 <header class="jumbotron vertical-center" style="text-align: center" id="banner">
   <div class="header">
-    <h1> <img src="assets/images/svg/{{categoryID}}.png" alt="{{ categoryName }}" style="vertical-align: sub;">{{ categoryName }}</h1>    
+    <h1 ng-show="categoryName!='NONE'"> <img src="assets/images/svg/{{categoryID}}.png" alt="{{ categoryName }}" style="vertical-align: sub;">{{ categoryName }}</h1>    
+    <h1 ng-show="categoryName=='NONE'"><i class="fa fa-frown-o" aria-hidden="true"></i></h1>
   </div>
 </header>
 
