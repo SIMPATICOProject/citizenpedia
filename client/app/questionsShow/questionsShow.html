@@ -52,14 +52,15 @@
 
         &nbsp;
       </span>
+      <br />
+      <span class="label label-success" value="{{question.category._id}}">{{question.category.name}}</span>
     </div>
   </div>
   <hr/>
 
-  <pagedown-viewer content="question.content" ng-if="!editting"></pagedown-viewer>
-  <pagedown-editor ng-model="question.content" ng-if=" editting"></pagedown-editor>
 
-  <span class="label label-success" value="{{question.category._id}}">{{question.category.name}}</span>
+  <pagedown-viewer style="font-size: x-large;" content="question.content" ng-if="!editting"></pagedown-viewer>
+  <pagedown-editor ng-model="question.content" ng-if=" editting"></pagedown-editor>
 
   <select ng-if=" editting" ng-model="question.category">
     <option ng-repeat="option in options" value="{{option.value}}">{{option.name}}</option>
@@ -87,8 +88,8 @@
       </div>
 
 
-      <pagedown-viewer content="comment.content" ng-if="!editting"></pagedown-viewer>
-      <pagedown-editor ng-model="comment.content" ng-if=" editting"></pagedown-editor>
+      <pagedown-viewer placeholder="Write here" content="comment.content" ng-if="!editting"></pagedown-viewer>
+      <pagedown-editor placeholder="Write here" ng-model="comment.content" ng-if=" editting"></pagedown-editor>
       <button type="submit" class="btn btn-primary" ng-click="editting=false;updateComment(comment)" ng-show=" editting">{{ 'SAVE' | translate }}</button>
       <a ng-click="editting=!editting;" ng-show="isAdmin() || isOwner(comment) && !editting">{{ 'EDIT' | translate }}</a>
 
@@ -126,8 +127,8 @@
 
     <div class="answer">
       <button ng-if="isAdmin() || isOwner(answer)" type="button" class="close" ng-click="deleteAnswer(answer)">&times;</button>
-      <pagedown-viewer content="answer.content" ng-if="!editting"></pagedown-viewer>
-      <pagedown-editor ng-model="answer.content" ng-if=" editting"></pagedown-editor>
+      <pagedown-viewer placeholder="Write here" content="answer.content" ng-if="!editting"></pagedown-viewer>
+      <pagedown-editor placeholder="Write here" ng-model="answer.content" ng-if=" editting"></pagedown-editor>
       <button type="submit" class="btn btn-primary" ng-click="editting=false;updateAnswer(answer)" ng-show=" editting">{{ 'SAVE' | translate }}</button>
       <a ng-click="editting=!editting;" ng-show="isAdmin() || isOwner(answer) && !editting">{{ 'EDIT' | translate }}</a>
     </div>
@@ -155,8 +156,8 @@
         </div>
 
 
-        <pagedown-viewer content="comment.content" ng-if="!editting"></pagedown-viewer>
-        <pagedown-editor ng-model="comment.content" ng-if=" editting"></pagedown-editor>
+        <pagedown-viewer placeholder="Write here" content="comment.content" ng-if="!editting"></pagedown-viewer>
+        <pagedown-editor placeholder="Write here" ng-model="comment.content" ng-if=" editting"></pagedown-editor>
         <button type="submit" class="btn btn-primary" ng-click="editting=false;updateAnswerComment(answer, comment)" ng-show=" editting">Save</button>
         <a ng-click="editting=!editting;" ng-show="isAdmin() || isOwner(comment) && !editting">{{ 'EDIT' | translate }}</a>
 
@@ -177,7 +178,7 @@
   <hr/>
   <h3>{{ 'YOUR_ANSWER' | translate }}</h3>
   <form name="answerForm" ng-submit="submitAnswer()">
-    <pagedown-editor ng-model="newAnswer.content" name="answerEditor" required></pagedown-editor>
+    <pagedown-editor placeholder="{{ 'YOUR_ANSWER' | translate }}" ng-model="newAnswer.content" name="answerEditor" required></pagedown-editor>
     <input type="submit" class="btn btn-primary" ng-disabled="answerForm.$invalid" value="{{ 'SUBMIT_ANSWER' | translate }}">
   </form>
 </div>

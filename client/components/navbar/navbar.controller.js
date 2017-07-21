@@ -6,7 +6,7 @@ class NavbarController {
   isCollapsed = true;
   //end-non-standard
 
-  constructor(Auth, $state, appConfig) {
+  constructor(Auth, $state, appConfig, $location) {
     
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
@@ -30,6 +30,8 @@ class NavbarController {
           // other browser
           return false;
       };
+
+    this.currentPath = function () {return $location.path()};
 
     this.search = function(keyword) {
       $state.go('main', {keyword: keyword}, {reload: true});

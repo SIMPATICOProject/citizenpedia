@@ -1,6 +1,5 @@
 <p ng-show="nav.detectIE()" class="alert alert-danger"><a href="http://browsehappy.com">{{ 'IE_WARNING' | translate }}</a></p>
-
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
+<div class="navbar navbar-default navbar-fixed-top" ng-controller="NavbarController">
   <div class="container">
     <div class="navbar-header">
             <a href=" "><img src="assets/images/logo_simpatico_small.png" alt="Simpatico Project" height="50px"></a>
@@ -28,7 +27,7 @@
         <li ng-show="nav.isAdmin()" ui-sref-active="active"><a href="usersadmin">{{ 'USERS_ADMIN' | translate }}</a></li>
 
 
-        <form class="navbar-form navbar-left" role="search" ng-submit="nav.search(keyword)">
+        <form ng-show="nav.currentPath() != '/'" class="navbar-form navbar-left" role="search" ng-submit="nav.search(keyword)">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="{{ SEARCH | translate }}" ng-model="keyword">
             <span class="input-group-btn">
