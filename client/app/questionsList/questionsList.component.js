@@ -5,6 +5,7 @@ angular.module('paizaqaApp')
     var listQuestions = function(){
       $http.get(appConfig.path + '/api/qae/questions/' + $stateParams.id ).success(function(questions) {
         $scope.questions = questions;
+        $scope.tagName = $stateParams.id;
       });
     };
     listQuestions();

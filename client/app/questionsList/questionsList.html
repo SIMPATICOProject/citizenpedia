@@ -1,1 +1,15 @@
-<div>This is the questionsList view.</div>
+<!--<div ng-include src="'components/header/header.html'"></div>-->
+
+<header class="jumbotron vertical-center" style="text-align: center" id="banner">
+  <div class="header">
+    <h1> <img src="assets/images/svg/tag.png" alt="{{ categoryName }}" style="vertical-align: sub;">{{ tagName }}</h1>    
+  </div>
+</header>
+
+<div class="container">
+  <br/>
+
+  <div ng-include src="'components/tables/question_table.html'"></div>
+
+  <div ng-show='busy'>{{ 'LOADING' | translate }}</div>
+</div><!-- container-->

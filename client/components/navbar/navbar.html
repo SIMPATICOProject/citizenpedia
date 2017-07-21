@@ -1,40 +1,46 @@
 <p ng-show="nav.detectIE()" class="alert alert-danger"><a href="http://browsehappy.com">{{ 'IE_WARNING' | translate }}</a></p>
-
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
+<div class="navbar navbar-default navbar-fixed-top" ng-controller="NavbarController">
   <div class="container">
     <div class="navbar-header">
+            <a href=" "><img src="assets/images/logo_simpatico_small.png" alt="Simpatico Project" height="50px"></a>
       <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
         <span class="sr-only">{{ 'TOGGLE_NAVIGATION' | translate }}</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href=" "><img src="assets/images/logo_simpatico_small.png" alt="Simpatico Project" height="50px"></a>
     </div>
     <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
+        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">{{ 'HELLO' | translate }} {{ nav.getCurrentUser().name }}</p> </li>
         <li ui-sref-active="active"><a href=" ">{{ 'ALL' | translate }}</a></li>
         <li ui-sref-active="active"><a href="terms">{{ 'TERMS' | translate }}</a></li>
         <li ui-sref-active="active"><a href="categories">{{ 'CATEGORIES' | translate }}</a></li>
+        <!--<li ng-show="nav.isLoggedIn()"><a ui-sref="logout">{{ 'LOGOUT' | translate }}</a></li>-->
+        <li ng-show="nav.isLoggedIn()"><a ui-sref="logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+        <!--<li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a href="login">{{ 'SIGN_UP' | translate }}/{{ 'LOGIN' | translate }}</a></li>-->
+        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a href="login"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a href="tags">{{ 'TAGS_ADMIN' | translate }}</a></li>
+        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a href="usersadmin">{{ 'USERS_ADMIN' | translate }}</a></li>
+
+
+        <form ng-show="nav.currentPath() != '/'" class="navbar-form navbar-left" role="search" ng-submit="nav.search(keyword)">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="{{ SEARCH | translate }}" ng-model="keyword">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search">
+                </span>
+              </button>
+            </span>
+          </div>
+        </form>
 
       </ul>
-      <form class="navbar-form navbar-left" role="search" ng-submit="nav.search(keyword)">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="{{ SEARCH | translate }}" ng-model="keyword">
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
-              <span class="glyphicon glyphicon-search">
-              </span>
-            </button>
-          </span>
-        </div>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <!--<li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">{{ 'SIGN_UP' | translate }}</a></li>-->
-        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a href="login">{{ 'SIGN_UP' | translate }}/{{ 'LOGIN' | translate }}</a></li>
-        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">{{ 'HELLO' | translate }} {{ nav.getCurrentUser().name }}</p> </li>
-        <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">{{ 'LOGOUT' | translate }}</a></li>
-      </ul>
+
     </div>
   </div>
 </div>

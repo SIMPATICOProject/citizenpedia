@@ -21,16 +21,8 @@
     <span class="text-success" ng-show="form.question_content.$valid">{{ 'OK' | translate }}</span>
     <h2>Tags:</h2>
     <tags-input ng-model="question.tags" placeholder="{{ 'ADD_A_TAG' | translate }}">
-      <!-- <auto-complete source="loadTags($query)"></auto-complete> -->
+       <auto-complete source="loadTags($query)"></auto-complete> 
     </tags-input>
-
-    <!-- <select name="question_category" ng-model="question.category">
-      <option ng-show="false" value="">Select Category</option>
-      <option ng-repeat="option in options" value="{{option.value}}">{{option.name}}</option>
-    </select>
-    <span class="text-danger" ng-messages="form.question_category.$error">
-      <span ng-message="required">Required</span>
-    </span> -->
 
     <select name="question_category"
       ng-model="question.category"
@@ -42,7 +34,8 @@
       <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
 
+
     <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="{{ 'POST_QUESTION' | translate}}">
-    <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="{{ 'SELECT_CATEGORY' | translate }}">
+    <!--<input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="{{ 'SELECT_CATEGORY' | translate }}">-->
   </form>
 </div>

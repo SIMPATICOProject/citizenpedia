@@ -1,7 +1,11 @@
 {
     "TOP_NAME": "Citizenpedia",
-    "HEADLINE": "Parte del Progetto Simpatico",
+    "HEADLINE": "The place to solve your doubts about Public Administration",
+    "HEADLINE_1" : "Search among the existing conversations",
+    "HEADLINE_2" : "Here you can explore by category",
     "ASK_QUESTION": "Inserisci domanda",
+    "NO_QUESTIONS": "No questions for this",
+    "NO_QUESTIONS_2": "Or check the last questions:",
     "STARS" : "Stelle",
     "ANSWERS": "Risposte",
     "QUESTION": "Domanda",
@@ -36,7 +40,10 @@
     "PART_OF" : "Parte del",
     "SUBMIT_ANSWER" : "Invia la risposta",
     "LOGIN_IN" : "Sta entrando...",
-    "POST_QUESTION" : "Inserisci domanda",
     "ADD_A_TAG" : "Aggiungi i tag",
-    "IE_WARNING" : "Unfortunately, Citizenpedia is not fully compatible with the version of Internet Explorer that you are using. Click here to download a modern browser."
+    "IE_WARNING" : "Unfortunately, Citizenpedia is not fully compatible with the version of Internet Explorer that you are using. Click here to download a modern browser.",
+    "USERS_ADMIN" : "Users admin",
+    "TAGS" : "Tags",
+    "TAGS_ADMIN" : "Tags admin",
+    "NEW_TAG" : "Nuovo tag"
 }

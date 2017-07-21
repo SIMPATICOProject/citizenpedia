@@ -29,4 +29,7 @@ angular.module('paizaqaApp')
         }
       });
     };
+    $scope.isAdmin = function(obj){
+      return Auth.isAdmin();
+    }
   });

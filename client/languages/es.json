@@ -1,7 +1,11 @@
 {
     "TOP_NAME": "Citizenpedia",
-    "HEADLINE": "Parte del Proyecto SIMPATICO",
-    "ASK_QUESTION": "Hacer pregunta",
+    "HEADLINE": "El lugar para resolver tus dudas sobre la administración pública",
+    "HEADLINE_1" : "Busca entre los temas ya existentes",
+    "HEADLINE_2" : "Explora cuestiones y respuestas por categoría",
+    "ASK_QUESTION": "Preguntar algo",
+    "NO_QUESTIONS": "No hay preguntas para esta",
+    "NO_QUESTIONS_2": "O mira las últimas preguntas:",
     "STARS" : "Estrellas",
     "ANSWERS": "Respuestas",
     "QUESTION": "Pregunta",
@@ -36,7 +40,10 @@
     "PART_OF" : "Parte de",
     "SUBMIT_ANSWER" : "Envía tu respuesta",
     "LOGIN_IN" : "Entrando...",
-    "POST_QUESTION" : "Enviar pregunta",
     "ADD_A_TAG" : "Añadir tag",
-    "IE_WARNING" : "Unfortunately, Citizenpedia is not fully compatible with the version of Internet Explorer that you are using. Click here to download a modern browser."
+    "USERS_ADMIN" : "Administración de usuarios",
+    "TAGS" : "Tags",
+    "TAGS_ADMIN" : "Administración de tags",
+    "NEW_TAG" : "Nuevo tag",
+    "IE_WARNING" : "Desafortunadamente, Citizenpedia no es compatible con esta versión de Internet Explorer. Haga click aquí para descargar un navegador moderno."
 }

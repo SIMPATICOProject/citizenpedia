@@ -13,6 +13,7 @@ import _ from 'lodash';
 import Term from './term.model';
 
 function respondWithResult(res, statusCode) {
+  console.log(">>respondWithResult");
   statusCode = statusCode || 200;
   return function(entity) {
     if (entity) {
@@ -22,10 +23,12 @@ function respondWithResult(res, statusCode) {
 }
 
 function saveUpdates(updates) {
+  console.log(">>saveUpdates");
   return function(entity) {
     var updated = _.merge(entity, updates);
     return updated.saveAsync()
       .spread(updated => {
+        console.log("Returns updated");
         return updated;
       });
   };
@@ -43,28 +46,35 @@ function removeEntity(res) {
 }
 
 function handleEntityNotFound(res) {
+  console.log(">>handleEntityNotFound");
   return function(entity) {
     if (!entity) {
       res.status(404).end();
+      console.log("Returns null");
       return null;
     }
+    console.log("Returns entity");
     return entity;
   };
 }
 
 function handleError(res, statusCode) {
+  console.log(">>handleError");
   statusCode = statusCode || 500;
   return function(err) {
     res.status(statusCode).send(err);
   };
 }
 function handleUnauthorized(req, res) {
+  console.log(">>handleUnauthorized");
   return function(entity) {
     if (!entity) {return null;}
     if(entity.user._id.toString() !== req.user._id.toString()){
       res.send(403).end();
+      console.log("Returns null");
       return null;
     }
+    console.log("Returns entity");
     return entity;
   }
 }
@@ -104,6 +114,7 @@ export function create(req, res) {
 
 // Updates an existing Term in the DB
 export function update(req, res) {
+  console.log("Updating");
   if (req.body._id) {
     delete req.body._id;
   }

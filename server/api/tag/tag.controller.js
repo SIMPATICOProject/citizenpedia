@@ -81,6 +81,15 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a single Tag from the DB
+export function findByName(req, res) {
+  var query = req.params.query;
+
+  Tag.find({"name": new RegExp(query, 'i')}).sort({createdAt: -1}).limit(20).execAsync()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Creates a new Tag in the DB
 export function create(req, res) {
   return Tag.create(req.body)
@@ -117,4 +126,21 @@ export function destroy(req, res) {
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
+}
+
+/**
+ * Modify tag
+ */
+export function updateTag(req, res, next) {
+  // db.users.update({"_id" : ObjectId("58e4b8c142984807893801a3")},{$set:{"role":"admin"}})
+
+      console.log("Update tag");
+      console.log("======");
+      console.log(req.params.id);
+      console.log(req.params.name);
+
+  Tag.update({"_id": req.params.id},{$set:{"name":req.params.name}})
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+  //res.redirect(config.path +'/tagsIndex');
 }

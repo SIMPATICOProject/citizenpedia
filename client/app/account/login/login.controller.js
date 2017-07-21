@@ -32,10 +32,12 @@
 // }
 
 
+// angular.module('paizaqaApp')
+//   .controller('LoginController', LoginController);
+
+
 angular.module('paizaqaApp')
   .controller('LoginController', function($window) {
       $window.location.href = 'auth/aac';
   });
 
-// angular.module('paizaqaApp')
-//   .controller('LoginController', LoginController);
