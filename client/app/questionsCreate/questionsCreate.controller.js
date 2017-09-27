@@ -1,14 +1,16 @@
 'use strict';
 
 angular.module('paizaqaApp')
-  .controller('QuestionsCreateCtrl', function ($scope, $http, $location, Auth, appConfig) {
-    
-    if(! Auth.isLoggedIn()){
-      $location.path('/login');
-      $location.replace();
-      return;
-    }
-    
+  .controller('QuestionsCreateCtrl', function ($scope, $timeout,$http, $location, Auth, appConfig) {
+
+    $timeout(function(){
+      if(! Auth.isLoggedIn()){
+        $location.path('/login');
+        $location.replace();
+        return;
+      }
+    },1000);
+
     $scope.submit = function() {
       $http.post(appConfig.path + '/api/questions', $scope.question).success(function(){
         console.log($scope.question);
