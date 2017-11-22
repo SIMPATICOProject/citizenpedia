@@ -3,7 +3,7 @@
 
 angular.module('paizaqaApp.constants', [])
 
-.constant('appConfig', {userRoles:['guest','user','admin'],path:'/qae',cpd_path:'https://simpatico.business-engineering.it/cpd/es/diagram',language:'en'})
+.constant('appConfig', {userRoles:['guest','user','admin'],path:'/qae',cpd_path:'https://simpatico.business-engineering.it/cpd/es/diagram',language:'en',secondlanguage:'it'})
 
 ;
 })(angular);

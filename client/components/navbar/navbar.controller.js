@@ -6,11 +6,26 @@ class NavbarController {
   isCollapsed = true;
   //end-non-standard
 
-  constructor(Auth, $state, appConfig, $location) {
+  constructor(Auth, $state, appConfig, $location, $translate) {
     
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
+
+    if (typeof appConfig.secondlanguage !== 'undefined')
+    {
+      this.multilanguage = function () {return true};
+      this.primaryLanguage = appConfig.language;
+      this.secondaryLanguage = appConfig.secondlanguage;
+    }
+    
+    this.changePrimaryLanguage = function () {
+      $translate.use(this.primaryLanguage);
+    };
+
+    this.changeSecondaryLanguage = function () {
+      $translate.use(this.secondaryLanguage);
+    };
 
     this.detectIE = function detectIE() {
           var ua = window.navigator.userAgent;

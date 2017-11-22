@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="nav.isAdmin()" ui-sref-active="active"><a style="color: #000;" href="tags">{{ 'TAGS_ADMIN' | translate }}</a></li>
         <li ng-show="nav.isAdmin()" ui-sref-active="active"><a style="color: #000;" href="usersadmin">{{ 'USERS_ADMIN' | translate }}</a></li>
-
+        <li ng-show="nav.multilanguage()" ui-sref-active="active" style="color: #000; cursor: pointer"><a href="#"><span ng-click="nav.changePrimaryLanguage()">{{ nav.primaryLanguage | uppercase }}</span>/<span ng-click="nav.changeSecondaryLanguage()">{{ nav.secondaryLanguage | uppercase }}</span></a></li> 
 
         <form ng-show="nav.currentPath() != '/'" class="navbar-form navbar-left" role="search" ng-submit="nav.search(keyword)">
           <div class="input-group">

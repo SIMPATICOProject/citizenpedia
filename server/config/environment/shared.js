@@ -5,5 +5,6 @@ exports = module.exports = {
   userRoles: ['guest', 'user', 'admin'],
   path: '/qae',
   cpd_path: 'https://simpatico.business-engineering.it/cpd/es/diagram',
-  language: 'en'
+  language: 'en',
+  secondlanguage: 'it'
 };
