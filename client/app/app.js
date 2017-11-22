@@ -25,6 +25,8 @@ angular.module('paizaqaApp', [
 
     $locationProvider.html5Mode(true);
 
+    $translateProvider.useSanitizeValueStrategy('sanitize');
+    
     $translateProvider.useStaticFilesLoader({
       prefix: 'languages/',
       suffix: '.json' 
