@@ -81,6 +81,8 @@ The Citizenpedia is i18n-enabled, i.e., none of the displayed labes are hardcode
 
 Make sure that the name of the json file within client/languages folder and the name of the variable match for the new language to work, e.g., in order to add Spanish language, create "es.json" under client/languages and add "language: 'es'" in the configuration file. 
 
+If a secondary language is needed, a secondlanguage value can be set in the configuration file, so a language selector will appear in the upper right corner of the navigation bar.
+
 ### AAC Integration
 
 The file
