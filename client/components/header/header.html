@@ -5,11 +5,11 @@
   </div>
 
   <div style="text-align: center">
-    <div class="container">
+    <div ng-show="searchBar" class="container">
       <h2>{{ 'HEADLINE_1' | translate }}</h2>
     </div>
     <br/>
-    <div class="col-lg-4 col-sm-4 col-sm-offset-4 col-lg-offset-4 text-center input-group">
+    <div ng-show="searchBar" class="col-lg-4 col-sm-4 col-sm-offset-4 col-lg-offset-4 text-center input-group">
       <form class="navbar-form" role="search" ng-submit="nav.search(keyword)">
           <span class="input-group-btn">
           <input type="text" class="form-control input-lg" placeholder="{{ searchPlaceholder }}" ng-model="keyword">
@@ -19,48 +19,18 @@
 
     </div>
     <br/>
-    <div class="container">
+    <div ng-show="categories" class="container">
       <h2>{{ 'HEADLINE_2' | translate }}</h2>
     </div>
 
-      <div class="row">
+      <div ng-show="categories" class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-2 col-sm-6 col-xs-6">
+        <div ng-repeat="category in categoriesList" class="col-md-2 col-sm-6 col-xs-6">
           <div class="thumbnail" style="background:transparent;">
-            <a href="categories/list/591591fb10c69a06c8773a91">
-              <img src="assets/images/svg/591591fb10c69a06c8773a91.png" style="background:transparent;width:50%">
+            <a href="{{category.link}}">
+              <img src="{{category.image}}" style="background:transparent;width:50%">
               <div class="caption">
-                <p>Housing</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6 col-xs-6">
-          <div class="thumbnail" style="background:transparent;">
-            <a href="categories/list/5913170c65c17ab8c2406a96">
-              <img src="assets/images/svg/5913170c65c17ab8c2406a96.png" style="width:50%">
-              <div class="caption">
-                <p>School</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6 col-xs-6">
-          <div class="thumbnail" style="background:transparent;">
-            <a href="categories/list/5913170c65c17ab8c2406a97">
-              <img src="assets/images/svg/5913170c65c17ab8c2406a97.png" style="width:50%">
-              <div class="caption">
-                <p>Community</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6 col-xs-6">
-          <div class="thumbnail" style="background:transparent;">
-            <a href="categories/list/5913170c65c17ab8c2406a98">
-              <img src="assets/images/svg/5913170c65c17ab8c2406a98.png" style="width:50%">
-              <div class="caption">
-                <p>Social Service</p>
+                <p>{{category.title}}</p>
               </div>
             </a>
           </div>
@@ -71,4 +41,4 @@
     <a type="button" class="btn btn-success btn-lg" href="questions/create"><h2>{{ 'ASK_QUESTION' | translate }}</h2></a>
 
   </div>
-</header>
+</hea

@@ -11,6 +11,11 @@ angular.module('paizaqaApp')
 
     var apiURL = appConfig.path+'/api/questions';
 
+    $scope.searchBar = appConfig.home_searchbar;
+    $scope.categories = appConfig.home_categories;
+
+    $scope.categoriesList = appConfig.home_categories_list;
+
     $http.get(apiURL, {params: {query: query}}).success(function(questions) {
       $scope.questions = questions;
       $scope.basePath = appConfig.path;
@@ -40,7 +45,5 @@ angular.module('paizaqaApp')
     $http.get('languages/'+appConfig.language+'.json').success(function(data) {
       $scope.searchPlaceholder = data.SEARCH;
     });
-
-
     
-  });
+  })
