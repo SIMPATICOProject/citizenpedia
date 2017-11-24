@@ -63,14 +63,44 @@ In order to change this path, just edit this file and also /client/index.html to
 
 Also, for changing the serving path, Apache2 has to be configured with a VortualHost and a reverse proxy. E.g:
 
+```
   ProxyRequests Off
   ProxyPreserveHost On
 
   <Location /qae>
           ProxyPass http://localhost:9000
   </Location>
+```
 
 Note: Be careful not to add an ending '/' to the ProxyPass path.
+
+### Home page configuration
+
+Via configuration file, is easy to add and remove components from the home page.
+
+![Home components](https://preview.ibb.co/gJuAnm/home_config.png)
+
+Setting the following variables to true or false will show or hide the above components:
+
+```
+home_searchbar
+home_ask_button
+home_categories
+```
+
+If a categories block is defined, an array of categories should be defined in the configuration file. For example:
+
+```
+home_categories_list: [
+    {title :'Benestar', link :'questions/list/BS607A', image :'assets/images/svg/tag.png' },
+    {title :'School', link :'categories/list/5913170c65c17ab8c2406a96', image :'assets/images/svg/5913170c65c17ab8c2406a96.png' },
+    {title :'Community', link :'categories/list/5913170c65c17ab8c2406a97', image :'assets/images/svg/5913170c65c17ab8c2406a97.png' },
+    {title :'Social Service', link :'categories/list/5913170c65c17ab8c2406a98', image :'assets/images/svg/5913170c65c17ab8c2406a98.png' },
+  ]
+```
+
+Links and images paths can be relatives or absolutes.
+
 
 ### i18n
 

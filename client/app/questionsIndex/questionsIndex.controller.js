@@ -13,6 +13,7 @@ angular.module('paizaqaApp')
 
     $scope.searchBar = appConfig.home_searchbar;
     $scope.categories = appConfig.home_categories;
+    $scope.ask_button = appConfig.home_ask_button;
 
     $scope.categoriesList = appConfig.home_categories_list;
 
