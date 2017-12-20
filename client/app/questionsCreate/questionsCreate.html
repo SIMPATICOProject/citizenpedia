@@ -7,9 +7,13 @@
     </div>
 
     <h2>{{ 'TITLE' | translate }}:</h2>
-    <input type="text" class="form-control" ng-model="question.title" name="question_title" required>
+    <input type="text" class="form-control" ng-model="question.title" name="question_title" ng-change="profanityCheck(question.title)" required>
     <span class="text-danger" ng-messages="form.question_title.$error">
       <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
+    </span>
+
+    <div class="alert alert-danger" ng-show="profanity">PROFANITY</div>
+    
     </span>
     <span class="text-success" ng-show="form.question_title.$valid">OK</span>
     <br>
@@ -24,6 +28,7 @@
        <auto-complete source="loadTags($query)"></auto-complete> 
     </tags-input>
 
+
     <select name="question_category"
       ng-model="question.category"
       ng-options="option.value as option.name for option in options"
@@ -33,7 +38,6 @@
     <span class="text-danger" ng-messages="form.question_category.$error">
       <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
-
 
     <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="{{ 'POST_QUESTION' | translate}}">
     <!--<input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="{{ 'SELECT_CATEGORY' | translate }}">-->

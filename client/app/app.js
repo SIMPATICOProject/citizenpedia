@@ -17,6 +17,7 @@ angular.module('paizaqaApp', [
   'ngMessages',
   'infinite-scroll',
   'pascalprecht.translate',
+  'ngGentle',
   
 ])
   .config(function($urlRouterProvider, $locationProvider, $translateProvider, appConfig) {

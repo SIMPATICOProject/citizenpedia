@@ -13,7 +13,6 @@ angular.module('paizaqaApp')
 
     $scope.submit = function() {
       $http.post(appConfig.path + '/api/questions', $scope.question).success(function(){
-        console.log($scope.question);
         $location.path('/');
       });
     };
@@ -56,5 +55,33 @@ angular.module('paizaqaApp')
     if ($location.$$search.text) {
       var originalText = $location.$$search.text;
       $scope['originalText'] = originalText;
+    }
+
+    $scope.profanity = false;
+
+    if (appConfig.profanityFilter == true) {
+      var profanityList = null;
+      $http.get('profanity/'+appConfig.language+'.json').success(function(data) {
+        profanityList = data;
+      });
+  
+      $scope.profanityCheck = function(contentToCheck)
+      {
+        if (contentToCheck != null)
+        {
+          var arrayToCheck = contentToCheck.split(' ');
+  
+          for (var i=0; i<arrayToCheck.length; i++)
+          {
+            if (profanityList.includes(arrayToCheck[i]))
+            {
+              $scope.profanity = true;
+            }else{
+              $scope.profanity = false;
+            }
+          }
+      }
+        
+      }
     }
   });

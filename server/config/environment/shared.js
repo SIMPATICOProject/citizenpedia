@@ -7,6 +7,7 @@ exports = module.exports = {
   cpd_path: 'https://simpatico.business-engineering.it/cpd/es/diagram',
   language: 'en',
   secondlanguage: 'it',
+  profanityFilter: true,
   home_searchbar: true,
   home_categories: true,
   home_ask_button: true,
