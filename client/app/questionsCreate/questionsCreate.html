@@ -12,13 +12,13 @@
       <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
 
-    <div class="alert alert-danger" ng-show="profanity">PROFANITY</div>
+
     
     </span>
     <span class="text-success" ng-show="form.question_title.$valid">OK</span>
     <br>
     <h2>{{ 'QUESTION' | translate }}:</h2>
-    <pagedown-editor ng-model="question.content" name="question_content" required></pagedown-editor>
+    <pagedown-editor ng-model="question.content" placeholder="Write something" ng-change="profanityCheck(question.content)" name="question_content" required></pagedown-editor>
     <span class="text-danger" ng-messages="form.question_content.$error">
       <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
@@ -28,6 +28,7 @@
        <auto-complete source="loadTags($query)"></auto-complete> 
     </tags-input>
 
+    <div class="alert alert-danger" ng-show="profanity">PROFANITY</div>
 
     <select name="question_category"
       ng-model="question.category"

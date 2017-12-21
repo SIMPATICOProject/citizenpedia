@@ -69,15 +69,13 @@ angular.module('paizaqaApp')
       {
         if (contentToCheck != null)
         {
-          var arrayToCheck = contentToCheck.split(' ');
-  
+          $scope.profanity = false;
+          var arrayToCheck = contentToCheck.split("\ ");
           for (var i=0; i<arrayToCheck.length; i++)
           {
             if (profanityList.includes(arrayToCheck[i]))
             {
               $scope.profanity = true;
-            }else{
-              $scope.profanity = false;
             }
           }
       }
