@@ -28,7 +28,7 @@
        <auto-complete source="loadTags($query)"></auto-complete> 
     </tags-input>
 
-    <div class="alert alert-danger" ng-show="profanity">PROFANITY</div>
+    <div class="alert alert-danger" ng-show="profanity">{{ 'PROFANITY' | translate }} <span ng-repeat="badword in badWords">{{badword}} </span></div>
 
     <select name="question_category"
       ng-model="question.category"
@@ -40,7 +40,7 @@
       <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
 
-    <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="{{ 'POST_QUESTION' | translate}}">
+    <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid || profanity" value="{{ 'POST_QUESTION' | translate}}">
     <!--<input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="{{ 'SELECT_CATEGORY' | translate }}">-->
   </form>
 </div>

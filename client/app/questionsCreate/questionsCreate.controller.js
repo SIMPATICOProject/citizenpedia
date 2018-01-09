@@ -67,6 +67,7 @@ angular.module('paizaqaApp')
   
       $scope.profanityCheck = function(contentToCheck)
       {
+        $scope.badWords = []; 
         if (contentToCheck != null)
         {
           $scope.profanity = false;
@@ -76,6 +77,13 @@ angular.module('paizaqaApp')
             if (profanityList.includes(arrayToCheck[i]))
             {
               $scope.profanity = true;
+              if (!$scope.badWords.includes(arrayToCheck[i]))
+              {
+                $scope.badWords.push (arrayToCheck[i]);
+              }
+              
+              console.log($scope.badWords);
+
             }
           }
       }
