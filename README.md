@@ -113,6 +113,19 @@ Make sure that the name of the json file within client/languages folder and the 
 
 If a secondary language is needed, a secondlanguage value can be set in the configuration file, so a language selector will appear in the upper right corner of the navigation bar.
 
+### Profanity filter
+
+A profanity filter, to avoid bad words from being posted on a question or comment, can be activated. In the config file, the option is:
+
+```
+profanityFilter: true
+```
+
+When activated, the text being entered in questions and answers is checked against bad words. If an unauthorized word is written, the text can't be sent.
+
+The list of unauthorized words for every language can be found and edited in the client/profanity folder, having one file per language. 
+
+
 ### AAC Integration
 
 The file
