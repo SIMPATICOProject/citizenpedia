@@ -110,4 +110,37 @@ angular.module('paizaqaApp')
       });
     };
 
+    $scope.profanity = false;
+    
+    if (appConfig.profanityFilter == true) {
+      var profanityList = null;
+      $http.get('profanity/'+appConfig.language+'.json').success(function(data) {
+        profanityList = data;
+      });
+  
+      $scope.profanityCheck = function(contentToCheck)
+      {
+        $scope.badWords = []; 
+        if (contentToCheck != null)
+        {
+          $scope.profanity = false;
+          var arrayToCheck = contentToCheck.split("\ ");
+          for (var i=0; i<arrayToCheck.length; i++)
+          {
+            if (profanityList.includes(arrayToCheck[i]))
+            {
+              $scope.profanity = true;
+              if (!$scope.badWords.includes(arrayToCheck[i]))
+              {
+                $scope.badWords.push (arrayToCheck[i]);
+              }
+             
+            }
+          }
+      }
+        
+      }
+    }
+
+
   });

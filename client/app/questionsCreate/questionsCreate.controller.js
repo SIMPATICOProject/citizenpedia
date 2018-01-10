@@ -58,7 +58,7 @@ angular.module('paizaqaApp')
     }
 
     $scope.profanity = false;
-
+    
     if (appConfig.profanityFilter == true) {
       var profanityList = null;
       $http.get('profanity/'+appConfig.language+'.json').success(function(data) {
@@ -81,9 +81,7 @@ angular.module('paizaqaApp')
               {
                 $scope.badWords.push (arrayToCheck[i]);
               }
-              
-              console.log($scope.badWords);
-
+             
             }
           }
       }
