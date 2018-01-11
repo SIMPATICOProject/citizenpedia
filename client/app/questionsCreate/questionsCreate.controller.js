@@ -64,7 +64,16 @@ angular.module('paizaqaApp')
       $http.get('profanity/'+appConfig.language+'.json').success(function(data) {
         profanityList = data;
       });
+
+      if (typeof appConfig.secondlanguage !== 'undefined')
+      {
+        $http.get('profanity/'+appConfig.secondlanguage+'.json').success(function(data) {
+          profanityList = profanityList.concat(data);
+        });
+      }
   
+      console.log(profanityList);
+      
       $scope.profanityCheck = function(contentToCheck)
       {
         $scope.badWords = []; 
