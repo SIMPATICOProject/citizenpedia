@@ -1,0 +1,36 @@
+<header class="jumbotron vertical-center" style="text-align: center" id="banner">
+    <div class="header">
+      <h1 ng-show="categoryName!='NONE'"> <img src="assets/images/svg/user.png" alt="{{ categoryName }}" style="vertical-align: sub;">{{ 'USERS_RANKING' | translate }}</h1>    
+      <h1 ng-show="categoryName=='NONE'"><i class="fa fa-frown-o" aria-hidden="true"></i></h1>
+    </div>
+  </header>
+  
+  <div class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData'>
+    <br/>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{ 'USERS' | translate }}</th>
+          <th style="text-align: center;">Rank</th>
+          <th style="text-align: center;">Number of messages</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in users">
+          <td>
+            <a ng-href="users/{{user._id}}" style="font-size: large">{{user.name}}</a>
+          </td>
+          <td align="center"> 
+                <span class="glyphicon glyphicon-bookmark" ng-style="{color: colors[$index % colors.length]};"></span>
+          </td>
+
+          <td align="center"> 
+                {{numbers[$index % numbers.length]}}
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+    <div ng-show='busy'>{{ 'LOADING' | translate }}</div>
+  </div>

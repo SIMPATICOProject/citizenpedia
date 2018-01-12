@@ -46,5 +46,6 @@
     "TAGS_ADMIN" : "Tag Admin",
     "NEW_TAG" : "New tag",
     "IE_WARNING" : "Unfortunately, Citizenpedia is not fully compatible with the version of Internet Explorer that you are using. Click here to download a modern browser.",
-    "PROFANITY" : "Some words you have entered are not allowed. Please, change them:"
+    "PROFANITY" : "Some words you have entered are not allowed. Please, change them:",
+    "USERS_RANKING" : "Top Users"
 }

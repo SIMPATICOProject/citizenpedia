@@ -46,5 +46,6 @@
     "TAGS" : "Tags",
     "TAGS_ADMIN" : "Tags admin",
     "NEW_TAG" : "Nuovo tag",
-    "PROFANITY" : "Some words you have entered are not allowed. Please, change them:"
+    "PROFANITY" : "Some words you have entered are not allowed. Please, change them:",
+    "USERS_RANKING" : "Top Users"
 }

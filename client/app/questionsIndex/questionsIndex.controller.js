@@ -47,4 +47,6 @@ angular.module('paizaqaApp')
       $scope.searchPlaceholder = data.SEARCH;
     });
     
+    $scope.colors = ["#009EE0", "#438276", "#D4AF37", "#C0C0C0", "#CB5C0D"]; 
+
   })
