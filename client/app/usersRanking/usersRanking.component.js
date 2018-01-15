@@ -37,8 +37,8 @@ angular.module('paizaqaApp')
       });
     };
 
-    $scope.colors = ["#009EE0", "#438276", "#D4AF37", "#C0C0C0", "#CB5C0D"]; 
-    $scope.numbers = [123,224,778,234,455,2324,44,2235,356,765,136,23,67,12,4,215,436,231,100,69,72,48];
+    $scope.colors = ["#D4AF37","#D4AF37","#D4AF37","#C0C0C0","#C0C0C0","#C0C0C0","#CB5C0D","#CB5C0D","#CB5C0D","#CB5C0D","#CB5C0D","#009EE0","#009EE0","#009EE0","#009EE0","#009EE0","#009EE0","#009EE0","#009EE0","#009EE0"]; 
+    $scope.numbers = [976,972,924,863,790,748,667,614,574,436,415,376,316,211,200,179,171,167,134];
 
 
     $scope.updaterole = function(role, userId) {

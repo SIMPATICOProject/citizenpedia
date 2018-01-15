@@ -2,6 +2,13 @@
     <div class="header">
       <h1 ng-show="categoryName!='NONE'"> <img src="assets/images/svg/user.png" alt="{{ categoryName }}" style="vertical-align: sub;">{{ 'USERS_RANKING' | translate }}</h1>    
       <h1 ng-show="categoryName=='NONE'"><i class="fa fa-frown-o" aria-hidden="true"></i></h1>
+      <h2>Normal user: <span class="glyphicon glyphicon-bookmark" style="color: #009EE0;"></span>
+          Admin user: <span class="glyphicon glyphicon-bookmark" style="color: #438276;"></span>
+          Bronze User: <span class="glyphicon glyphicon-bookmark" style="color: #CB5C0D;"></span>
+          Silver user: <span class="glyphicon glyphicon-bookmark" style="color: #C0C0C0;"></span>
+          Gold user: <span class="glyphicon glyphicon-bookmark" style="color: #D4AF37;"></span>
+          
+      </h2>
     </div>
   </header>
   
@@ -22,11 +29,11 @@
             <a ng-href="users/{{user._id}}" style="font-size: large">{{user.name}}</a>
           </td>
           <td align="center"> 
-                <span class="glyphicon glyphicon-bookmark" ng-style="{color: colors[$index % colors.length]};"></span>
+                <span class="glyphicon glyphicon-bookmark" ng-style="{color: colors[$index]};"></span>
           </td>
 
           <td align="center"> 
-                {{numbers[$index % numbers.length]}}
+                {{numbers[$index]}}
           </td>
 
         </tr>
