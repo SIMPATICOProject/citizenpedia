@@ -12,6 +12,8 @@ angular.module('paizaqaApp')
     },1000);
 
     $scope.submit = function() {
+      console.log("Create question");
+      console.log($scope.question);
       $http.post(appConfig.path + '/api/questions', $scope.question).success(function(){
         $location.path('/');
       });
