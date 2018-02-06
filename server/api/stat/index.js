@@ -8,6 +8,8 @@ var router = express.Router();
 router.get('/', controller.index);
 router.get('/:id/:tag', controller.show);
 router.get('/:id/:eservice/:paragraph', controller.countparagraph);
+router.get('/totalquestions', controller.totalquestions);
+router.get('/totalstars', controller.totalstars);
 router.post('/', controller.create);
 router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);
