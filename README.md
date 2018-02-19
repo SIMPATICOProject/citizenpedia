@@ -74,6 +74,17 @@ Also, for changing the serving path, Apache2 has to be configured with a Vortual
 
 Note: Be careful not to add an ending '/' to the ProxyPass path.
 
+For nginx e.g.:
+
+```
+location /qae {
+        rewrite ^/qae/(.*) /$1 break;
+        proxy_pass http://localhost:9000/;
+        proxy_set_header   Host $host;
+}
+
+```
+
 ### Home page configuration
 
 Via configuration file, is easy to add and remove components from the home page.
