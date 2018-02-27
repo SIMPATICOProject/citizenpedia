@@ -1,0 +1,26 @@
+{
+  "name": "ngGentle",
+  "main": "./ngGentle.js",
+  "version": "0.0.1",
+  "keywords": [
+    "angular",
+    "gentle",
+    "filter bad words",
+    "filter swear words",
+    "bad words"
+  ],
+  "dependencies": {
+    "angular": "*"
+  },
+  "homepage": "https://github.com/uttesh/nggentle",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "b01955fd67e81f9972a767b589c37d67c6f66b6d"
+  },
+  "_source": "https://github.com/uttesh/nggentle.git",
+  "_target": "^0.0.1",
+  "_originalSource": "ngGentle",
+  "_direct": true
+}

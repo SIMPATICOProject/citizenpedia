@@ -1,5 +1,4 @@
 #!/bin/bash
 
-npm install --no-bin-links
+tar xvf node_modules.tar.gz
 gem install sass
-bower install

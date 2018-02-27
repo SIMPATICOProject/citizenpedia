@@ -143,3 +143,19 @@ AAC_PROXY (Just in case you need a proxy)
 #### Optional
 
 For automation purposes, the file node-app_example can be used to configure the app as a Linux service, e.g. use "service qae start" to start the Citizenpedia.
+
+### Docker usage
+
+A docker-compose.yml file is inside this repository in order to use QAE as a docker container. Just do
+
+```
+docker-compose up
+```
+
+And QAE will be available via
+
+```
+localhost:8000/qae
+```
+
+Please note that this container does not include AAC for login.
