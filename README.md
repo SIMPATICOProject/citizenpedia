@@ -159,4 +159,10 @@ And QAE will be available via
 localhost:8000/qae
 ```
 
+Also the mongo config in the config file should be:
+
+```
+uri: 'mongodb:27017/paizaqa-dev'
+```
+
 Please note that this container does not include AAC for login.
