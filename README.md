@@ -149,6 +149,7 @@ For automation purposes, the file node-app_example can be used to configure the 
 A docker-compose.yml file is inside this repository in order to use QAE as a docker container. Just do
 
 ```
+bash first_run.sh
 docker-compose up
 ```
 

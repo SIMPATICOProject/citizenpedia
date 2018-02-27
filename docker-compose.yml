@@ -21,6 +21,6 @@ services:
             - "9000:9000"
         restart: always
         volumes:
-            - "./web/qae:/data/qae"
+            - "./:/data/qae"
         command: /bin/sh -c "cd /data/qae && grunt serve"
         tty: true
