@@ -3,9 +3,10 @@
 import User from './user.model';
 import passport from 'passport';
 import config from '../../config/environment';
+//import gamification from '../../gamification';
 import jwt from 'jsonwebtoken';
-var express = require('express');
-var app = express();
+
+var gamification = require('../../gamification/gamification.service');
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
@@ -116,14 +117,9 @@ export function changePassword(req, res, next) {
  */
 export function me(req, res, next) {
   var userId = req.user._id;
-  // Send the post to the gamification engine to gain login points
-  app.post(config.gamification_post, function(req, res) {
-    var gameId = app.gamification_gameId;
-    var playerId = userId;
-    var actionId = "login";
 
-    res.send(gameId + ' ' + playerId + ' ' + actionId);
-  });
+  // Do the gamification login action
+  gamification.post(userId, 'login');
 
   User.findOneAsync({ _id: userId }, '-salt -password')
     .then(user => { // don't ever give out the password or salt
