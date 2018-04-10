@@ -3,7 +3,6 @@
 import User from './user.model';
 import passport from 'passport';
 import config from '../../config/environment';
-//import gamification from '../../gamification';
 import jwt from 'jsonwebtoken';
 
 var gamification = require('../../gamification/gamification.service');

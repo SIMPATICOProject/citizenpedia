@@ -6,7 +6,7 @@ exports = module.exports = {
   path: '/qae',
   cpd_path: 'https://simpatico.business-engineering.it/cpd/es/diagram',
   gamification_path: 'https://simpatico.smartcommunitylab.it/gamification/data/game/',
-  gamification_post: 'https://simpatico.smartcommunitylab.it/gamification/gengine/execute',
+  gamification_post: 'https://simpatico-galicia:glSimpa02@simpatico.smartcommunitylab.it/gamification/gengine/execute',
   gamification_gameId:'5a6851c7e8d4a6c092e88272',
   language: 'en',
   secondlanguage: 'it',

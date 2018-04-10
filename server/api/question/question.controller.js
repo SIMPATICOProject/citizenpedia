@@ -12,6 +12,8 @@
 import _ from 'lodash';
 import Question from './question.model';
 
+var gamification = require('../../gamification/gamification.service');
+
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -94,6 +96,9 @@ export function show(req, res) {
 // Creates a new Question in the DB
 export function create(req, res) {
   req.body.user = req.user;
+  
+  // Do the gamification login action
+  gamification.post(req.user._id, 'make-question');
 
   Question.createAsync(req.body)
     .then(respondWithResult(res, 201))
