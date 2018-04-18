@@ -18,6 +18,7 @@ angular.module('paizaqaApp', [
   'infinite-scroll',
   'pascalprecht.translate',
   'ngGentle',
+  'paizaqaApp.gamification',
   
 ])
   .config(function($urlRouterProvider, $locationProvider, $translateProvider, appConfig) {

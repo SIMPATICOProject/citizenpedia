@@ -10,6 +10,7 @@ var request = require('request');
 * Send the event to the gamification engine
 */
 export function post(userId, action) {
+  if (userId != null){
   var json = {
     "gameId": config.gamification_gameId,
     "playerId": userId,
@@ -28,8 +29,27 @@ export function post(userId, action) {
 
   request(options, function(err, res, body) {
     if (res && (res.statusCode === 200 || res.statusCode === 201)) {
-      console.log(body);
+      //console.log(body);
     }
+  });}
+
+}
+
+/**
+* Get User points
+*/
+export function getPoints(userID)
+{
+
+  return new Promise(function (fulfill, reject){
+    request(config.gamification_path + 'gengine/state/' +config.gamification_gameId + '/' + userID, function (error, response, body) {
+      try {
+        var result = JSON.parse(body);
+        fulfill(result.state.PointConcept[0].score);
+      } catch (ex) {
+        reject(ex);
+      }
+    }, reject);
   });
 
 }

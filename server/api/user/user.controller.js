@@ -119,13 +119,35 @@ export function me(req, res, next) {
 
   // Do the gamification login action
   gamification.post(userId, 'login');
-
+    
   User.findOneAsync({ _id: userId }, '-salt -password')
     .then(user => { // don't ever give out the password or salt
       if (!user) {
         return res.status(401).end();
       }
-      res.json(user);
+      //user.score = gamification.getPoints(userId);
+      var scorePromise = gamification.getPoints(userId);
+      scorePromise
+        .then( function (score){
+          user.score = score;
+          // Admin user: color: #438276
+          // Bronze User: #CB5C0D 0-99
+          // Silver user: #C0C0C0 100-399
+          // Gold user: #D4AF37 >400
+          if (score >= 0 && score <= 99)
+          {
+            user.medal = "#CB5C0D";
+          }
+          else if (score >= 100 && score <= 399)
+          {
+            user.medal = "#C0C0C0";
+          }
+          else if (score >= 400)
+          {
+            user.medal = "#D4AF37";
+          }
+          res.json(user);
+        })
     })
     .catch(err => next(err));
 }
@@ -141,8 +163,6 @@ export function authCallback(req, res, next) {
  * Modify role
  */
 export function updateRole(req, res, next) {
-  // db.users.update({"_id" : ObjectId("58e4b8c142984807893801a3")},{$set:{"role":"admin"}})
-
   User.update({"_id": req.params.id},{$set:{"role":req.params.newrole}})
     .then(respondWithResult(res))
     .catch(handleError(res));
