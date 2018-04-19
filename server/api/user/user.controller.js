@@ -168,3 +168,25 @@ export function updateRole(req, res, next) {
     .catch(handleError(res));
   //res.redirect(config.path +'/usersadmin');
 }
+
+/**
+ * Get gamification score for one specific user
+ */
+export function getScore(req, res, next) {
+  var scorePromise = gamification.getPoints(req.params.id);
+      scorePromise
+        .then( function (score){
+          res.json(score);
+        })
+}
+
+/**
+ * Get gamification score for all users
+ */
+export function getScoreList(req, res, next) {
+  var scorePromise = gamification.getScoreList();
+      scorePromise
+        .then( function (scoreList){
+          res.json(scoreList);
+        })
+}

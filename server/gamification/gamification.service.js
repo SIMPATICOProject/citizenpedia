@@ -40,7 +40,6 @@ export function post(userId, action) {
 */
 export function getPoints(userID)
 {
-
   return new Promise(function (fulfill, reject){
     request(config.gamification_path + 'gengine/state/' +config.gamification_gameId + '/' + userID, function (error, response, body) {
       try {
@@ -57,12 +56,16 @@ export function getPoints(userID)
 /**
 * Get FUll Users list
 */
-export function getList()
+export function getScoreList(userID)
 {
-  request
-  .get(config.gamification_path + config.gamification_gameId + '/classification/general')
-  .on('response', function(response) {
-    console.log(response.statusCode) // 200
-    //console.log(response) // 'image/png'
-  })
+  return new Promise(function (fulfill, reject){
+    request(config.gamification_path + 'data/game/' + config.gamification_gameId + '/classification/general', function (error, response, body) {
+      try {
+        var result = JSON.parse(body);
+        fulfill(result);
+      } catch (ex) {
+        reject(ex);
+      }
+    }, reject);
+  });
 }
