@@ -20,7 +20,7 @@
         <tr>
           <th>{{ 'USERS' | translate }}</th>
           <th style="text-align: center;">Rank</th>
-          <th style="text-align: center;">Number of messages</th>
+          <th style="text-align: center;">Score</th>
         </tr>
       </thead>
       <tbody>
@@ -29,11 +29,11 @@
             <a ng-href="users/{{user._id}}" style="font-size: large">{{user.name}}</a>
           </td>
           <td align="center"> 
-                <span class="glyphicon glyphicon-bookmark" ng-style="{color: colors[$index]};"></span>
+                <span class="glyphicon glyphicon-bookmark" style="color:{{ user.medal }}"></span>
           </td>
 
           <td align="center"> 
-                {{numbers[$index]}}
+                {{ user.score }}
           </td>
 
         </tr>
