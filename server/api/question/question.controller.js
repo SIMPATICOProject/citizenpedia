@@ -130,6 +130,8 @@ export function destroy(req, res) {
 
 export function createAnswer(req, res) {
   req.body.user = req.user;
+  // Do the gamification login action
+  gamification.post(req.user._id, 'make-answer');
   Question.update({_id: req.params.id}, {$push: {answers: req.body}}, function(err, num) {
     if(err) { return handleError(res)(err); }
     if(num === 0) { return res.send(404).end(); }
