@@ -142,6 +142,20 @@ AAC_URL
 AAC_CALLBACK_URL
 AAC_PROXY (Just in case you need a proxy)
 
+### Gamification
+
+QAE can be enhanced with gamification. In order to do this, Gamification Engine from [Smart Community Lab](https://github.com/smartcommunitylab/smartcampus.gamification) has to be configured.
+
+In /server/config/environment the following config options must be set:
+
+```
+  gamification: true,
+  gamification_path: 'https://xxxxx:xxxx@server.com/gamification/',
+  gamification_post: 'https://xxxx:xxxx@server.com/gamification/gengine/execute',
+  gamification_gameId:'5a6851c7e8d4a6c091e88272',
+```
+
+
 #### Optional
 
 For automation purposes, the file node-app_example can be used to configure the app as a Linux service, e.g. use "service qae start" to start the Citizenpedia.

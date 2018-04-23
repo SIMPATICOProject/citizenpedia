@@ -9,6 +9,13 @@ angular.module('paizaqaApp')
     $scope.busy = true;
     $scope.noMoreData = false;
 
+    $scope.hasGamification = function hasGamification(){
+      if (appConfig.gamification == false) {
+        return false;
+      }
+      return true;
+    };
+
     var apiURL = appConfig.path+'/api/questions';
     var apiGame = appConfig.path+'/api/users/';
 
@@ -26,42 +33,42 @@ angular.module('paizaqaApp')
         usersList.push(questions[i].user._id);
       };
 
-      $http.get(apiGame + 'getscorelist/full')
-        .success(function(scoreList) {
-
-          for(var i = 0; i < usersList.length; i++) {
-            for (let index = 0; index < scoreList.board.length; index++) {
-              if (usersList[i] === scoreList.board[index].playerId) {
-                questions[i].user.score = scoreList.board[index].score;
-                // Admin user: color: #438276
-                // Bronze User: #CB5C0D 0-99
-                // Silver user: #C0C0C0 100-399
-                // Gold user: #D4AF37 >400
-                if (scoreList.board[index].score == 0)
-                {
-                  questions[i].user.medal = "#009EE0";
-                }
-                else if (scoreList.board[index].score > 0 && scoreList.board[index].score <= 99)
-                {
-                  questions[i].user.medal = "#CB5C0D";
-                }
-                else if (scoreList.board[index].score >= 100 && scoreList.board[index].score <= 399)
-                {
-                  questions[i].user.medal = "#C0C0C0";
-                }
-                else if (scoreList.board[index].score >= 400)
-                {
-                  questions[i].user.medal = "#D4AF37";
+      if (appConfig.gamification == true) {
+          $http.get(apiGame + 'getscorelist/full')
+          .success(function(scoreList) {
+            for(var i = 0; i < usersList.length; i++) {
+              for (let index = 0; index < scoreList.board.length; index++) {
+                if (usersList[i] === scoreList.board[index].playerId) {
+                  questions[i].user.score = scoreList.board[index].score;
+                  // Admin user: color: #438276
+                  // Bronze User: #CB5C0D 0-99
+                  // Silver user: #C0C0C0 100-399
+                  // Gold user: #D4AF37 >400
+                  if (scoreList.board[index].score == 0)
+                  {
+                    questions[i].user.medal = "#009EE0";
+                  }
+                  else if (scoreList.board[index].score > 0 && scoreList.board[index].score <= 99)
+                  {
+                    questions[i].user.medal = "#CB5C0D";
+                  }
+                  else if (scoreList.board[index].score >= 100 && scoreList.board[index].score <= 399)
+                  {
+                    questions[i].user.medal = "#C0C0C0";
+                  }
+                  else if (scoreList.board[index].score >= 400)
+                  {
+                    questions[i].user.medal = "#D4AF37";
+                  }
                 }
               }
+              if (typeof questions[i].user.score == 'undefined') {
+                questions[i].user.score = 0;
+                questions[i].user.medal = "#009EE0";
+              }
             }
-            if (typeof questions[i].user.score == 'undefined') {
-              questions[i].user.score = 0;
-              questions[i].user.medal = "#009EE0";
-            }
-          }
-      });
-
+        });
+      }
       $scope.questions = questions;
       $scope.basePath = appConfig.path;
       if($scope.questions.length < 20){

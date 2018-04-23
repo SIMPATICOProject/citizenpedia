@@ -10,29 +10,31 @@ var request = require('request');
 * Send the event to the gamification engine
 */
 export function post(userId, action) {
-  if (userId != null){
-  var json = {
-    "gameId": config.gamification_gameId,
-    "playerId": userId,
-    "actionId": action,
-    "data":{}
-  };
- 
-  var options = {
-    url: config.gamification_post,
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    json: json
-  };
-
-  request(options, function(err, res, body) {
-    if (res && (res.statusCode === 200 || res.statusCode === 201)) {
-      //console.log(body);
-    }
-  });}
-
+  if (config.gamification == true)
+  {
+    if (userId != null){
+      var json = {
+        "gameId": config.gamification_gameId,
+        "playerId": userId,
+        "actionId": action,
+        "data":{}
+      };
+     
+      var options = {
+        url: config.gamification_post,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        json: json
+      };
+    
+      request(options, function(err, res, body) {
+        if (res && (res.statusCode === 200 || res.statusCode === 201)) {
+          //console.log(body);
+        }
+      });}
+  }
 }
 
 /**

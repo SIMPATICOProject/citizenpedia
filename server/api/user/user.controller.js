@@ -125,29 +125,34 @@ export function me(req, res, next) {
       if (!user) {
         return res.status(401).end();
       }
-      //user.score = gamification.getPoints(userId);
-      var scorePromise = gamification.getPoints(userId);
-      scorePromise
-        .then( function (score){
-          user.score = score;
-          // Admin user: color: #438276
-          // Bronze User: #CB5C0D 0-99
-          // Silver user: #C0C0C0 100-399
-          // Gold user: #D4AF37 >400
-          if (score >= 0 && score <= 99)
-          {
-            user.medal = "#CB5C0D";
-          }
-          else if (score >= 100 && score <= 399)
-          {
-            user.medal = "#C0C0C0";
-          }
-          else if (score >= 400)
-          {
-            user.medal = "#D4AF37";
-          }
-          res.json(user);
-        })
+
+      if (config.gamification == true) {
+          var scorePromise = gamification.getPoints(userId);
+          scorePromise
+            .then( function (score){
+              user.score = score;
+              // Admin user: color: #438276
+              // Bronze User: #CB5C0D 0-99
+              // Silver user: #C0C0C0 100-399
+              // Gold user: #D4AF37 >400
+              if (score >= 0 && score <= 99)
+              {
+                user.medal = "#CB5C0D";
+              }
+              else if (score >= 100 && score <= 399)
+              {
+                user.medal = "#C0C0C0";
+              }
+              else if (score >= 400)
+              {
+                user.medal = "#D4AF37";
+              }
+              res.json(user);
+            })        
+      }else{
+        res.json(user);
+      }
+
     })
     .catch(err => next(err));
 }
