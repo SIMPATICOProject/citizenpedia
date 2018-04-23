@@ -151,10 +151,10 @@ In /server/config/environment the following config options must be set:
 ```
   gamification: true,
   gamification_path: 'https://xxxxx:xxxx@server.com/gamification/',
-  gamification_post: 'https://xxxx:xxxx@server.com/gamification/gengine/execute',
   gamification_gameId:'5a6851c7e8d4a6c091e88272',
 ```
 
+If gamification is set, every user will have a badge next to their names and a top users ranking will be shown in the navigation bar.
 
 #### Optional
 
