@@ -94,6 +94,13 @@ export function show(req, res) {
         .catch(handleError(res));
     }
 
+    if (req.params.id == "total") {
+      console.log("totalQuestions");
+      Question.count()
+        .then(respondWithResult(res))
+        .catch(handleError(res));
+    }
+
     // if (req.params.id != "questions") {
     //   console.log("another");
     //   Question.find({$and: [{"tags.text": "Diagram"}, {"tags.text": req.params.id} ]}).count().execAsync()
@@ -107,7 +114,7 @@ export function show(req, res) {
 
 // Swagger sucks. Have to make this function just to swagger to work
 export function countparagraph(req, res) {
-  console.log("Stats from eservide and paragraph");
+  console.log("Stats from eservice and paragraph");
   var query1 = req.params.eservice;
   var query2 = req.params.paragraph;
 
@@ -124,7 +131,6 @@ export function countparagraph(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
     }
-
     // Waiting for CPD methods
     // if (req.params.id != "questions") {
     //   console.log("Error. Only questions for now, please");
@@ -134,6 +140,24 @@ export function countparagraph(req, res) {
     //   //   .catch(handleError(res));
     // }
 
+}
+
+// Function to get total number of questions
+export function totalquestions(req, res)
+{
+  console.log("totalQuestions");
+  Question.count()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+// Function to get total number of stars
+export function totalstars(req, res)
+{
+  console.log("totalstars");
+  Question.count({"stars" : { $exists: true, $not: {$size: 0} } })
+    .then(respondWithResult(res))
+    .catch(handleError(res));
 }
 
 // Creates a new Stat in the DB
