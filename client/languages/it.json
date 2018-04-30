@@ -1,11 +1,11 @@
 {
     "TOP_NAME": "Citizenpedia",
-    "HEADLINE": "The place to solve your doubts about Public Administration",
-    "HEADLINE_1" : "Search among the existing conversations",
-    "HEADLINE_2" : "Here you can explore by category",
+    "HEADLINE": "Lo spazio per rispondere alle domande per la pubblica amministrazione",
+    "HEADLINE_1" : "Cercare nelle discussioni esistenti",
+    "HEADLINE_2" : "Espolare per la categoria",
     "ASK_QUESTION": "Inserisci domanda",
-    "NO_QUESTIONS": "No questions for this",
-    "NO_QUESTIONS_2": "Or check the last questions:",
+    "NO_QUESTIONS": "Nessuna domanda per questo",
+    "NO_QUESTIONS_2": "oppure vedi ultime domande:",
     "STARS" : "Stelle",
     "ANSWERS": "Risposte",
     "QUESTION": "Domanda",
@@ -41,11 +41,11 @@
     "SUBMIT_ANSWER" : "Invia la risposta",
     "LOGIN_IN" : "Sta entrando...",
     "ADD_A_TAG" : "Aggiungi i tag",
-    "IE_WARNING" : "Unfortunately, Citizenpedia is not fully compatible with the version of Internet Explorer that you are using. Click here to download a modern browser.",
+    "IE_WARNING" : "Purtroppo Citizenpedia non e' compatibile con la versione di Internet Explorer che stai usando.",
     "USERS_ADMIN" : "Users admin",
     "TAGS" : "Tags",
     "TAGS_ADMIN" : "Tags admin",
     "NEW_TAG" : "Nuovo tag",
-    "PROFANITY" : "Some words you have entered are not allowed. Please, change them:",
-    "USERS_RANKING" : "Top Users"
+    "PROFANITY" : "Alcune parole non sono ammessibili. Cambia per favore:",
+    "USERS_RANKING" : "Utenti più attivi"
 }
