@@ -23,7 +23,9 @@ var UserSchema = new Schema({
   twitter: {},
   google: {},
   github: {},
-  aac: {}
+  aac: {},
+  score: String,
+  medal: String,
 });
 
 /**

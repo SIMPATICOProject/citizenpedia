@@ -12,6 +12,8 @@
 import _ from 'lodash';
 import Question from './question.model';
 
+var gamification = require('../../gamification/gamification.service');
+
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -22,8 +24,6 @@ function respondWithResult(res, statusCode) {
 }
 
 function saveUpdates(updates) {
-  console.log("Saving");
-  console.log(updates);
   return function(entity) {
     var updated = _.merge(entity, updates);
     return updated.saveAsync()
@@ -96,6 +96,9 @@ export function show(req, res) {
 // Creates a new Question in the DB
 export function create(req, res) {
   req.body.user = req.user;
+  
+  // Do the gamification login action
+  gamification.post(req.user._id, 'make-question');
 
   Question.createAsync(req.body)
     .then(respondWithResult(res, 201))
@@ -127,6 +130,8 @@ export function destroy(req, res) {
 
 export function createAnswer(req, res) {
   req.body.user = req.user;
+  // Do the gamification login action
+  gamification.post(req.user._id, 'make-answer');
   Question.update({_id: req.params.id}, {$push: {answers: req.body}}, function(err, num) {
     if(err) { return handleError(res)(err); }
     if(num === 0) { return res.send(404).end(); }

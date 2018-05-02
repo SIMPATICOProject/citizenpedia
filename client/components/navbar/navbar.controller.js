@@ -11,6 +11,12 @@ class NavbarController {
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
+    this.hasGamification = function hasGamification(){
+      if (appConfig.gamification == false) {
+        return false;
+      }
+      return true;
+    };
 
     if (typeof appConfig.secondlanguage !== 'undefined')
     {
@@ -51,6 +57,7 @@ class NavbarController {
     this.search = function(keyword) {
       $state.go('main', {keyword: keyword}, {reload: true});
     };
+
   }
 }
 

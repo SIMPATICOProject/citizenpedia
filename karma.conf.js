@@ -33,6 +33,7 @@ module.exports = function(config) {
       'client/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
       'client/bower_components/angular-translate/angular-translate.js',
       'client/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+      'client/bower_components/ngGentle/ngGentle.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'node_modules/socket.io-client/socket.io.js',

@@ -7,14 +7,18 @@
     </div>
 
     <h2>{{ 'TITLE' | translate }}:</h2>
-    <input type="text" class="form-control" ng-model="question.title" name="question_title" required>
+    <input type="text" class="form-control" ng-model="question.title" name="question_title" ng-change="profanityCheck(question.title)" required>
     <span class="text-danger" ng-messages="form.question_title.$error">
       <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
+    </span>
+
+
+    
     </span>
     <span class="text-success" ng-show="form.question_title.$valid">OK</span>
     <br>
     <h2>{{ 'QUESTION' | translate }}:</h2>
-    <pagedown-editor ng-model="question.content" name="question_content" required></pagedown-editor>
+    <pagedown-editor ng-model="question.content" ng-change="profanityCheck(question.content)" name="question_content" required></pagedown-editor>
     <span class="text-danger" ng-messages="form.question_content.$error">
       <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
@@ -23,6 +27,8 @@
     <tags-input ng-model="question.tags" placeholder="{{ 'ADD_A_TAG' | translate }}">
        <auto-complete source="loadTags($query)"></auto-complete> 
     </tags-input>
+
+    <div class="alert alert-danger" ng-show="profanity">{{ 'PROFANITY' | translate }} <span ng-repeat="badword in badWords">{{badword}} </span></div>
 
     <select name="question_category"
       ng-model="question.category"
@@ -34,8 +40,7 @@
       <span ng-message="required">{{ 'REQUIRED' | translate }}</span>
     </span>
 
-
-    <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="{{ 'POST_QUESTION' | translate}}">
+    <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid || profanity" value="{{ 'POST_QUESTION' | translate}}">
     <!--<input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="{{ 'SELECT_CATEGORY' | translate }}">-->
   </form>
 </div>

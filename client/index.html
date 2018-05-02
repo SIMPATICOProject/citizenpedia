@@ -72,6 +72,7 @@
       <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
       <script src="bower_components/angular-translate/angular-translate.js"></script>
       <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+      <script src="bower_components/ngGentle/ngGentle.js"></script>
       <!-- endbower -->
       <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
       <script src="socket.io-client/socket.io.js"></script>
@@ -81,9 +82,9 @@
       <!-- injector:js -->
       <script src="app/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
+      <script src="components/gamification/gamification.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/questionsShow/questionsShow.js"></script>
-      <script src="app/admin/admin.controller.js"></script>
+      <script src="app/tagsIndex/tagsIndex.component.js"></script>
       <script src="app/account/account.js"></script>
       <script src="app/admin/admin.router.js"></script>
       <script src="app/app.constant.js"></script>
@@ -106,10 +107,10 @@
       <script src="app/questionsList/questionsList.routes.js"></script>
       <script src="app/questionsList/questionsListParagraph.component.js"></script>
       <script src="app/questionsShow/questionsShow.controller.js"></script>
-      <script src="app/account/login/login.controller.js"></script>
+      <script src="app/questionsShow/questionsShow.js"></script>
       <script src="app/tagsCreate/tagsCreate.component.js"></script>
       <script src="app/tagsCreate/tagsCreate.routes.js"></script>
-      <script src="app/tagsIndex/tagsIndex.component.js"></script>
+      <script src="app/account/login/login.controller.js"></script>
       <script src="app/tagsIndex/tagsIndex.routes.js"></script>
       <script src="app/termsCreate/termsCreate.component.js"></script>
       <script src="app/termsCreate/termsCreate.routes.js"></script>
@@ -119,12 +120,18 @@
       <script src="app/termsShow/termsShow.routes.js"></script>
       <script src="app/usersIndex/usersIndex.component.js"></script>
       <script src="app/usersIndex/usersIndex.routes.js"></script>
+      <script src="app/usersRanking/usersRanking.component.js"></script>
+      <script src="app/usersRanking/usersRanking.routes.js"></script>
       <script src="app/account/settings/settings.controller.js"></script>
       <script src="components/auth/auth.service.js"></script>
       <script src="components/auth/interceptor.service.js"></script>
       <script src="components/auth/router.decorator.js"></script>
       <script src="components/auth/user.service.js"></script>
       <script src="components/footer/footer.directive.js"></script>
+      <script src="components/gamification/gamification.controller.js"></script>
+      <script src="components/gamification/gamification.directive.js"></script>
+      <script src="app/account/signup/signup.controller.js"></script>
+      <script src="components/gamification/gamification.service.js"></script>
       <script src="components/modal/modal.service.js"></script>
       <script src="components/mongoose-error/mongoose-error.directive.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
@@ -132,7 +139,7 @@
       <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
       <script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
       <script src="components/socket/socket.service.js"></script>
-      <script src="app/account/signup/signup.controller.js"></script>
+      <script src="app/admin/admin.controller.js"></script>
       <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->

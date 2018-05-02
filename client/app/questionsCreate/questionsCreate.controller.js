@@ -12,8 +12,8 @@ angular.module('paizaqaApp')
     },1000);
 
     $scope.submit = function() {
+
       $http.post(appConfig.path + '/api/questions', $scope.question).success(function(){
-        console.log($scope.question);
         $location.path('/');
       });
     };
@@ -56,5 +56,44 @@ angular.module('paizaqaApp')
     if ($location.$$search.text) {
       var originalText = $location.$$search.text;
       $scope['originalText'] = originalText;
+    }
+
+    $scope.profanity = false;
+    
+    if (appConfig.profanityFilter == true) {
+      var profanityList = null;
+      $http.get('profanity/'+appConfig.language+'.json').success(function(data) {
+        profanityList = data;
+      });
+
+      if (typeof appConfig.secondlanguage !== 'undefined')
+      {
+        $http.get('profanity/'+appConfig.secondlanguage+'.json').success(function(data) {
+          profanityList = profanityList.concat(data);
+        });
+      }
+  
+      $scope.profanityCheck = function(contentToCheck)
+      {
+        $scope.badWords = []; 
+        if (contentToCheck != null)
+        {
+          $scope.profanity = false;
+          var arrayToCheck = contentToCheck.split("\ ");
+          for (var i=0; i<arrayToCheck.length; i++)
+          {
+            if (profanityList.includes(arrayToCheck[i]))
+            {
+              $scope.profanity = true;
+              if (!$scope.badWords.includes(arrayToCheck[i]))
+              {
+                $scope.badWords.push (arrayToCheck[i]);
+              }
+             
+            }
+          }
+      }
+        
+      }
     }
   });

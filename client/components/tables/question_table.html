@@ -42,7 +42,7 @@
             <br /> 
           </a>
           <div style="float: right;">
-            {{ 'BY' | translate }} <a ng-href="users/{{question.user._id}}">{{question.user.name}}</a>
+            {{ 'BY' | translate }} <a ng-href="users/{{question.user._id}}">{{question.user.name}} </a>  <span ng-if="hasGamification()" class="glyphicon glyphicon-bookmark" style="color:{{ question.user.medal }}"></span>
              - {{question.createdAt|fromNow}}
           </div>
           <div style="margin-top: 4px;">

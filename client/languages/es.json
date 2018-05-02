@@ -45,5 +45,7 @@
     "TAGS" : "Tags",
     "TAGS_ADMIN" : "Administración de tags",
     "NEW_TAG" : "Nuevo tag",
-    "IE_WARNING" : "Desafortunadamente, Citizenpedia no es compatible con esta versión de Internet Explorer. Haga click aquí para descargar un navegador moderno."
+    "IE_WARNING" : "Desafortunadamente, Citizenpedia no es compatible con esta versión de Internet Explorer. Haga click aquí para descargar un navegador moderno.",
+    "PROFANITY" : "Algunas palabras introducidas no son válidas. Por favor, cambie las siguientes palabras:",
+    "USERS_RANKING" : "Top Users"
 }

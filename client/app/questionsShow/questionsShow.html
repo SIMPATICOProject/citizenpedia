@@ -178,7 +178,10 @@
   <hr/>
   <h3>{{ 'YOUR_ANSWER' | translate }}</h3>
   <form name="answerForm" ng-submit="submitAnswer()">
-    <pagedown-editor placeholder="{{ 'YOUR_ANSWER' | translate }}" ng-model="newAnswer.content" name="answerEditor" required></pagedown-editor>
-    <input type="submit" class="btn btn-primary" ng-disabled="answerForm.$invalid" value="{{ 'SUBMIT_ANSWER' | translate }}">
+    <pagedown-editor placeholder="{{ 'YOUR_ANSWER' | translate }}" ng-model="newAnswer.content" ng-change="profanityCheck(newAnswer.content)" name="answerEditor" required></pagedown-editor>
+    <input type="submit" class="btn btn-primary" ng-disabled="answerForm.$invalid || profanity" value="{{ 'SUBMIT_ANSWER' | translate }}">
   </form>
-</div>
+
+  <div class="alert alert-danger" ng-show="profanity">{{ 'PROFANITY' | translate }} <span ng-repeat="badword in badWords">{{badword}} </span></div>
+
+  <div

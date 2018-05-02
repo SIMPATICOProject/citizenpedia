@@ -124,6 +124,19 @@ Make sure that the name of the json file within client/languages folder and the 
 
 If a secondary language is needed, a secondlanguage value can be set in the configuration file, so a language selector will appear in the upper right corner of the navigation bar.
 
+### Profanity filter
+
+A profanity filter, to avoid bad words from being posted on a question or comment, can be activated. In the config file, the option is:
+
+```
+profanityFilter: true
+```
+
+When activated, the text being entered in questions and answers is checked against bad words. If an unauthorized word is written, the text can't be sent.
+
+The list of unauthorized words for every language can be found and edited in the client/profanity folder, having one file per language. 
+
+
 ### AAC Integration
 
 The file
@@ -139,6 +152,20 @@ AAC_TOKEN_URL
 AAC_URL
 AAC_CALLBACK_URL
 AAC_PROXY (Just in case you need a proxy)
+
+### Gamification
+
+QAE can be enhanced with gamification. In order to do this, Gamification Engine from [Smart Community Lab](https://github.com/smartcommunitylab/smartcampus.gamification) has to be configured.
+
+In /server/config/environment the following config options must be set:
+
+```
+  gamification: true,
+  gamification_path: 'https://xxxxx:xxxx@server.com/gamification/',
+  gamification_gameId:'5a6851c7e8d4a6c091e88272',
+```
+
+If gamification is set, every user will have a badge next to their names and a top users ranking will be shown in the navigation bar.
 
 #### Optional
 

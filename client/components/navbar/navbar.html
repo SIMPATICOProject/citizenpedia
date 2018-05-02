@@ -1,5 +1,5 @@
 <p ng-show="nav.detectIE()" class="alert alert-danger"><a href="http://browsehappy.com">{{ 'IE_WARNING' | translate }}</a></p>
-<div class="navbar navbar-default" style="background-color: #009ee0;" ng-controller="NavbarController">
+<div class="navbar navbar-default" style="background-color: #009ee0;">
   <div class="container">
     <div class="navbar-header">
             <a href=" "><img src="assets/images/logo_simpatico_small.png" alt="Simpatico Project" height="50px"></a>
@@ -12,10 +12,11 @@
     </div>
     <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li ng-show="nav.isLoggedIn()"><p style="color: #000;" class="navbar-text">{{ 'HELLO' | translate }} {{ nav.getCurrentUser().name }}</p> </li>
+        <li ng-show="nav.isLoggedIn()"><p style="color: #000;" class="navbar-text">{{ 'HELLO' | translate }} {{ nav.getCurrentUser().name }} <span ng-if="nav.hasGamification()" class="glyphicon glyphicon-bookmark" style="color:{{ nav.getCurrentUser().medal }} "></span></p> </li>
         <li ui-sref-active="active"><a style="color: #000;" href=" ">{{ 'ALL' | translate }}</a></li>
         <li ui-sref-active="active"><a style="color: #000;" href="terms">{{ 'TERMS' | translate }}</a></li>
         <li ui-sref-active="active"><a style="color: #000;" href="categories">{{ 'CATEGORIES' | translate }}</a></li>
+        <li ng-if="nav.hasGamification()" ui-sref-active="active"><a style="color: #000;" href="usersranking">{{ 'USERS_RANKING' | translate }}</a></li>
         <!--<li ng-show="nav.isLoggedIn()"><a ui-sref="logout">{{ 'LOGOUT' | translate }}</a></li>-->
         <li ng-show="nav.isLoggedIn()"><a style="color: #000;" ui-sref="logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
         <!--<li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a href="login">{{ 'SIGN_UP' | translate }}/{{ 'LOGIN' | translate }}</a></li>-->
