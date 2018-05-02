@@ -2,16 +2,8 @@
 
 angular.module('paizaqaApp')
   .controller('UsersRankingComponent', function ($scope, $http, $location, Auth, query, appConfig) {
-    var keyword = $location.search().keyword;
-    if(keyword){
-      query = _.merge(query, {$text: {$search: keyword}});
-    }
     $scope.busy = true;
     $scope.noMoreData = true;
-    $scope.isAdmin = Auth.isAdmin();
-
-    $scope.roles = [];
-    $scope.roles = appConfig.userRoles;
 
     $scope.noAdminMessage = "Admin Only Zone";
 
