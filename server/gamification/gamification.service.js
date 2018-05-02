@@ -12,7 +12,6 @@ var request = require('request');
 export function post(userId, action) {
   if (config.gamification == true)
   {
-    console.log("Doing post->"+config.gamification_path + 'gengine/execute');
     if (userId != null){
       var json = {
         "gameId": config.gamification_gameId,
