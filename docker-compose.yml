@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+    web:
+        image: nginx:alpine
+        volumes:
+            - "./web:/usr/share/nginx/html"
+            - "./web/conf.d:/etc/nginx/conf.d"
+        ports:
+            - "8000:80"
+        restart: always
+    mongodb:
+        restart: always
+        image: mongo:latest
+        container_name: "mongodb"
+        ports:
+            - 27017:27017
+    qae:
+        image: ravaj/npm-bower-grunt-sass
+        ports:
+            - "9000:9000"
+        restart: always
+        volumes:
+            - "./:/data/qae"
+        command: /bin/sh -c "cd /data/qae && grunt serve"
+        tty: true

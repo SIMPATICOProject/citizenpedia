@@ -74,6 +74,17 @@ Also, for changing the serving path, Apache2 has to be configured with a Vortual
 
 Note: Be careful not to add an ending '/' to the ProxyPass path.
 
+For nginx e.g.:
+
+```
+location /qae {
+        rewrite ^/qae/(.*) /$1 break;
+        proxy_pass http://localhost:9000/;
+        proxy_set_header   Host $host;
+}
+
+```
+
 ### Home page configuration
 
 Via configuration file, is easy to add and remove components from the home page.
@@ -159,3 +170,26 @@ If gamification is set, every user will have a badge next to their names and a t
 #### Optional
 
 For automation purposes, the file node-app_example can be used to configure the app as a Linux service, e.g. use "service qae start" to start the Citizenpedia.
+
+### Docker usage
+
+A docker-compose.yml file is inside this repository in order to use QAE as a docker container. Just do
+
+```
+bash first_run.sh
+docker-compose up
+```
+
+And QAE will be available via
+
+```
+localhost:8000/qae
+```
+
+Also the mongo config in the config file should be:
+
+```
+uri: 'mongodb:27017/paizaqa-dev'
+```
+
+Please note that this container does not include AAC for login.

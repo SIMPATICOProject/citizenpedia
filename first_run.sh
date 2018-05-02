@@ -1,5 +1,5 @@
 #!/bin/bash
 
-npm install --no-bin-links
+tar xvf node_modules.tar.gz
+tar xvf client/bower_components.tar.gz -C client
 gem install sass
-bower install
