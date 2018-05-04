@@ -27,7 +27,7 @@ angular.module('paizaqaApp', [
 
     $locationProvider.html5Mode(true);
 
-    $translateProvider.useSanitizeValueStrategy('sanitize');
+    $translateProvider.useSanitizeValueStrategy(null);
     
     $translateProvider.useStaticFilesLoader({
       prefix: 'languages/',
