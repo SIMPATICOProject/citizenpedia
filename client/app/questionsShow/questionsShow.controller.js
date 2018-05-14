@@ -4,7 +4,82 @@ angular.module('paizaqaApp')
   .controller('QuestionsShowCtrl', function ($scope,appConfig, $http, $stateParams, Auth, $location) {
     var loadQuestions = function(){
       $http.get(appConfig.path+'/api/questions/' + $stateParams.id).success(function(question) {
-        $scope.question = question;
+        // $scope.question = question;
+      // Get the medal for the users
+      if (appConfig.gamification == true) {
+          $http.get(appConfig.path+'/api/users/' + 'getscorelist/full')
+          .success(function(scoreList) {
+              for (let index = 0; index < scoreList.board.length; index++) {
+                if (question.user._id === scoreList.board[index].playerId) {
+                  question.user.score = scoreList.board[index].score;
+                  // Admin user: color: #438276
+                  // Bronze User: #CB5C0D 0-99
+                  // Silver user: #C0C0C0 100-399
+                  // Gold user: #D4AF37 >400
+                  if (scoreList.board[index].score == 0)
+                  {
+                    question.user.medal = "#009EE0";
+                  }
+                  else if (scoreList.board[index].score > 0 && scoreList.board[index].score <= 99)
+                  {
+                    question.user.medal = "#CB5C0D";
+                  }
+                  else if (scoreList.board[index].score >= 100 && scoreList.board[index].score <= 399)
+                  {
+                    question.user.medal = "#C0C0C0";
+                  }
+                  else if (scoreList.board[index].score >= 400)
+                  {
+                    question.user.medal = "#D4AF37";
+                  }
+                }
+              }
+              if (typeof question.user.score == 'undefined') {
+                question.user.score = 0;
+                question.user.medal = "#009EE0";
+              }
+
+              // Get medal for answers
+              question.answers.forEach(element => {
+                for (let index = 0; index < scoreList.board.length; index++) {
+                  if (element.user._id === scoreList.board[index].playerId) {
+                    element.user.score = scoreList.board[index].score;
+                    // Admin user: color: #438276
+                    // Bronze User: #CB5C0D 0-99
+                    // Silver user: #C0C0C0 100-399
+                    // Gold user: #D4AF37 >400
+                    if (scoreList.board[index].score == 0)
+                    {
+                      element.user.medal = "#009EE0";
+                    }
+                    else if (scoreList.board[index].score > 0 && scoreList.board[index].score <= 99)
+                    {
+                      element.user.medal = "#CB5C0D";
+                    }
+                    else if (scoreList.board[index].score >= 100 && scoreList.board[index].score <= 399)
+                    {
+                      element.user.medal = "#C0C0C0";
+                    }
+                    else if (scoreList.board[index].score >= 400)
+                    {
+                      element.user.medal = "#D4AF37";
+                    }
+                  }
+
+                  if (typeof element.user.score == 'undefined') {
+                    element.user.score = 0;
+                    element.user.medal = "#009EE0";
+                  }
+                }
+              });
+        });
+
+      }
+      
+      $scope.question = question;
+      $scope.basePath = appConfig.path;
+
+      $scope.busy = false;
       });
 
       $scope.options = [];
@@ -26,6 +101,13 @@ angular.module('paizaqaApp')
 
     };
     loadQuestions();
+
+    $scope.hasGamification = function hasGamification(){
+      if (appConfig.gamification == false) {
+        return false;
+      }
+      return true;
+    };
 
     $scope.newAnswer = {};
     $scope.submitAnswer = function() {

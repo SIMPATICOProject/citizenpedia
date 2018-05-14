@@ -69,7 +69,7 @@
   <button type="submit" class="btn btn-primary" ng-click="editting=false;updateQuestion()" ng-show=" editting">{{ 'SAVE' | translate }}</button>
   <a ng-click="editting=!editting;" ng-show="isAdmin() || isOwner(question) && !editting">{{ 'EDIT' | translate }}</a>
 
-  <div class="text-right">{{ 'BY' | translate }} <a ng-href="users/{{question.user._id}}">{{question.user.name}}</a> - {{question.createdAt|fromNow}}</div>
+  <div class="text-right">{{ 'BY' | translate }} <a ng-href="users/{{question.user._id}}">{{question.user.name}}</a> <span ng-if="hasGamification()" class="glyphicon glyphicon-bookmark" style="color:{{ question.user.medal }}"></span> - {{question.createdAt|fromNow}}</div>
   &nbsp;
   <div class="comment">
     <div ng-repeat="comment in question.comments">
@@ -137,7 +137,7 @@
 
 
 
-    <div class="text-right">{{ 'BY' | translate }} {{answer.user.name}} - {{answer.createdAt|fromNow}}</div>
+    <div class="text-right">{{ 'BY' | translate }} {{answer.user.name}} <span ng-if="hasGamification()" class="glyphicon glyphicon-bookmark" style="color:{{ answer.user.medal }}"></span> - {{answer.createdAt|fromNow}}</div>
     <div class="comment">
       <div ng-repeat="comment in answer.comments">
         <hr/>
@@ -184,4 +184,4 @@
 
   <div class="alert alert-danger" ng-show="profanity">{{ 'PROFANITY' | translate }} <span ng-repeat="badword in badWords">{{badword}} </span></div>
 
-  </div>
+  <div
