@@ -1,6 +1,6 @@
 <div ng-include src="'components/header/header.html'"></div>
 
-<div class="container">
+<div class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData'>
   <br/>
 
   <div ng-include src="'components/tables/question_table.html'"></div>
