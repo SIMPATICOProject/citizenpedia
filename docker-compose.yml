@@ -15,6 +15,15 @@ services:
         container_name: "mongodb"
         ports:
             - 27017:27017
+        # command: /bin/sh -c "mongoimport --host mongodb --db paizaqa-dev --collection categories --type json --jsonArray --file /mongo-seed/categories.json"
+    mongo-seed:
+        build: ./mongo-seed
+        links:
+            - mongodb
+        volumes:
+            - "./mongo-seed:/mongo-seed"
+        command:
+            /bin/sh /mongo-seed/dbseed.sh
     qae:
         image: ravaj/npm-bower-grunt-sass
         ports:
