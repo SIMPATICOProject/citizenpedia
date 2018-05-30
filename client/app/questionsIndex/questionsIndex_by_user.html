@@ -1,0 +1,15 @@
+
+<header class="jumbotron vertical-center" style="text-align: center" id="banner">
+    <div class="header">
+      <h1 ng-show="categoryName!='NONE'"> <img src="assets/images/svg/user.png" style="vertical-align: sub;">{{ questions[0].user.name }}</h1>    
+      <h1 ng-show="categoryName=='NONE'"><i class="fa fa-frown-o" aria-hidden="true"></i></h1>
+    </div>
+  </header>
+
+<div class="container">
+  <br/>
+
+  <div ng-include src="'components/tables/question_table.html'"></div>
+
+  <div ng-show='busy'>{{ 'LOADING' | translate }}</div>
+</div><!-- container-->

@@ -30,7 +30,7 @@ angular.module('paizaqaApp')
       })
       .state('userQuestionsIndex', {
         url: '/users/:userId',
-        templateUrl: 'app/questionsIndex/questionsIndex.html',
+        templateUrl: 'app/questionsIndex/questionsIndex_by_user.html',
         controller: 'QuestionsIndexCtrl',
         resolve: {
           query: function($stateParams){
