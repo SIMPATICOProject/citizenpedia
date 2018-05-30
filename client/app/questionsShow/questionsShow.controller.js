@@ -43,6 +43,14 @@ angular.module('paizaqaApp')
               question.answers.forEach(element => {
                 for (let index = 0; index < scoreList.board.length; index++) {
                   if (element.user._id === scoreList.board[index].playerId) {
+                    console.log(element);
+                    $http.get(appConfig.path + '/api/users/'+ element.user._id).success(function(result) {
+                      console.log(appConfig.path + '/api/users/' + element.user._id);
+                      console.log(result.role);
+                      if (result.role == 'admin') {
+                        element.background = "#e7e7e7";
+                      }
+                    });
                     element.user.score = scoreList.board[index].score;
                     // Admin user: color: #438276
                     // Bronze User: #CB5C0D 0-99
@@ -71,6 +79,7 @@ angular.module('paizaqaApp')
                     element.user.medal = "#009EE0";
                   }
                 }
+                console.log(element);
               });
         });
 
