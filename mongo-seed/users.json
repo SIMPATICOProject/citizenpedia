@@ -1,0 +1,13 @@
+[
+    {
+        "name" : "Admin",
+        "provider" : "aac",
+        "aac" : {
+            "userId" : "1",
+            "socialId" : "-1",
+            "surname" : "Admin",
+            "name" : "Admin"
+        },
+        "role" : "admin"
+    }
+]
