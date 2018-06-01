@@ -5,9 +5,15 @@ angular.module('paizaqaApp')
 
     $timeout(function(){
       if(! Auth.isLoggedIn()){
-        $location.path('/login');
-        $location.replace();
-        return;
+        if(! Auth.isLoggedIn()){
+          if ($location.$$search) {
+            localStorage.setItem('tags', $location.$$search.tags);
+            localStorage.setItem('text', $location.$$search.text);
+          }
+          $location.path('/login');
+          $location.replace();
+          return;
+        }
       }
     },1000);
 

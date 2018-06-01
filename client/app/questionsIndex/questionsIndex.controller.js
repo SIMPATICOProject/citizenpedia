@@ -2,6 +2,16 @@
 
 angular.module('paizaqaApp')
   .controller('QuestionsIndexCtrl', function ($scope, $http, $location, Auth, query, appConfig ) {
+    var text = localStorage.getItem('text') || '';
+    var tags = localStorage.getItem('tags') || '';
+    if (text != '') {
+      localStorage.removeItem('text');
+      localStorage.removeItem('tags');
+      alert(appConfig.path + '/questions/create/?text='+text+'&tags='+tags);
+      $window.location.href = appConfig.path + '/questions/create?text='+text+'&tags='+tags;
+
+    }
+    
     var keyword = $location.search().keyword;
     if(keyword){
       query = _.merge(query, {$text: {$search: keyword}});
