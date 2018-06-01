@@ -1,13 +1,12 @@
 'use strict';
 
 angular.module('paizaqaApp')
-  .controller('QuestionsIndexCtrl', function ($scope, $http, $location, Auth, query, appConfig ) {
+  .controller('QuestionsIndexCtrl', function ($scope, $http, $location, $window, Auth, query, appConfig ) {
     var text = localStorage.getItem('text') || '';
     var tags = localStorage.getItem('tags') || '';
     if (text != '') {
       localStorage.removeItem('text');
       localStorage.removeItem('tags');
-      alert(appConfig.path + '/questions/create/?text='+text+'&tags='+tags);
       $window.location.href = appConfig.path + '/questions/create?text='+text+'&tags='+tags;
 
     }
