@@ -36,7 +36,7 @@ describe('Cpd API Router:', function() {
     cpdIndex.should.equal(routerStub);
   });
 
-  describe('GET /api/cpds', function() {
+  describe('GET /api/cpd', function() {
     it('should route to cpd.controller.index', function() {
       routerStub.get
         .withArgs('/', 'cpdCtrl.index')
@@ -44,15 +44,15 @@ describe('Cpd API Router:', function() {
     });
   });
 
-  describe('GET /api/cpds/:id', function() {
+  describe('GET /api/cpd/:id/:tag', function() {
     it('should route to cpd.controller.show', function() {
       routerStub.get
-        .withArgs('/:id', 'cpdCtrl.show')
+        .withArgs('/:id/:tag', 'cpdCtrl.show')
         .should.have.been.calledOnce;
     });
   });
 
-  describe('POST /api/cpds', function() {
+  describe('POST /api/cpd', function() {
     it('should route to cpd.controller.create', function() {
       routerStub.post
         .withArgs('/', 'cpdCtrl.create')
@@ -60,7 +60,7 @@ describe('Cpd API Router:', function() {
     });
   });
 
-  describe('PUT /api/cpds/:id', function() {
+  describe('PUT /api/cpd/:id', function() {
     it('should route to cpd.controller.upsert', function() {
       routerStub.put
         .withArgs('/:id', 'cpdCtrl.upsert')

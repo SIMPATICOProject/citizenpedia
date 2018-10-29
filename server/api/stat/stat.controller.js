@@ -78,24 +78,23 @@ export function index(req, res) {
 
 // Gets a single Stat from the DB
 export function show(req, res) {
-  console.log("Stats");
+  // console.log("Stats");
   var query = req.params.tag;
     if (req.params.id == "questions") {
-      console.log("questions");
       Question.find({"tags.text": query}).count().execAsync()
         .then(respondWithResult(res))
         .catch(handleError(res));
     }
 
     if (req.params.id == "diagrams") {
-      console.log("diagrams->"+query);
+      // console.log("diagrams->"+query);
       Question.find({$and: [{"tags.text": "Diagram"}, {"tags.text": query} ]}).count().execAsync()
         .then(respondWithResult(res))
         .catch(handleError(res));
     }
 
     if (req.params.id == "total") {
-      console.log("totalQuestions");
+      // console.log("totalQuestions");
       Question.count()
         .then(respondWithResult(res))
         .catch(handleError(res));
@@ -114,19 +113,19 @@ export function show(req, res) {
 
 // Swagger sucks. Have to make this function just to swagger to work
 export function countparagraph(req, res) {
-  console.log("Stats from eservice and paragraph");
+  // console.log("Stats from eservice and paragraph");
   var query1 = req.params.eservice;
   var query2 = req.params.paragraph;
 
     if (req.params.id == "questions") {
-      console.log("questions");
+      // console.log("questions");
       Question.find({$and: [{"tags.text": query1}, {"tags.text": query2} ]}).count().execAsync()
         .then(respondWithResult(res))
         .catch(handleError(res));
     }
 
     if (req.params.id == "diagrams") {
-      console.log("diagrams");
+      // console.log("diagrams");
       Question.find({$and: [{"tags.text": "Diagram"}, {"tags.text": query1}, {"tags.text": query2} ]}).count().execAsync()
         .then(respondWithResult(res))
         .catch(handleError(res));
@@ -145,7 +144,7 @@ export function countparagraph(req, res) {
 // Function to get total number of questions
 export function totalquestions(req, res)
 {
-  console.log("totalQuestions");
+  // console.log("totalQuestions");
   Question.count()
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -154,7 +153,7 @@ export function totalquestions(req, res)
 // Function to get total number of stars
 export function totalstars(req, res)
 {
-  console.log("totalstars");
+  // console.log("totalstars");
   Question.count({"stars" : { $exists: true, $not: {$size: 0} } })
     .then(respondWithResult(res))
     .catch(handleError(res));

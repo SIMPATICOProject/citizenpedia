@@ -44,10 +44,10 @@ describe('Qae API Router:', function() {
     });
   });
 
-  describe('GET /api/qae/:id', function() {
+  describe('GET /api/qae/:id/:tag', function() {
     it('should route to qae.controller.show', function() {
       routerStub.get
-        .withArgs('/:id', 'qaeCtrl.show')
+        .withArgs('/:id/:tag', 'qaeCtrl.show')
         .should.have.been.calledOnce;
     });
   });

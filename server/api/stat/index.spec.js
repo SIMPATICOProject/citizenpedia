@@ -44,10 +44,10 @@ describe('Stat API Router:', function() {
     });
   });
 
-  describe('GET /api/stats/:id', function() {
+  describe('GET /api/stats/:id/:tag', function() {
     it('should route to stat.controller.show', function() {
       routerStub.get
-        .withArgs('/:id', 'statCtrl.show')
+        .withArgs('/:id/:tag', 'statCtrl.show')
         .should.have.been.calledOnce;
     });
   });

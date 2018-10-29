@@ -1,0 +1,84 @@
+'use strict';
+
+/* globals describe, expect, it, beforeEach, afterEach */
+
+var app = require('../..');
+import request from 'supertest';
+
+var newCpd;
+
+describe('Cpd API:', function() {
+  describe('GET /api/cpd', function() {
+    var cpds;
+
+    beforeEach(function(done) {
+      request(app)
+        .get('/api/cpd')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .end((err, res) => {
+          if(err) {
+            return done(err);
+          }
+          cpds = res.body;
+          done();
+        });
+    });
+
+    it('should respond with JSON array', function() {
+      cpds.should.be.instanceOf(Array);
+    });
+  });
+
+  describe('POST /api/cpd', function() {
+    beforeEach(function(done) {
+      request(app)
+        .post('/api/cpd')
+        .send({
+          name: 'New Cpd',
+          info: 'This is the brand new cpd!!!'
+        })
+        .expect(201)
+        .expect('Content-Type', /json/)
+        .end((err, res) => {
+          if(err) {
+            return done(err);
+          }
+          newCpd = res.body;
+          done();
+        });
+    });
+
+    it('should respond with the newly created cpd', function() {
+      newCpd.name.should.equal('New Cpd');
+      newCpd.info.should.equal('This is the brand new cpd!!!');
+    });
+  });
+
+  describe('GET /api/cpd/diagrams/:id', function() {
+    var cpd;
+
+    beforeEach(function(done) {
+      request(app)
+        .get(`/api/cpd/diagrams/${newCpd._id}`)
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .end((err, res) => {
+          if(err) {
+            return done(err);
+          }
+          cpd = res.body;
+          done();
+        });
+    });
+
+    afterEach(function() {
+      cpd = {};
+    });
+
+    it('should respond with the requested cpd', function() {
+      cpd.name.should.equal('New Cpd');
+    });
+  });
+
+});

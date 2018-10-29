@@ -123,35 +123,6 @@ describe('Category API:', function() {
     });
   });
 
-  describe('PATCH /api/categories/:id', function() {
-    var patchedCategory;
-
-    beforeEach(function(done) {
-      request(app)
-        .patch(`/api/categories/${newCategory._id}`)
-        .send([
-          { op: 'replace', path: '/name', value: 'Patched Category' },
-        ])
-        .expect(200)
-        .expect('Content-Type', /json/)
-        .end(function(err, res) {
-          if(err) {
-            return done(err);
-          }
-          patchedCategory = res.body;
-          done();
-        });
-    });
-
-    afterEach(function() {
-      patchedCategory = {};
-    });
-
-    it('should respond with the patched category', function() {
-      patchedCategory.name.should.equal('Patched Category');
-    });
-  });
-
   describe('DELETE /api/categories/:id', function() {
     it('should respond with 204 on successful removal', function(done) {
       request(app)

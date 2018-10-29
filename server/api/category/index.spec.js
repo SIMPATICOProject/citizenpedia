@@ -66,14 +66,6 @@ describe('Category API Router:', function() {
     });
   });
 
-  describe('PATCH /api/categories/:id', function() {
-    it('should route to category.controller.patch', function() {
-      routerStub.patch
-        .withArgs('/:id', 'categoryCtrl.patch')
-        .should.have.been.calledOnce;
-    });
-  });
-
   describe('DELETE /api/categories/:id', function() {
     it('should route to category.controller.destroy', function() {
       routerStub.delete

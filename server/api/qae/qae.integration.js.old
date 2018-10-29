@@ -55,33 +55,6 @@ describe('Qae API:', function() {
     });
   });
 
-  describe('GET /api/qae/:id', function() {
-    var qae;
-
-    beforeEach(function(done) {
-      request(app)
-        .get(`/api/qae/${newQae._id}`)
-        .expect(200)
-        .expect('Content-Type', /json/)
-        .end((err, res) => {
-          if(err) {
-            return done(err);
-          }
-          qae = res.body;
-          done();
-        });
-    });
-
-    afterEach(function() {
-      qae = {};
-    });
-
-    it('should respond with the requested qae', function() {
-      qae.name.should.equal('New Qae');
-      qae.info.should.equal('This is the brand new qae!!!');
-    });
-  });
-
   describe('PUT /api/qae/:id', function() {
     var updatedQae;
 
@@ -114,7 +87,7 @@ describe('Qae API:', function() {
 
     it('should respond with the updated qae on a subsequent GET', function(done) {
       request(app)
-        .get(`/api/qae/${newQae._id}`)
+        .get(`/api/qae/questions/${newQae._id}`)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -128,6 +101,33 @@ describe('Qae API:', function() {
 
           done();
         });
+    });
+  });
+
+  describe('GET /api/qae/questions/:id', function() {
+    var qae;
+
+    beforeEach(function(done) {
+      request(app)
+        .get(`/api/qae/questions/${newQae._id}`)
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .end((err, res) => {
+          if(err) {
+            return done(err);
+          }
+          qae = res.body;
+          done();
+        });
+    });
+
+    afterEach(function() {
+      qae = {};
+    });
+
+    it('should respond with the requested qae', function() {
+      qae.name.should.equal('New Qae');
+      qae.info.should.equal('This is the brand new qae!!!');
     });
   });
 
