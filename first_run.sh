@@ -1,4 +1,4 @@
 #!/bin/bash
 
-tar xvf node_modules.tar.gz
-tar xvf client/bower_components.tar.gz -C client
+tar xf node_modules.tar.gz
+tar xf client/bower_components.tar.gz -C client
