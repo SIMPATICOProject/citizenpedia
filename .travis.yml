@@ -1,13 +1,14 @@
 language: node_js
-install: false
+install: 
+  - bash ./first_run.sh
 node_js:
   - 4.2.3
 matrix:
   fast_finish: true
   allow_failures:
     - node_js: 5.1.1
-before_script:
-  - bash ./first_run.sh
+# before_script:
+#   - bash ./first_run.sh
 services: mongodb
 script: 
   - grunt test
