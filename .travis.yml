@@ -1,7 +1,7 @@
 language: node_js
 install: 
-  - bash ./first_run.sh
   - npm install grunt
+  - bash ./first_run.sh
 node_js:
   - 4.2.3
 matrix:
