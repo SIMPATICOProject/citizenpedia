@@ -1,6 +1,5 @@
 language: node_js
 install: 
-  - npm install grunt
   - bash ./first_run.sh
 node_js:
   - 10.13
