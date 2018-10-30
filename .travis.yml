@@ -1,7 +1,7 @@
 language: node_js
 install: 
-  - npm install grunt
   - bash ./first_run.sh
+  - npm install grunt
 matrix:
   fast_finish: true
   allow_failures:
