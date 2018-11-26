@@ -213,7 +213,8 @@ UserSchema.methods = {
     var salt = new Buffer(this.salt, 'base64');
 
     if (!callback) {
-      return crypto.pbkdf2Sync(password, salt, defaultIterations, defaultKeyLength)
+      //return crypto.pbkdf2Sync(password, salt, defaultIterations, defaultKeyLength)
+      return crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512')
                    .toString('base64');
     }
 
