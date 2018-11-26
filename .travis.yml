@@ -2,8 +2,6 @@ language: node_js
 install: 
   - tar xvf node_modules.tar.gz
   - tar xvf client/bower_components.tar.gz -C client
-  - npm install yarn@latest
-  - yarn add grunt
 node_js:
   - 10.13
 matrix:
@@ -13,5 +11,7 @@ matrix:
 # before_script:
 #   - bash ./first_run.sh
 services: mongodb
+before_script:
+  - npm install grunt-cli -g
 script: 
   - grunt test
