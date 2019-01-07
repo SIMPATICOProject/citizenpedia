@@ -457,12 +457,12 @@ module.exports = function (grunt) {
     },
 
     // Test settings
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js',
-        singleRun: true
-      }
-    },
+    // karma: {
+    //   unit: {
+    //     configFile: 'karma.conf.js',
+    //     singleRun: true
+    //   }
+    // },
 
     mochaTest: {
       options: {
@@ -674,25 +674,25 @@ module.exports = function (grunt) {
 
     if (target === 'debug') {
       return grunt.task.run([
-        'clean:server',
-        'env:all',
-        'concurrent:pre',
-        'concurrent:server',
-        'injector',
-        'wiredep:client',
-        'postcss',
-        'concurrent:debug'
+        // 'clean:server',
+        // 'env:all',
+        // 'concurrent:pre',
+        // 'concurrent:server',
+        // 'injector',
+        // 'wiredep:client',
+        // 'postcss',
+        // 'concurrent:debug'
       ]);
     }
 
     grunt.task.run([
-      'clean:server',
-      'env:all',
-      'concurrent:pre',
-      'concurrent:server',
-      'injector',
-      'wiredep:client',
-      'postcss',
+      // 'clean:server',
+      // 'env:all',
+      // 'concurrent:pre',
+      // 'concurrent:server',
+      // 'injector',
+      // 'wiredep:client',
+      // 'postcss',
       'express:dev',
       'wait',
       // 'open',
@@ -708,7 +708,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', function(target, option) {
     if (target === 'server') {
       return grunt.task.run([
-        'env:all',
+        // 'env:all',
         'env:test',
         'mochaTest:unit',
         'mochaTest:integration'
@@ -717,13 +717,13 @@ module.exports = function (grunt) {
 
     else if (target === 'client') {
       return grunt.task.run([
-        'clean:server',
-        'env:all',
-        'concurrent:pre',
-        'concurrent:test',
-        'injector',
-        'postcss',
-        'wiredep:test',
+        // 'clean:server',
+        // 'env:all',
+        // 'concurrent:pre',
+        // 'concurrent:test',
+        // 'injector',
+        // 'postcss',
+        // 'wiredep:test',
         'karma'
       ]);
     }
@@ -733,7 +733,7 @@ module.exports = function (grunt) {
       if (option === 'prod') {
         return grunt.task.run([
           'build',
-          'env:all',
+          // 'env:all',
           'env:prod',
           'express:prod',
           'protractor'
@@ -742,14 +742,14 @@ module.exports = function (grunt) {
 
       else {
         return grunt.task.run([
-          'clean:server',
-          'env:all',
+          // 'clean:server',
+          // 'env:all',
           'env:test',
-          'concurrent:pre',
-          'concurrent:test',
-          'injector',
-          'wiredep:client',
-          'postcss',
+          // 'concurrent:pre',
+          // 'concurrent:test',
+          // 'injector',
+          // 'wiredep:client',
+          // 'postcss',
           'express:dev',
           'protractor'
         ]);
@@ -760,7 +760,7 @@ module.exports = function (grunt) {
 
       if (option === 'unit') {
         return grunt.task.run([
-          'env:all',
+          // 'env:all',
           'env:test',
           'mocha_istanbul:unit'
         ]);
@@ -768,7 +768,7 @@ module.exports = function (grunt) {
 
       else if (option === 'integration') {
         return grunt.task.run([
-          'env:all',
+          // 'env:all',
           'env:test',
           'mocha_istanbul:integration'
         ]);
@@ -782,7 +782,7 @@ module.exports = function (grunt) {
 
       else {
         return grunt.task.run([
-          'env:all',
+          // 'env:all',
           'env:test',
           'mocha_istanbul',
           'istanbul_check_coverage'
@@ -793,18 +793,18 @@ module.exports = function (grunt) {
 
     else grunt.task.run([
       'test:server',
-      'test:client'
+      // 'test:client'
     ]);
   });
 
   grunt.registerTask('build', [
     'clean:dist',
-    'concurrent:pre',
-    'concurrent:dist',
-    'injector',
-    'wiredep:client',
+    // 'concurrent:pre',
+    // 'concurrent:dist',
+    // 'injector',
+    // 'wiredep:client',
     'useminPrepare',
-    'postcss',
+    // 'postcss',
     'ngtemplates',
     'concat',
     'ngAnnotate',
