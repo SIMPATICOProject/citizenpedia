@@ -17,5 +17,5 @@ before_script:
   - npm install grunt-cli node-sass grunt-sass -g
 script: 
   - grunt test
-  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  # - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
   - codecov
