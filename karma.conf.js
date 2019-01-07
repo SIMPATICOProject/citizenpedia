@@ -97,6 +97,7 @@ module.exports = function(config) {
     autoWatch: false,
 
     PHANTOMJS_BIN : '/usr/local/bin/phantomjs',
+    CODECOV_TOKEN : "9cc5399d-56e0-4e85-98c7-6f1c73fa2e68",
     // Start these browsers, currently available:
     // - Chrome
     // - ChromeCanary
