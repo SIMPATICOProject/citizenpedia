@@ -84,8 +84,15 @@ module.exports = function(config) {
     // - junit
     // - growl
     // - coverage
-    reporters: ['spec'],
-
+    reporters: ['spec', 'coverage'],
+    coverageReporter: {
+      reporters: [
+          // generates ./coverage/lcov.info
+          {type:'lcovonly', subdir: '.'},
+          // generates ./coverage/coverage-final.json
+          {type:'json', subdir: '.'},
+      ]
+  },
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
 
