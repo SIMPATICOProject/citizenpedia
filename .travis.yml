@@ -1,5 +1,6 @@
 language: node_js
 install: 
+  - npm install -g codecov
   - tar xf node_modules.tar.gz
   - tar xf client/bower_components.tar.gz -C client
 node_js:
@@ -15,3 +16,5 @@ before_script:
   - npm install grunt-cli node-sass grunt-sass -g
 script: 
   - grunt test
+  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  - codecov
