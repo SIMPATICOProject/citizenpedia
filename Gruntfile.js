@@ -471,33 +471,37 @@ module.exports = function (grunt) {
         timeout: 5000 // set default mocha spec timeout
       },
       unit: {
-        src: ['<%= yeoman.server %>/**/*.spec.js']
+        //src: ['<%= yeoman.server %>/**/*.spec.js']
+	src: ['server/api/']
       },
       integration: {
-        src: ['<%= yeoman.server %>/**/*.integration.js']
+        //src: ['<%= yeoman.server %>/**/*.integration.js']
+	src: ['server/api/']
       }
     },
 
     mocha_istanbul: {
       unit: {
         options: {
-          excludes: ['**/*.{spec,mock,integration}.js'],
+          //excludes: ['**/*.{spec,mock,integration}.js'],
           reporter: 'spec',
           require: ['mocha.conf.js'],
           mask: '**/*.spec.js',
-          coverageFolder: 'coverage/server/unit'
+          coverageFolder: 'coverage/server/unit',
         },
-        src: '<%= yeoman.server %>'
+        //src: '<%= yeoman.server %>'
+	src: 'server/api'
       },
       integration: {
         options: {
-          excludes: ['**/*.{spec,mock,integration}.js'],
+          //excludes: ['**/*.{spec,mock,integration}.js'],
           reporter: 'spec',
           require: ['mocha.conf.js'],
           mask: '**/*.integration.js',
           coverageFolder: 'coverage/server/integration'
         },
-        src: '<%= yeoman.server %>'
+        //src: '<%= yeoman.server %>'
+	src: 'server/api'
       }
     },
 
