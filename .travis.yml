@@ -16,6 +16,6 @@ services: mongodb
 before_script:
   - npm install grunt-cli node-sass grunt-sass -g
 script: 
-  - grunt test
+  - grunt test:coverage
   # - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
   - codecov
