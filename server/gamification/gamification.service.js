@@ -10,6 +10,7 @@ var request = require('request');
 * Send the event to the gamification engine
 */
 export function post(userId, action) {
+  /* istanbul ignore next */
   if (config.gamification == true)
   {
     if (userId != null){
@@ -42,6 +43,7 @@ export function post(userId, action) {
 */
 export function getPoints(userID)
 {
+  /* istanbul ignore next */
   return new Promise(function (fulfill, reject){
     request(config.gamification_path + 'gengine/state/' +config.gamification_gameId + '/' + userID, function (error, response, body) {
       try {
@@ -60,6 +62,7 @@ export function getPoints(userID)
 */
 export function getScoreList(userID)
 {
+  /* istanbul ignore next */
   return new Promise(function (fulfill, reject){
     request(config.gamification_path + 'data/game/' + config.gamification_gameId + '/classification/general', function (error, response, body) {
       try {

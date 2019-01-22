@@ -489,20 +489,20 @@ module.exports = function (grunt) {
           mask: '**/*.spec.js',
           coverageFolder: 'coverage/server/unit',
         },
-        //src: '<%= yeoman.server %>'
-	src: 'server/api'
+        src: '<%= yeoman.server %>/api'
+	      //src: 'server/api'
       },
-      integration: {
-        options: {
-          //excludes: ['**/*.{spec,mock,integration}.js'],
-          reporter: 'spec',
-          require: ['mocha.conf.js'],
-          mask: '**/*.integration.js',
-          coverageFolder: 'coverage/server/integration'
-        },
-        //src: '<%= yeoman.server %>'
-	src: 'server/api'
-      }
+  //     integration: {
+  //       options: {
+  //         //excludes: ['**/*.{spec,mock,integration}.js'],
+  //         reporter: 'spec',
+  //         require: ['mocha.conf.js'],
+  //         mask: '**/*.integration.js',
+  //         coverageFolder: 'coverage/server/integration'
+  //       },
+  //       //src: '<%= yeoman.server %>'
+	// src: 'server/api'
+  //     }
     },
 
     istanbul_check_coverage: {
@@ -510,7 +510,7 @@ module.exports = function (grunt) {
         options: {
           coverageFolder: 'coverage/**',
           check: {
-            lines: 80,
+            //lines: 80
             statements: 80
             // branches: 80,
             // functions: 80

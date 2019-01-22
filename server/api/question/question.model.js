@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose'));
-
+/* istanbul ignore next */
 var QuestionSchema = new mongoose.Schema({
   title: String,
   content: String,
@@ -71,6 +71,7 @@ var QuestionSchema = new mongoose.Schema({
   }],
   searchText: String,
 });
+/* istanbul ignore next */
 QuestionSchema.pre('find', function(next){
   this.populate('user', 'name');
   this.populate('comments.user', 'name');
@@ -79,6 +80,7 @@ QuestionSchema.pre('find', function(next){
   this.populate('category', 'name');
   next();
 });
+/* istanbul ignore next */
 QuestionSchema.pre('findOne', function(next){
   this.populate('user', 'name');
   this.populate('comments.user', 'name');
@@ -88,6 +90,7 @@ QuestionSchema.pre('findOne', function(next){
   next();
 });
 
+/* istanbul ignore next */
 QuestionSchema.index({
   'title': 'text',
   'content': 'text',
@@ -97,9 +100,9 @@ QuestionSchema.index({
   'answers.comments.content': 'text',
   'searchText': 'text',
 }, {name: 'question_schema_index'});
-
+/* istanbul ignore next */
 var TinySegmenter = require('tiny-segmenter');
-
+/* istanbul ignore next */
 var getSearchText = function(question){
   var tinySegmenter = new TinySegmenter();
   var searchText = "";
@@ -126,7 +129,7 @@ QuestionSchema.statics.updateSearchText = function(id, cb){
     });
   }.bind(this));
 };
-
+/* istanbul ignore next */
 QuestionSchema.pre('save', function(next){
   this.searchText = getSearchText(this);
   next();

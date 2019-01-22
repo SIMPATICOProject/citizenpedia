@@ -11,6 +11,7 @@ var validateJwt = expressJwt({
   secret: config.secrets.session
 });
 
+/* istanbul ignore next */
 /**
  * Attaches the user object to the request if authenticated
  * Otherwise returns 403
@@ -39,6 +40,7 @@ export function isAuthenticated() {
     });
 }
 
+/* istanbul ignore next */
 /**
  * Checks if the user role meets the minimum requirements of the route
  */
@@ -59,6 +61,7 @@ export function hasRole(roleRequired) {
     });
 }
 
+/* istanbul ignore next */
 /**
  * Returns a jwt token signed by the app secret
  */
@@ -68,6 +71,7 @@ export function signToken(id, role) {
   });
 }
 
+/* istanbul ignore next */
 /**
  * Set token cookie directly for oAuth strategies
  */

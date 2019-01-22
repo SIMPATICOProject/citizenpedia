@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken';
 
 var gamification = require('../../gamification/gamification.service');
 
+/* istanbul ignore next */
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
   return function(err) {
@@ -14,6 +15,7 @@ function validationError(res, statusCode) {
   }
 }
 
+/* istanbul ignore next */
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -24,6 +26,7 @@ function respondWithResult(res, statusCode) {
   };
 }
 
+/* istanbul ignore next */
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
@@ -31,6 +34,7 @@ function handleError(res, statusCode) {
   };
 }
 
+/* istanbul ignore next */
 /**
  * Get list of users
  * restriction: 'admin'
@@ -43,6 +47,7 @@ export function index(req, res) {
     .catch(handleError(res));
 }
 
+/* istanbul ignore next */
 /**
  * Creates a new user
  */
@@ -60,6 +65,7 @@ export function create(req, res, next) {
     .catch(validationError(res));
 }
 
+/* istanbul ignore next */
 /**
  * Get a single user
  */
@@ -76,6 +82,7 @@ export function show(req, res, next) {
     .catch(err => next(err));
 }
 
+/* istanbul ignore next */
 /**
  * Deletes a user
  * restriction: 'admin'
@@ -88,6 +95,7 @@ export function destroy(req, res) {
     .catch(handleError(res));
 }
 
+/* istanbul ignore next */
 /**
  * Change a users password
  */
@@ -111,6 +119,7 @@ export function changePassword(req, res, next) {
     });
 }
 
+/* istanbul ignore next */
 /**
  * Get my info
  */
@@ -174,6 +183,7 @@ export function updateRole(req, res, next) {
   //res.redirect(config.path +'/usersadmin');
 }
 
+/* istanbul ignore next */
 /**
  * Get gamification score for one specific user
  */
@@ -185,6 +195,7 @@ export function getScore(req, res, next) {
         })
 }
 
+/* istanbul ignore next */
 /**
  * Get gamification score for all users
  */
