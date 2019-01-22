@@ -7,6 +7,8 @@ module.exports = {
   // MongoDB connection options
   mongo: {
     uri: 'mongodb://localhost/paizaqa-dev'
+    //uri: 'mongodb:27017/paizaqa-dev' /* for docker */
+
   },
 
   // Seed database on startup

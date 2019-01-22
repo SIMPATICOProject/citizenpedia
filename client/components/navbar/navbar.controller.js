@@ -58,6 +58,14 @@ class NavbarController {
       $state.go('main', {keyword: keyword}, {reload: true});
     };
 
+    this.zoomUp = function zoomUp(){
+      document.body.style.zoom = "110%";
+    };
+
+    this.zoomDown = function zoomDown(){
+      alert('ZoomDown');
+    };
+
   }
 }
 
