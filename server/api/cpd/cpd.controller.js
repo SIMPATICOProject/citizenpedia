@@ -23,6 +23,7 @@ function respondWithResult(res, statusCode) {
   };
 }
 
+/* istanbul ignore next */
 function patchUpdates(patches) {
   return function(entity) {
     try {
@@ -35,6 +36,7 @@ function patchUpdates(patches) {
   };
 }
 
+/* istanbul ignore next */
 function removeEntity(res) {
   return function(entity) {
     if(entity) {
@@ -46,6 +48,7 @@ function removeEntity(res) {
   };
 }
 
+/* istanbul ignore next */
 function handleEntityNotFound(res) {
   return function(entity) {
     if(!entity) {
@@ -56,6 +59,7 @@ function handleEntityNotFound(res) {
   };
 }
 
+/* istanbul ignore next */
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
@@ -80,6 +84,7 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+/* istanbul ignore next */
 // Creates a new Cpd in the DB
 export function create(req, res) {
   return Cpd.create(req.body)
@@ -87,6 +92,7 @@ export function create(req, res) {
     .catch(handleError(res));
 }
 
+/* istanbul ignore next */
 // Upserts the given Cpd in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {
@@ -98,6 +104,7 @@ export function upsert(req, res) {
     .catch(handleError(res));
 }
 
+/* istanbul ignore next */
 // Updates an existing Cpd in the DB
 export function patch(req, res) {
   if(req.body._id) {
@@ -110,6 +117,7 @@ export function patch(req, res) {
     .catch(handleError(res));
 }
 
+/* istanbul ignore next */
 // Deletes a Cpd from the DB
 export function destroy(req, res) {
   return Cpd.findById(req.params.id).exec()

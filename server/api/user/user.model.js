@@ -31,7 +31,7 @@ var UserSchema = new Schema({
 /**
  * Virtuals
  */
-
+/* istanbul ignore next */
 // Public profile information
 UserSchema
   .virtual('profile')
@@ -41,7 +41,7 @@ UserSchema
       'role': this.role
     };
   });
-
+/* istanbul ignore next */
 // Non-sensitive info we'll be putting in the token
 UserSchema
   .virtual('token')
@@ -55,7 +55,7 @@ UserSchema
 /**
  * Validations
  */
-
+/* istanbul ignore next */
 // Validate empty email
 UserSchema
   .path('email')
@@ -65,7 +65,7 @@ UserSchema
     }
     return email.length;
   }, 'Email cannot be blank');
-
+/* istanbul ignore next */
 // Validate empty password
 UserSchema
   .path('password')
@@ -75,7 +75,7 @@ UserSchema
     }
     return password.length;
   }, 'Password cannot be blank');
-
+/* istanbul ignore next */
 // Validate email is not taken
 UserSchema
   .path('email')
@@ -100,6 +100,7 @@ var validatePresenceOf = function(value) {
   return value && value.length;
 };
 
+/* istanbul ignore next */
 /**
  * Pre-save hook
  */
@@ -130,10 +131,12 @@ UserSchema
     });
   });
 
+  /* istanbul ignore next */
 /**
  * Methods
  */
 UserSchema.methods = {
+  /* istanbul ignore next */
   /**
    * Authenticate - check if the passwords are the same
    *
@@ -160,6 +163,7 @@ UserSchema.methods = {
     });
   },
 
+  /* istanbul ignore next */
   /**
    * Make salt
    *
@@ -195,6 +199,7 @@ UserSchema.methods = {
     });
   },
 
+  /* istanbul ignore next */
   /**
    * Encrypt password
    *
