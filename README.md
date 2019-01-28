@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/SIMPATICOProject/citizenpedia.svg?branch=master)](https://travis-ci.org/SIMPATICOProject/citizenpedia)
+
+[![codecov](https://codecov.io/gh/SIMPATICOProject/citizenpedia/branch/master/graph/badge.svg)](https://codecov.io/gh/SIMPATICOProject/citizenpedia)
+
 # Citizenpedia
 
 The Citizenpedia is human computation framework that complements the simplification features of the H2020 Simpatico Project.
