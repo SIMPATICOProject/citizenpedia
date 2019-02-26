@@ -121,12 +121,19 @@ export function update(req, res) {
     delete req.body._id;
   }
   //console.log(require('util').inspect(req.body));
-  Question.findByIdAsync(req.params.id)
-    .then(handleEntityNotFound(res))
-    .then(handleUnauthorized(req, res))
-    .then(saveUpdates(req.body))
-    .then(respondWithResult(res))
-    .catch(handleError(res));
+  Question.update({_id: req.params.id}, req.body, function(err, num) {
+    if(err) { return handleError(res)(err); }
+    if(num === 0) { return res.send(404).end(); }
+    exports.show(req, res);
+    Question.updateSearchText(req.params.id);
+  });
+
+  // Question.findByIdAsync(req.params.id)
+  //   .then(handleEntityNotFound(res))
+  //   .then(handleUnauthorized(req, res))
+  //   .then(saveUpdates(req.body))
+  //   .then(respondWithResult(res))
+  //   .catch(handleError(res));
 }
 
 /* istanbul ignore next */
