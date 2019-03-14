@@ -7,7 +7,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
   var currentUser = {};
   var userRoles = appConfig.userRoles || [];
 
-  if ($cookies.get('token') && $location.path() !== '/logout') {
+  if ($cookies.get('citizenpedia-jwt') && $location.path() !== '/logout') {
     currentUser = User.get();
   }
 
@@ -26,7 +26,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
         password: password
       })
         .then(res => {
-          $cookies.put('token', res.data.token);
+          $cookies.put('citizenpedia-jwt', res.data.token);
           currentUser = User.get();
           return currentUser.$promise;
         })
@@ -45,7 +45,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
      * Delete access token and user info
      */
     logout() {
-      $cookies.remove('token');
+      $cookies.remove('citizenpedia-jwt', { path: '/' });
       currentUser = {};
     },
 
@@ -59,7 +59,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
     createUser(user, callback) {
       return User.save(user,
         function(data) {
-          $cookies.put('token', data.token);
+          $cookies.put('citizenpedia-jwt', data.token);
           currentUser = User.get();
           return safeCb(callback)(null, user);
         },
@@ -176,7 +176,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
      * @return {String} - a token string used for authenticating
      */
     getToken() {
-      return $cookies.get('token');
+      return $cookies.get('citizenpedia-jwt');
     }
   };
 
